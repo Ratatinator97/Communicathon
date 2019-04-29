@@ -1,13 +1,14 @@
 const express        = require('express');
-const MongoClient    = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
 const bodyParser     = require('body-parser');
-
 const app            = express();
 
 const port = 8000;
 app.use(bodyParser.urlencoded({ extended: true }));
 require('./app/routes')(app, {});
 
-app.listen(port, () => {
-  console.log('We are live on ' + port);
+mongoose.connect('mongodb://localhost/meanapp');
+mongoose.connection.once('open', function() {
+    console.log('Listening on port 3000...');
+    app.listen(port);
 });
