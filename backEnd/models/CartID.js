@@ -6,11 +6,15 @@ var cardIDSchema = new mongoose.Schema({
   surname: Number,
   date_Of_Birth: Date,
   address: String,
-  personnal_Email: String,
-  personnal_Phone: Number,
-  contact1_Name: String,
-  contact1_Email: String,
-  contact1_Phone: Number,
+  personnal: {
+    email: String,
+    phone: String
+  },
+  contact1: {
+    name: String,
+    email: String,
+    phone: Number
+  },
   medical_Data: String,
   talk_ability: Boolean,
   understand_ability: Boolean,
