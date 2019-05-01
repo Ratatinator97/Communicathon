@@ -1,36 +1,30 @@
 
+
 const express        = require('express');
-const MongoClient    = require('mongodb').MongoClient;
 const bodyParser     = require('body-parser');
-/*
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-var user = require('./routes/user');
-
-var cardID = require('./routes/cardID');
-*/
 const port = 4000;
 const app = express();
-//const router = express.Router();
-/*
-app.use(cors());
-app.use(bodyParser.json());
+const router = express.Router();
+const user_route = require('./routes/route_user');
 
-mongoose.connect('mongodb://[server]/issues');
+app.use(bodyParser.urlencoded({ extended: true }));
+/* DATABASE CONNECTION */
 
+mongoose.connect('mongodb://localhost/database');
 const connection = mongoose.connection;
-
+const User = require('./models/User');
+const CardID = require('./models/CardID');
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
 });
-*/
-// DEPRECATED app.use('/', router);
-// DEPRECATED app.use('/user', user);
-// DEPRECATED app.use('user/cardID',cardID);
-require('./routes')(app, {});
+/* ---------------------*/
+
+
+app.use('/', router);
+app.use('/user', user_route);
+
 app.listen(port, () => {
   console.log('We are live on ' + port);
 });
