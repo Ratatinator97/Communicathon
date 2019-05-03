@@ -8,7 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './card-id/list/list.component';
 import { EditComponent } from './card-id/edit/edit.component';
 import { CreateComponent } from './card-id/create/create.component';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, 
+  MatFormFieldModule, 
+  MatInputModule, 
+  MatOptionModule, 
+  MatSelectModule, 
+  MatIconModule, 
+  MatButtonModule, 
+  MatCardModule, 
+  MatTableModule, 
+  MatDividerModule,
+  MatSnackBarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
