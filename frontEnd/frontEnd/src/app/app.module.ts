@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+//import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardIDService } from './card-id.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './card-id/list/list.component';
 import { EditComponent } from './card-id/edit/edit.component';
 import { CreateComponent } from './card-id/create/create.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule, 
   MatFormFieldModule, 
   MatInputModule, 
@@ -19,6 +21,13 @@ import { MatToolbarModule,
   MatTableModule, 
   MatDividerModule,
   MatSnackBarModule } from '@angular/material';
+  
+const routes: Routes = [
+  { path: 'create', component: CreateComponent },
+  { path: 'edit/:id', component: EditComponent },
+  { path: 'list', component: ListComponent },
+  { path: '', redirectTo: '/list', pathMatch: 'full'}
+];  
 
 @NgModule({
   declarations: [
@@ -29,10 +38,22 @@ import { MatToolbarModule,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    //AppRoutingModule,
+    ReactiveFormsModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSnackBarModule
   ],
   providers: [CardIDService],
   bootstrap: [AppComponent]

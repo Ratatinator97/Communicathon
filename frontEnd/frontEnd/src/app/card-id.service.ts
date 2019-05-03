@@ -24,7 +24,7 @@ export class CardIDService {
     return this.http.post(`${this.uri}/cardID/`, cardID_info);
   }
 
-  updateIssue(id, nom, prenom) {
+  updateCardID(id, nom, prenom) {
     const cardID_info = {
       nom: nom,
       prenom: prenom
@@ -32,7 +32,7 @@ export class CardIDService {
     return this.http.put(`${this.uri}/cardID/${id}`, cardID_info);
   }
 
-  deleteIssue(id) {
+  deleteCardID(id) {
     return this.http.delete(`${this.uri}/cardID/${id}`);
   }
 }
