@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { CardIDService } from './card-id.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './card-id/list/list.component';
 import { EditComponent } from './card-id/edit/edit.component';
@@ -24,7 +24,7 @@ import { MatToolbarModule } from '@angular/material';
     MatToolbarModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [CardIDService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
