@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CardIDService} from '../../card-id.service';
 
 @Component({
   selector: 'app-create',
@@ -7,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cardIDservice: CardIDService) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

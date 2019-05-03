@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CardIDService} from '../../card-id.service';
 
 @Component({
   selector: 'app-edit',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cardIDservice: CardIDService) { }
 
   ngOnInit() {
   }
