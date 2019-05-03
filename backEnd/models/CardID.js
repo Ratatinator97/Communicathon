@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var cardIDSchema = new mongoose.Schema({
   userID: String,
   name: String,
-  surname: Number,
+  surname: String,
   date_Of_Birth: Date,
   address: String,
   personnal: {
@@ -18,7 +18,7 @@ var cardIDSchema = new mongoose.Schema({
   medical_Data: String,
   talk_ability: Boolean,
   understand_ability: Boolean,
-  // known_Languages: String,
+  known_Languages: String,
   updated_at: { type: Date, default: Date.now },
 });
 

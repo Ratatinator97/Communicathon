@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var User = require('../models/User.js');
+var Card = require('../models/CardID.js');
 
 /* SAVE PRODUCT */
 router.post('/', function(req, res, next) {
-    User.create(req.body, function (err, post) {
+    Card.create(req.body, function (err, post) {
       if (err) return next(err);
       res.json(post);
     });
@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
 
   /* GET ALL PRODUCTS */
 router.get('/', function(req, res, next) {
-    User.find(function (err, users) {
+    Card.find(function (err, users) {
       if (err) return next(err);
       res.json(users);
     });
@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 
 /* GET SINGLE PRODUCT BY ID */
 router.get('/:id', function(req, res, next) {
-    User.findById(req.params.id, function (err, post) {
+    Card.findById(req.params.id, function (err, post) {
       if (err) return next(err);
       res.json(post);
     });

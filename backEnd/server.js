@@ -8,7 +8,7 @@ const port = 4000;
 const app = express();
 const router = express.Router();
 const user_route = require('./routes/route_user');
-
+const cardID_route = require('./routes/route_cardID');
 app.use(bodyParser.urlencoded({ extended: true }));
 /* DATABASE CONNECTION */
 
@@ -24,6 +24,7 @@ connection.once('open', () => {
 
 app.use('/', router);
 app.use('/user', user_route);
+app.use('/cardID',cardID_route);
 
 app.listen(port, () => {
   console.log('We are live on ' + port);
