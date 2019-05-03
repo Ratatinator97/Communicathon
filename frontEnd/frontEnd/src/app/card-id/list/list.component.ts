@@ -8,13 +8,16 @@ import { CardID } from '../../cardID.model';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
+
 export class ListComponent implements OnInit {
   list: CardID[];
   displayedRaws = ['nom', 'prenom'];
   constructor(private cardIDservice: CardIDService, private router: Router) { }
-
+  test="yo";
   ngOnInit() {
+    console.log("Init");
     this.fetchCardID();
+    console.log("Get ended");
   }
   fetchCardID(){
     this.cardIDservice
@@ -22,8 +25,11 @@ export class ListComponent implements OnInit {
     .subscribe((data: CardID[]) => {
       this.list = data;
       console.log('Data requested...');
-      console.log('this.list');
+      console.log(this.list);
     });
+  }
+  gettingCardID(){
+    this.cardIDservice.getCardID().subscribe()
   }
   editCardID(id) {
     this.router.navigate(['/edit/$(id)']);

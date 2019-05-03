@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class CardIDService {
   constructor(private http: HttpClient) { }
 
   getCardID() {
-    return this.http.get(`${this.uri}/cardID`);
+    return this.http.get(`${this.uri}/cardID/`)
   }
 
   getCardIDbyId(id) {
