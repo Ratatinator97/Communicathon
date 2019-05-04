@@ -1,4 +1,4 @@
 export interface CardID {
-    nom: String;
-    prenom: String;
+    name: String;
+    surname: String;
 }

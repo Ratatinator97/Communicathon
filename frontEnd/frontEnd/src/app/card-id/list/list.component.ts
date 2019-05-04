@@ -3,6 +3,7 @@ import {CardIDService} from '../../card-id.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { CardID } from '../../cardID.model';
+import {Observable, of} from 'rxjs';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -10,7 +11,7 @@ import { CardID } from '../../cardID.model';
 })
 
 export class ListComponent implements OnInit {
-  list: CardID[];
+  list: CardID;
   displayedRaws = ['nom', 'prenom'];
   constructor(private cardIDservice: CardIDService, private router: Router) { }
   test="yo";
@@ -22,10 +23,11 @@ export class ListComponent implements OnInit {
   fetchCardID(){
     this.cardIDservice
     .getCardID()
-    .subscribe((data: CardID[]) => {
+    .subscribe((data: CardID) => {
       this.list = data;
       console.log('Data requested...');
       console.log(this.list);
+      console.log(this.list[1].name)
     });
   }
   gettingCardID(){
