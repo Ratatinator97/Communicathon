@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CardIDService } from './card-id.service';
+import { CardIDService } from './services/card-id.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './card-id/list/list.component';
 import { EditComponent } from './card-id/edit/edit.component';
