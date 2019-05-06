@@ -21,7 +21,6 @@ import { MatToolbarModule,
   MatTableModule, 
   MatDividerModule,
   MatSnackBarModule } from '@angular/material';
-import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [
   { path: 'cardID/create', component: CreateComponent },
@@ -38,25 +37,6 @@ const routes: Routes = [
     CreateComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule,
-    //AppRoutingModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatTableModule,
-    MatDividerModule,
-    MatSnackBarModule
-  ],
-  exports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
