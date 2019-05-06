@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'cardID/create', component: CreateComponent },
   { path: 'cardID/edit/:id', component: EditComponent },
   { path: 'cardID/list', component: ListComponent },
-  { path: '', redirectTo: '/cardID/list', pathMatch: 'full'}
+  { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];  
 
 @NgModule({
