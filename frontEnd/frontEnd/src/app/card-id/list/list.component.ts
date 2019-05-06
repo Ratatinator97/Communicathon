@@ -11,8 +11,7 @@ import {Observable, of} from 'rxjs';
 })
 
 export class ListComponent implements OnInit {
-  list: CardID;
-  displayedRaws = ['nom', 'prenom'];
+  donnees: CardID;
   constructor(private cardIDservice: CardIDService, private router: Router) { }
   test="yo";
   ngOnInit() {
@@ -24,10 +23,10 @@ export class ListComponent implements OnInit {
     this.cardIDservice
     .getCardID()
     .subscribe((data: CardID) => {
-      this.list = data;
+      this.donnees = data;
       console.log('Data requested...');
-      console.log(this.list);
-      console.log(this.list[1].name)
+      console.log(this.donnees);
+      console.log(this.donnees[1].name)
     });
   }
   gettingCardID(){
