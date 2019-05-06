@@ -28,6 +28,7 @@ app.use(body.urlencoded({extended:false}));
 app.use(cookieParser());//Utiliser la cookie
 app.use(cors());
 app.use(passport.initialize());
+
 app.use(function(req, res, next) {
  res.header("Access-Control-Allow-Origin", "*");
  res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");

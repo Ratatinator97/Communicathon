@@ -23,10 +23,10 @@ import { MatToolbarModule,
   MatSnackBarModule } from '@angular/material';
   
 const routes: Routes = [
-  { path: 'create', component: CreateComponent },
-  { path: 'edit/:id', component: EditComponent },
-  { path: 'list', component: ListComponent },
-  { path: '', redirectTo: '/list', pathMatch: 'full'}
+  { path: 'cardID/create', component: CreateComponent },
+  { path: 'cardID/edit/:id', component: EditComponent },
+  { path: 'cardID/list', component: ListComponent },
+  { path: '', redirectTo: '/cardID/list', pathMatch: 'full'}
 ];  
 
 @NgModule({

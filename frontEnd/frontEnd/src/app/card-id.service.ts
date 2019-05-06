@@ -9,15 +9,15 @@ export class CardIDService {
   uri = 'http://localhost:4000'; 
   constructor(private http: HttpClient) { }
 
-  getCardID() {
+  getCardID(): Observable<any>{
     return this.http.get(`${this.uri}/cardID/`)
   }
 
-  getCardIDbyId(id) {
+  getCardIDbyId(id):Observable<any> {
     return this.http.get(`${this.uri}/cardID/${id}`);
   }
 
-  addCardID(nom, prenom) {
+  addCardID(nom, prenom):Observable<any> {
     const cardID_info = {
       nom: nom,
       prenom: prenom
@@ -25,7 +25,7 @@ export class CardIDService {
     return this.http.post(`${this.uri}/cardID/`, cardID_info);
   }
 
-  updateCardID(id, nom, prenom) {
+  updateCardID(id, nom, prenom):Observable<any> {
     const cardID_info = {
       nom: nom,
       prenom: prenom
@@ -33,7 +33,7 @@ export class CardIDService {
     return this.http.put(`${this.uri}/cardID/${id}`, cardID_info);
   }
 
-  deleteCardID(id) {
+  deleteCardID(id):Observable<any> {
     return this.http.delete(`${this.uri}/cardID/${id}`);
   }
 }
