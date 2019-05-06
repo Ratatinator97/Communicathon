@@ -25,8 +25,6 @@ export class ListComponent implements OnInit {
     .subscribe((data: CardID) => {
       this.donnees = data;
       console.log('Data requested...');
-      console.log(this.donnees);
-      console.log(this.donnees[1].name)
     });
   }
   gettingCardID(){
