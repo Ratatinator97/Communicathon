@@ -1,0 +1,38 @@
+:host {
+        display: flex;
+        justify-content: center;
+        margin: 100px 0px;
+      }
+
+.mat-form-field {
+        width: 100%;
+        min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+     display: flex;
+     justify-content: center;
+     }
+
+
+/*.button {
+    display: flex;
+    justify-content: flex-end;
+}*/
+#bt {
+  margin-left: 200px;
+}
+#register{
+  margin-left: 10px;
+  background-color: white;
+}
+
+mat-card {
+  margin-top: 10px;
+  margin-left: 20px;
+  border-width: 10px;
+  border-style: outset;
+  border-color: gray;
+
+}
