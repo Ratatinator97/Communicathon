@@ -1,11 +1,12 @@
-  
-   <mat-card>
-     <mat-card-title>Register</mat-card-title>
-    <mat-card-content>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Register</h1>
+      <p class="lead">Already a member? Please <a routerLink="/login">log in</a> instead.</p>
       <form [formGroup]="registreForm" (submit)="register()">
-        <p>
-          <mat-form-field class="form-group">	
-          <input type="text" formControlName="nom" matInput class="form-control" 
+        <div class="form-group">
+          <label>Nom*</label>
+          <input type="text" formControlName="nom" class="form-control" 
             [ngClass]="{
             'is-invalid': f.nom.invalid && (f.nom.dirty || f.nom.touched),
             'is-valid': f.nom.valid && (f.nom.dirty || f.nom.touched)
@@ -15,11 +16,10 @@
            *ngIf="f.nom.errors && (f.nom.dirty || f.nom.touched)">
              <p *ngIf="f.nom.errors.required" >Nom is required</p>         
            </div>
-       </mat-form-field>
-        </p>
-        <p>
-         <mat-form-field class="form-group">	
-          <input type="text" formControlName="prenom" matInput class="form-control" 
+        </div>
+        <div class="form-group">
+          <label>Prenom*</label>
+          <input type="text" formControlName="prenom" class="form-control" 
            [ngClass]="{
             'is-invalid': f.prenom.invalid && (f.prenom.dirty || f.prenom.touched),
             'is-valid': f.prenom.valid && (f.prenom.dirty || f.prenom.touched)
@@ -29,29 +29,10 @@
            *ngIf="f.prenom.errors && (f.prenom.dirty || f.prenom.touched)">
              <p *ngIf="f.prenom.errors.required">PreNom is required</p>
            </div>
-          </mat-form-field>
-         </p>  
-         <p>
-         <mat-form-field>
-          <input formControlName="dateofbirth" matInput class="form-control" [matDatepicker]="dp"  
-               [ngClass]="{
-                        'is-invalid': f.dateofbirth.invalid && (f.dateofbirth.dirty || f.dateofbirth.touched),
-                        'is-valid': f.dateofbirth.valid && (f.dateofbirth.dirty || f.dateofbirth.touched)
-                }"
-               placeholder="Choose a date" required>
-
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date *">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <div class="invalid-feedback" 
-           *ngIf="f.dateofbirth.errors && (f.dateofbirth.dirty || f.dateofbirth.touched)">
-             <p *ngIf="f.dateofbirth.errors.required">Birth of Date is required</p>
-           </div>
-         </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field>
-          <input type="text" formControlName="email"  matInput class="form-control"  
+        </div>
+        <div class="form-group">
+          <label>Email*</label>
+          <input type="text" formControlName="email" class="form-control"  
             [ngClass]="{
             'is-invalid': f.email.invalid && (f.email.dirty || f.email.touched),
             'is-valid': f.email.valid && (f.email.dirty || f.email.touched)
@@ -62,51 +43,39 @@
              <p *ngIf="f.email.errors.required">Email is required</p>
              <p *ngIf="!f.email.errors.required && f.email.errors.email">Email is not valid</p>
            </div>
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field>
-          <input id="mysecretpassword" type="password" matInput showHideInput formControlName="password" class="form-control" 
+        </div>
+        <div class="form-group">
+          <label>Password*</label>
+          <input type="password" formControlName="password" class="form-control"  
             [ngClass]="{
             'is-invalid': f.password.invalid && (f.password.dirty || f.password.touched),
             'is-valid': f.password.valid && (f.password.dirty || f.password.touched)
            }"
           placeholder="Password" required>
-            <i matSuffix
-            class="material-icons"
-            showHideTrigger="mysecretpassword"
-            [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"
-             ></i>
           <div class="invalid-feedback" 
            *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
              <p *ngIf="f.password.errors.required">Password is required</p>
              <p *ngIf="!f.password.errors.required && f.password.errors.minlength">Password is short</p>
              <p *ngIf="!f.password.errors.required && f.password.errors.pattern">Password has at least 1 number, 1 lowercase, 1 uppercase et 1 symbol special</p>
            </div>
-         </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field>
-          <input id="mysecretcfpassword" type="password" formControlName="confirmpassword" matInput showHideInput class="form-control"  
+        </div>
+        <div class="form-group">
+          <label>Confirm Password*</label>
+          <input type="password" formControlName="confirmpassword" class="form-control"  
              [ngClass]="{
             'is-invalid': f.confirmpassword.invalid && (f.confirmpassword.dirty || f.confirmpassword.touched),
             'is-valid': f.confirmpassword.valid && (f.confirmpassword.dirty || f.confirmpassword.touched)
            }"
           placeholder="ConfirmPassword" required>
-          <i matSuffix
-            class="material-icons"
-            showHideTrigger="mysecretcfpassword"
-            [showHideStatus]="{ materialIcon: true, id: 'mysecretcfpassword' }"
-             ></i>
           <div class="invalid-feedback" 
            *ngIf="f.confirmpassword.errors && (f.confirmpassword.dirty || f.confirmpassword.touched)">
              <p *ngIf="f.confirmpassword.errors.required">Confirm Password is required</p>
              <p *ngIf="!f.confirmpassword.errors.required && f.confirmpassword.hasError('notSame')">Password is not matched </p>
           </div>
-         </mat-form-field>
-        </p>
-        <p>*mean that it is required field</p>
+        </div>
         <button type="submit" class="btn btn-primary" style="margin-bottom: 10px">Register!</button>
       </form>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </div>
+
+</div>

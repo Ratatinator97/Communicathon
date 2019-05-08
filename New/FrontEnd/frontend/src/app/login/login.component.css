@@ -6,16 +6,23 @@
 
 .mat-form-field {
         width: 100%;
-        min-width: 300px;
+        min-width: 450px;
 }
 
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+} 
 mat-card-title,
 mat-card-content {
-     display: flex;
-     justify-content: center;
+        display: flex;
+        justify-content: center;
      }
-
-
+i {
+    display: inline-flex;
+    vertical-align: middle;
+    overflow: auto;
+  }
 /*.button {
     display: flex;
     justify-content: flex-end;

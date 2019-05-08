@@ -21,7 +21,7 @@ import { ErrordialogService } from './errordialog/errordialog.service';
 import { HttpConfigInterceptor} from './service/httpintercept.interceptor';
 import { ErrorDialogComponent } from './errordialog/errordialog.component';
 import { MatDialogModule } from '@angular/material';
-
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { MatToolbarModule, 
   MatFormFieldModule, 
   MatInputModule, 
@@ -32,7 +32,9 @@ import { MatToolbarModule,
   MatCardModule, 
   MatTableModule, 
   MatDividerModule,
-  MatSnackBarModule } from '@angular/material';
+  MatSnackBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule  } from '@angular/material';
   
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -63,6 +65,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    ShowHidePasswordModule,
     //AppRoutingModule,
     ReactiveFormsModule,
     MatToolbarModule,
@@ -76,7 +79,9 @@ const routes: Routes = [
     MatCardModule,
     MatTableModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
   providers: [
     CardIDService,

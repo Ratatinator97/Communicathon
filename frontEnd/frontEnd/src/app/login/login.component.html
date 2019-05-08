@@ -22,28 +22,22 @@
         </p>
 
         <p>
-        <mat-form-field  class="form-group">
-          <input id="mysecretpassword" type="password" matInput showHideInput formControlName="password" class="form-control" 
+        <mat-form-field class="form-group">
+          <input type="password" matInput formControlName="password" class="form-control"  
             [ngClass]="{
             'is-invalid': f.password.invalid && (f.password.dirty || f.password.touched),
             'is-valid': f.password.valid && (f.password.dirty || f.password.touched)
            }"
           placeholder="Password" required>
-          <i matSuffix
-            class="material-icons"
-            showHideTrigger="mysecretpassword"
-            [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"
-          ></i>
           <div class="invalid-feedback" 
            *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
              <p *ngIf="f.password.errors.required">Password is required</p>
            </div>
-
         </mat-form-field>
         </p>
         <div>
-          <button id ="bt" type="submit" class="btn btn-primary">Sign in</button>
-          <button id="register" class="btn btn-primary"><a routerLink="/register">Sign up</a></button>
+          <button id ="bt" type="submit" class="btn btn-primary">Sign in!</button>
+          <p id="register"><a routerLink="/register">Sign up</a></p>
         </div>
       </form>
      </mat-card-content> 
