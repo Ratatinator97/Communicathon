@@ -10,7 +10,7 @@ export class CardIDService {
   constructor(private http: HttpClient) { }
 
   getCardID(): Observable<any>{
-    return this.http.get(`${this.uri}/cardID/`)
+    return this.http.get(`${this.uri}/cardID/reza`)
   }
 
   getCardIDbyId(id):Observable<any> {

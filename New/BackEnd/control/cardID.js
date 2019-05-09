@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
-const CardId =mongoose.model('User')
+const User =mongoose.model('User')
 
 module.exports.get=function(req,res){
-    User.findOne({}).populate('cardID').exec(function(err, info) {
-        console.log(info); 
-    });
+    console.log("get recu");
+    User.find((err, info) => {
+        res.json(info);
+        console.log(info);  
+    })
 }
