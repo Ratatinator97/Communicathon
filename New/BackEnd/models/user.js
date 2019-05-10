@@ -2,8 +2,7 @@ const mongoose=require('mongoose');
 const crypto=require('crypto');//Utiliser pour encoder le password
 const jwt =require('jsonwebtoken');//Utiliser pour creer un token 
 //Un token qide à continuer et à verifier l'user facilement sans tous reverifier son profil
-var Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId;
+var Schema = mongoose.Schema;
 
 let User = new Schema({
    
@@ -12,26 +11,29 @@ let User = new Schema({
    email:{type:String,unique:true,required: [true, "can't be blank"]},
    hash:String,
    salt:String,
-   cardID: { type: ObjectId, ref: 'CardIDSchema' }
+   cardID: {
+		address: String,
+		personnal: {
+		  phone: String
+		},
+		contact1: {
+	 		name: String,
+	 		email: String,
+	 		phone: Number
+		},
+		contact2: {
+			name: String,
+			email: String,
+			phone: Number
+	   },
+		medical_Data: String,
+		talk_Ability: Boolean,
+		understand_Ability: Boolean,
+		known_Languages: String,
+		updated_at: { type: Date, default: Date.now }
+	 }
 });
-let CardIDSchema = new Schema({
-	userID: String,
-	address: String,
-	personnal: {
-	  email: String,
-	  phone: String
-	},
-	contact1: {
-	  name: String,
-	  email: String,
-	  phone: Number
-	},
-	medical_Data: String,
-	talk_ability: Boolean,
-	understand_ability: Boolean,
-	known_Languages: String,
-	updated_at: { type: Date, default: Date.now },
-});
+
 //Encoder password
 User.methods.setPassword=function(password){
  this.salt=crypto.randomBytes(16).toString('hex');

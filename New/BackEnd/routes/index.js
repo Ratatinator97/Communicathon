@@ -14,6 +14,6 @@ router.get('/profile',auth,ctrlProfile.profileRead);
 //authentication
 router.post('/register',ctrlAuth.register);
 router.post('/login',ctrlAuth.login);
-router.get('/cardID',CardId.get);
-//router.post('/cardID',CardId.edit);
+router.get('/cardID',auth,CardId.view);
+router.put('/cardID',auth,CardId.edit);
 module.exports=router;

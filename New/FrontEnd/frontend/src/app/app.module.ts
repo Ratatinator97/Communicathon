@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
 
   { path: 'cardID/create', component: CreateComponent },
-  { path: 'cardID/edit/:id', component: EditComponent },
+  { path: 'cardID/edit', component: EditComponent },
   { path: 'cardID/list', component: ListComponent }
 ];  
 

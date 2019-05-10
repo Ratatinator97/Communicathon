@@ -1,10 +1,35 @@
 const mongoose = require('mongoose');
 const User =mongoose.model('User')
 
-module.exports.get=function(req,res){
-    console.log("get recu");
-    User.find((err, info) => {
-        res.json(info);
-        console.log(info);  
-    })
+module.exports.view=function(req,res){
+    
+    if(!req.payload._id){
+        res.status(401).json({
+            "message": "UnauthorizedError: private profile"
+        });
+    } else {
+        User
+            .findById(req.payload._id)
+            .exec(function(err, user) {
+                if(err) return next(err);
+                res.status(200).json(user)
+        });
+    }
+}   
+
+module.exports.edit=function(req,res){
+    
+    if(!req.payload._id){
+        res.status(401).json({
+            "message": "UnauthorizedError: private profile"
+        });
+    } else {
+        User
+            .findByIdAndUpdate(req.payload._id, req.body)
+            .exec(function(err, user) {
+                if(err) return next(err);
+                res.status(200).json(user)
+        });
+    }
 }
+
