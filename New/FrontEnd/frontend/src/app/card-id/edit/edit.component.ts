@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 
 import { CardIDService } from '../../service/card-id.service'
 
-import { CardID } from '../../model/cardID.model'
+import { User } from '../../model/user.model'
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',

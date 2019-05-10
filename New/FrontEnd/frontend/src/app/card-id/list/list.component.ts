@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CardIDService} from '../.././service/card-id.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
-import { CardID } from '../.././model/cardID.model';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-list',
@@ -12,7 +12,7 @@ import { CardID } from '../.././model/cardID.model';
 
 
 export class ListComponent implements OnInit {
-  donnees: CardID;
+  donnees: User;
   constructor(private cardIDservice: CardIDService, private router: Router) { }
   
   ngOnInit() {
@@ -25,9 +25,11 @@ export class ListComponent implements OnInit {
   fetchCardID(){
     this.cardIDservice
     .getCardID()
-    .subscribe((data: CardID) => {
+    .subscribe((data: User) => {
       this.donnees = data;
       console.log('Data requested...');
+      console.log(this.donnees);
+      console.log("Ci dessus les donnes")
     });
   }
 
@@ -41,7 +43,6 @@ export class ListComponent implements OnInit {
 
   verifToken(){
     const token =localStorage.getItem('mean-token');
-    console.log(token);
     if(!token){
       this.router.navigateByUrl('/');
     }
