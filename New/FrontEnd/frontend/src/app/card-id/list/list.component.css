@@ -2,7 +2,7 @@
     max-width: 400px;
     background-color: rgb(255, 246, 234);
   }
-.default {
+.default-user {
     background-image: url('file:///home/alex/Documents/PWEB/Communicathon/frontEnd/frontEnd/src/app/card-id/list/default.jpg');
     background-size: cover;
 }
