@@ -6,7 +6,6 @@ import { CardIDService } from './service/card-id.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './card-id/list/list.component';
 import { EditComponent } from './card-id/edit/edit.component';
-import { CreateComponent } from './card-id/create/create.component';
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -41,8 +40,6 @@ const routes: Routes = [
   { path: 'register', component: RegistreComponent },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-
-  { path: 'cardID/create', component: CreateComponent },
   { path: 'cardID/edit', component: EditComponent },
   { path: 'cardID/list', component: ListComponent }
 ];  
@@ -52,7 +49,6 @@ const routes: Routes = [
     AppComponent,
     ListComponent,
     EditComponent,
-    CreateComponent,
     ProfileComponent,
     LoginComponent,
     RegistreComponent,
