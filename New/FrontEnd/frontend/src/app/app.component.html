@@ -1,12 +1,13 @@
-<mat-toolbar>
-  <span> Prénom : , Nom : </span>
-  <button mat-button>
-      <mat-icon>home</mat-icon>
-  </button>
-</mat-toolbar>
+<div *ngIf="logged">
+  <mat-toolbar>
+    <span> Prénom : , Nom : </span>
+    <button mat-button>
+        <mat-icon>home</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
+
+
 <div>
-  <!--The content below is only a placeholder and can be replaced.-->
-  
-  	
   <router-outlet></router-outlet>
 </div>

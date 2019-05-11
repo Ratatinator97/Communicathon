@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
  
   constructor(private route:Router) { }
-  
+  logged=true;
   ngOnInit() {
     this.verif_token();
   }

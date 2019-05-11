@@ -14,7 +14,7 @@ import { User } from '../../model/user.model';
 export class ListComponent implements OnInit {
   donnees: User;
   constructor(private cardIDservice: CardIDService, private router: Router) { }
-  
+  logged=true;
   ngOnInit() {
     console.log("Init");
     this.verifToken();

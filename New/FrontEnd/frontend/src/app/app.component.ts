@@ -6,6 +6,7 @@ import { AuthenticationService } from './service/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  logged = true;
   title = 'Communicathon';
   constructor(public auth: AuthenticationService) {}
 }

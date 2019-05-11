@@ -1,6 +1,10 @@
+:host {
+    display: flex;
+    justify-content: center;
+  }
 .card-id {
-    max-width: 400px;
     background-color: rgb(255, 246, 234);
+
   }
 .default-user {
     background-image: url("default.jpg");
