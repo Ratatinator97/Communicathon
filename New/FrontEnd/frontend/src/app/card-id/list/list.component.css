@@ -1,0 +1,14 @@
+.card-id {
+    max-width: 400px;
+    background-color: rgb(255, 246, 234);
+  }
+.default {
+    background-image: url('file:///home/alex/Documents/PWEB/Communicathon/frontEnd/frontEnd/src/app/card-id/list/default.jpg');
+    background-size: cover;
+}
+.sub-card-id {
+    background-color: rgb(236, 234, 234);
+}
+.sub-card-id2 {
+    background-color: rgba(236, 234, 234);
+}
