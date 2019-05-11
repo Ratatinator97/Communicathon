@@ -40,6 +40,8 @@ export class ListComponent implements OnInit {
   editCardID() {
     this.router.navigate(['/cardID/edit']);
   }
+  
+  
 
   verifToken(){
     const token =localStorage.getItem('mean-token');
