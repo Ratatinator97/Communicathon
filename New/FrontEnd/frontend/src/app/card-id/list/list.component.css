@@ -3,7 +3,7 @@
     background-color: rgb(255, 246, 234);
   }
 .default-user {
-    background-image: url('file:///home/alex/Documents/PWEB/Communicathon/frontEnd/frontEnd/src/app/card-id/list/default.jpg');
+    background-image: url("default.jpg");
     background-size: cover;
 }
 .sub-card-id {
