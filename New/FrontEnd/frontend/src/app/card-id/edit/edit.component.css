@@ -1,0 +1,12 @@
+.main-div {
+    justify-content: center;
+    display: flex;
+
+}
+.edit-form {
+    display:flex;
+    flex-direction:column;
+    max-width: 1200px;
+    min-width: 800px;
+    
+}
