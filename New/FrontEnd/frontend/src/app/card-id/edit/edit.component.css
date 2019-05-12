@@ -1,12 +1,19 @@
-.main-div {
-    justify-content: center;
-    display: flex;
 
+
+.high-div {
+    display: flex;
+    justify-content: center;
+    
 }
+
+.main-div {
+    min-width: 80%;
+    
+}
+
 .edit-form {
-    display:flex;
+    display: flex;
     flex-direction:column;
-    max-width: 1200px;
-    min-width: 800px;
+    min-width: 80%;
     
 }

@@ -3,10 +3,10 @@
     justify-content: center;
 }
 .card-id {
-    background-color: rgb(255, 246, 234);
+    background-color: rgb(255, 252, 248);
 
-    max-width: 1200px;
-    min-width: 1200px;
+    max-width: 85%;
+    min-width: 80%;
   }
 
 .default-user {
@@ -14,8 +14,8 @@
     background-size: cover;
 }
 .sub-card-id {
-    background-color: rgb(236, 234, 234);
+    background-color: rgb(243, 243, 243);
 }
 .sub-card-id2 {
-    background-color: rgba(236, 234, 234);
+    background-color: rgba(243, 243, 243);
 }

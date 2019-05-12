@@ -1,12 +1,13 @@
 <div>
-    <mat-toolbar>
+    <mat-toolbar color="primary">
       <span> Prénom : , Nom : </span>
       <button mat-button routerLink="/home">
           <mat-icon>home</mat-icon>
       </button>
     </mat-toolbar>
   </div>
-
+<p></p>
+<div class="high-div">
 <div class="main-div">
   <br>
   <mat-card>
@@ -78,4 +79,5 @@
       <button type="submit" (click)="updateCardID(address.value, pphone.value, c1name.value, c1phone.value, c1email.value, c2name.value, c2phone.value, c2email.value, medical_Data.value, talk_Ability.value, understand_Ability.value, known_Languages.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Et zé partiii</button>
     </form>
   </mat-card>
+</div>
 </div>
