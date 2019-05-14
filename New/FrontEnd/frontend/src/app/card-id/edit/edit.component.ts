@@ -41,7 +41,7 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       
-      this.cardIDservice.getCardID().subscribe( res => {
+      this.cardIDservice.getCardID().subscribe( res => err => {
         this.cardID = res;
         this.updateForm.get('address').setValue(this.cardID.address);
         this.updateForm.get('pphone').setValue(this.cardID.personnal.phone);
@@ -55,12 +55,17 @@ export class EditComponent implements OnInit {
         this.updateForm.get('talk_Ability').setValue(this.cardID.talk_Ability);
         this.updateForm.get('understand_Abilityl').setValue(this.cardID.understand_Ability);
         this.updateForm.get('known_Languages').setValue(this.cardID.known_Languages);
-
+        if(err){
+          console.log(err);
+        }
       });
     });
   }
   updateCardID(address, pphone, c1name, c1phone, c1email, c2name, c2phone, c2email, medical_Data, talk_Ability, understand_Ability, known_Languages){
-    this.cardIDservice.updateCardID( address, pphone, c1name, c1phone, c1email, c2name, c2phone, c2email, medical_Data, talk_Ability, understand_Ability, known_Languages).subscribe(() => {
+    this.cardIDservice.updateCardID( address, pphone, c1name, c1phone, c1email, c2name, c2phone, c2email, medical_Data, talk_Ability, understand_Ability, known_Languages).subscribe(() => err => {
+      if(err){
+        console.log(err);
+      }        
       this.snackBar.open('Issue updated successfully', 'OK', {
         duration: 3000
       });

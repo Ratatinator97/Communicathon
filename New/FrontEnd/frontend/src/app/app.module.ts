@@ -34,6 +34,7 @@ import { MatToolbarModule,
   MatSnackBarModule,
   MatDatepickerModule,
   MatNativeDateModule  } from '@angular/material';
+import { LiensComponent } from './liens/liens.component';
   
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -53,7 +54,8 @@ const routes: Routes = [
     LoginComponent,
     RegistreComponent,
     HomeComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    LiensComponent
   ],
   imports: [
     BrowserModule,

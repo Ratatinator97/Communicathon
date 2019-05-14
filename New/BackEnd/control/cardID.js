@@ -12,7 +12,7 @@ module.exports.view=function(req,res){
             .findById(req.payload._id)
             .exec(function(err, user) {
                 if(err) return next(err);
-                res.status(200).json(user)
+                res.status(200).json(user.cardID)
         });
     }
 }   
@@ -25,10 +25,10 @@ module.exports.edit=function(req,res){
         });
     } else {
         User
-            .findByIdAndUpdate(req.payload._id, req.body)
+            .findByIdAndUpdate(req.payload._id)
             .exec(function(err, user) {
                 if(err) return next(err);
-                res.status(200).json(user)
+                res.status(200).json(user.cardID);
         });
     }
 }
