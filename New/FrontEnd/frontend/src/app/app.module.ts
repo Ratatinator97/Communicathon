@@ -33,7 +33,8 @@ import { MatToolbarModule,
   MatDividerModule,
   MatSnackBarModule,
   MatDatepickerModule,
-  MatNativeDateModule  } from '@angular/material';
+  MatNativeDateModule    } from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
   
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -77,7 +78,8 @@ const routes: Routes = [
     MatDividerModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    MatGridListModule
   ],
   providers: [
     CardIDService,
