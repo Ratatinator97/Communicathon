@@ -14,19 +14,18 @@
   <div layout-align="center center">
   <mat-card-header>
       <div mat-card-avatar class="default-user"></div>
-    <mat-card-title> {{donnees.nom}} </mat-card-title>
-    <mat-card-subtitle> {{donnees.prenom}} </mat-card-subtitle>
+    <mat-card-title> {{user.nom}} </mat-card-title>
+    <mat-card-subtitle> {{user.prenom}} </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>
-      logged: {{logged}}
-      email: {{donnees.email}}
+      email: {{user.email}}
     </p>
     <p>
-        address : {{donnees.cardID.address}}
+        address : {{user.cardID.address}}
       </p>
       <p>
-          phone number : {{donnees.cardID.personnal.phone}}
+          phone number : {{user.cardID.phone}}
         </p>
     <p>
       <mat-card class="sub-card-id">
@@ -35,13 +34,13 @@
             <mat-card-title> Contact n°1 </mat-card-title>
           </mat-card-header>
           <p>
-              name : {{donnees.cardID.contact1.name}}
+              name : {{user.cardID.contact1.name}}
           </p>
           <p>
-             Phone Number : {{donnees.cardID.contact1.phone}}
+             Phone Number : {{user.cardID.contact1.phone}}
           </p>
           <p>
-             Email Address : {{donnees.cardID.contact1.email}}
+             Email Address : {{user.cardID.contact1.email}}
           </p>
         </mat-card-content>
       </mat-card>
@@ -53,28 +52,28 @@
               <mat-card-title> Contact n°2 </mat-card-title>
             </mat-card-header>
             <p>
-                name : {{donnees.cardID.contact2.name}}
+                name : {{user.cardID.contact2.name}}
             </p>
             <p>
-               Phone Number : {{donnees.cardID.contact2.phone}}
+               Phone Number : {{user.cardID.contact2.phone}}
             </p>
             <p>
-               Email Address : {{donnees.cardID.contact2.email}}
+               Email Address : {{user.cardID.contact2.email}}
             </p>
           </mat-card-content>
         </mat-card>
       </p>
       <p>
-         Medical Data :  {{donnees.cardID.medical_Data}}
+         Medical Data :  {{user.cardID.medical_Data}}
       </p>
       <p>
-          Does he talk ? :  {{donnees.cardID.talk_Ability}}
+          Does he talk ? :  {{user.cardID.talk_Ability}}
        </p>
        <p>
-          Does he hear ? :  {{donnees.cardID.understand_Ability}}
+          Does he hear ? :  {{user.cardID.understand_Ability}}
        </p>
        <p>
-          Known Languages :  {{donnees.cardID.known_Languages}}
+          Known Languages :  {{user.cardID.known_Languages}}
        </p>
   </mat-card-content>
   <mat-card-actions>

@@ -11,16 +11,15 @@ export class CardIDService {
   uri = 'http://localhost:4000/api'; 
   constructor(private http: HttpClient) { }
 
-  getCardID():Observable<any> {
+  getCardID(): Observable<any> {
     return this.http.get(`${this.uri}/cardID`);
   }
 
   updateCardID(address, pphone, c1name, c1phone, c1email, c2name, c2phone, c2email, med_data, talk_ab, understand_ab, know_lang  ):Observable<any> {
+    
     const cardID_info={
       address: address,
-      personnal: {
-        phone : pphone
-      },
+      phone : pphone,
       contact1: {
         name: c1name,
         phone: c1phone,
@@ -32,11 +31,14 @@ export class CardIDService {
         email: c2email
       },
       medical_Data: med_data,
-      talk_Ability:talk_ab,
+      talk_Ability: talk_ab,
       understand_Ability:understand_ab,
       known_Languages:know_lang
     };
-    return this.http.put(`${this.uri}/cardID`, cardID_info);
+    const user_info = {
+      cardID: cardID_info
+    };
+    return this.http.put(`${this.uri}/cardID`, user_info);
   }
 }
 

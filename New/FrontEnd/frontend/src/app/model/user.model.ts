@@ -6,9 +6,7 @@ export interface User {
     salt:String,
     cardID: {
          address: String,
-         personnal: {
-           phone: String
-         },
+          phone: String,
          contact1: {
               name: String,
               email: String,

@@ -1,0 +1,27 @@
+<div>
+    <mat-toolbar color="primary">
+      <span> Prénom : , Nom : </span>
+      <button mat-button routerLink="/home">
+          <mat-icon>home</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+  <p></p>
+
+  <div class="high-div">
+    <div class="main-div">
+      <mat-card class="deco">
+          <form [formGroup]="createForm" class="create-form">
+              <mat-form-field class="field-full-width">
+                <input matInput placeholder="Label" formControlName="label" #label>
+              </mat-form-field>
+              <mat-form-field class="field-full-width">
+                <input matInput placeholder="Lien" formControlName="path" #path>
+              </mat-form-field>
+              <br><br>
+              <button mat-raised-button color="accent" routerLink="/liens/liste">Back</button>&nbsp;
+              <button type="submit" (click)="addLien(label.value, path.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+          </form>
+      </mat-card>
+    </div>
+  </div>

@@ -15,22 +15,20 @@ let User = new Schema({
 	salt:String,
 	cardID: {
 		address: String,
-		personnal: {
-		  phone: String
-		},
+		phone: String,
 		contact1: {
 	 		name: String,
 	 		email: String,
-	 		phone: Number
+	 		phone: String
 		},
 		contact2: {
 			name: String,
 			email: String,
-			phone: Number
+			phone: String
 	   },
 	medical_Data: String,
-	talk_Ability: Boolean,
-	understand_Ability: Boolean,
+	talk_Ability: String,
+	understand_Ability: String,
 	known_Languages: String,
 	updated_at: { type: Date, default: Date.now }
 	},

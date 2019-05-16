@@ -34,8 +34,9 @@ import { MatToolbarModule,
   MatSnackBarModule,
   MatDatepickerModule,
   MatNativeDateModule  } from '@angular/material';
-import { LiensComponent } from './liens/liens.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ListeComponent } from './liens/liste/liste.component';
+import { NewComponent } from './liens/new/new.component';
   
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -43,7 +44,10 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'cardID/edit', component: EditComponent },
-  { path: 'cardID/list', component: ListComponent }
+  { path: 'cardID/list', component: ListComponent },
+  { path: 'liens/liste', component: ListeComponent },
+  { path: 'liens/new', component: NewComponent}
+
 ];  
 
 @NgModule({
@@ -56,7 +60,8 @@ const routes: Routes = [
     RegistreComponent,
     HomeComponent,
     ErrorDialogComponent,
-    LiensComponent
+    ListeComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
