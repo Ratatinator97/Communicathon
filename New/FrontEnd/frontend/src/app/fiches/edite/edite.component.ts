@@ -44,8 +44,8 @@ export class EditeComponent implements OnInit {
       });
     });
   }
-  updateFicheWE(Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir){
-    this.FicheWEservice.updateFicheWE(Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir).subscribe(() => {
+  updateFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir){
+    this.FicheWEservice.updateFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir).subscribe(() => {
       this.snackBar.open('Issue updated successfully', 'OK', {
         duration: 3000
       });

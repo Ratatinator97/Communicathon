@@ -8,11 +8,12 @@
 </div>
 
 <div class="main-div">
+  <button mat-raised-button color='accent' routerLink="/fiches/nouveau">Ajouter une nouvelle fiche</button>
 <mat-card class="fiche" >
 <div layout-align="center center">
 <mat-card-header>
     <div mat-card-avatar class="Week-end"></div>
-    <button mat-raised-button color='accent' routerLink="/fiches/nouveau">Ajouter une nouvelle fiche</button>
+    <mat-card-title> Weekend du {{donnees.fichewe.date_samedi}} au {{donnees.fichewe.date_dimanche}}</mat-card-title>
 </mat-card-header>
 <mat-card-content>
   <p>
