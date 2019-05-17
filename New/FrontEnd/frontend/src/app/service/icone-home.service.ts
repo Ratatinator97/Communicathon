@@ -33,7 +33,7 @@ export class IconeHomeService{
         {
             nomIcone:"Liens",
             classe: "lien",
-            dirigeVers:"/",
+            dirigeVers:"/liens/liste",
             lienImage: "https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_58_icon-icons.com_61529.png"
         }
 
