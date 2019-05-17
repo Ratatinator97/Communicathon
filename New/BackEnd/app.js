@@ -12,7 +12,6 @@ const passport=require('passport');
 const cors =require('cors');
 const User = require('./models/user');
 
-var key = fs.readFileSync('')
 
 var routesApi = require('./routes/index');//Definir le route general pointe à index.js
 
