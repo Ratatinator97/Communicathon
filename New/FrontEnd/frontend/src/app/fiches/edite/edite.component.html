@@ -1,3 +1,55 @@
-<p>
-  edite works!
-</p>
+<div>
+  <mat-toolbar color="primary">
+    <span> Prénom : , Nom : </span>
+    <button mat-button routerLink="/home">
+        <mat-icon>home</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
+<p></p>
+<div class="high-div">
+
+<div class="main-div">
+<br>
+<mat-card>
+  <section class="mat-typography">
+    <h3>Editer votre FicheWE</h3>
+  </section>
+  <mat-divider></mat-divider>
+  <br>
+  <form [formGroup]="updateForm" class="edit-form">
+    
+
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="Samedi matin" formControlName="Samedi_matin" #description>
+    </mat-form-field>
+    
+    
+    <mat-form-field>
+      <input matInput placeholder="Samedi midi" formControlName="Samedi_midi">  
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Samedi soir" formControlName="Samedi_soir">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Dimanche matin" formControlName="Dimanche_matin">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Dimanche midi" formControlName="Dimanche_midi">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Dimanche soir" formControlName="Dimanche_soir">
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+    <br><br>
+    <button mat-raised-button color="accent" routerLink="/ficheWE/list">Retour</button>&nbsp;
+    <button type="submit" (click)="updateFicheWE(Samedi_matin.value, Samedi_midi.value, Samedi_soir.value, Dimanche_matin.value, Dimanche_midi.value, Dimanche_soir.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Enregistrer</button>
+  </form>
+</mat-card>
+</div>
+</div>
