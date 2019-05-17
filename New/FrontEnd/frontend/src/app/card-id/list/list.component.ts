@@ -12,29 +12,24 @@ import { User } from '../../model/user.model';
 
 
 export class ListComponent implements OnInit {
-  donnees: User;
+
+  user: User;
+  
   constructor(private cardIDservice: CardIDService, private router: Router) { }
-  logged=true;
   ngOnInit() {
-    console.log("Init");
     this.verifToken();
+    console.log("Token OK");
     this.fetchCardID();
-    console.log("Get ended");
+    console.log("fetched all the stuffs");
   }
   
   fetchCardID(){
     this.cardIDservice
     .getCardID()
     .subscribe((data: User) => {
-      this.donnees = data;
-      console.log('Data requested...');
-      console.log(this.donnees);
-      console.log("Ci dessus les donnes")
+      console.log("Gathering the data");
+      this.user = data;
     });
-  }
-
-  gettingCardID(){
-    this.cardIDservice.getCardID().subscribe();
   }
 
   editCardID() {

@@ -25,11 +25,10 @@ module.exports.edit=function(req,res){
         });
     } else {
         User
-            .findByIdAndUpdate(req.payload._id, req.body)
-            .exec(function(err, user) {
-                if(err) return next(err);
-                res.status(200).json(user)
-        });
+            .findByIdAndUpdate(req.payload._id, req.body, function(err, info) {
+                res.status(200).json(info);
+            }); 
+         
     }
 }
 

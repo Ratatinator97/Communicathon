@@ -1,37 +1,38 @@
-const mongoose=require('mongoose');
+const mongoose=require('mongoose'),
+	Lien = require('./liens');
 const crypto=require('crypto');//Utiliser pour encoder le password
 const jwt =require('jsonwebtoken');//Utiliser pour creer un token 
 //Un token qide à continuer et à verifier l'user facilement sans tous reverifier son profil
+
 var Schema = mongoose.Schema;
 
 let User = new Schema({
    
-   nom:{ type: String, required: [true, "can't be blank"]},
-   prenom:{ type: String, required: [true, "can't be blank"]},
-   email:{type:String,unique:true,required: [true, "can't be blank"]},
-   hash:String,
-   salt:String,
-   cardID: {
+	nom:{ type: String, required: [true, "can't be blank"]},
+	prenom:{ type: String, required: [true, "can't be blank"]},
+	email:{type:String,unique:true,required: [true, "can't be blank"]},
+	hash:String,
+	salt:String,
+	cardID: {
 		address: String,
-		personnal: {
-		  phone: String
-		},
+		phone: String,
 		contact1: {
 	 		name: String,
 	 		email: String,
-	 		phone: Number
+	 		phone: String
 		},
 		contact2: {
 			name: String,
 			email: String,
-			phone: Number
+			phone: String
 	   },
-		medical_Data: String,
-		talk_Ability: Boolean,
-		understand_Ability: Boolean,
-		known_Languages: String,
-		updated_at: { type: Date, default: Date.now }
-	 }
+	medical_Data: String,
+	talk_Ability: String,
+	understand_Ability: String,
+	known_Languages: String,
+	updated_at: { type: Date, default: Date.now }
+	},
+	liensUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Lien'}]	
 });
 
 //Encoder password

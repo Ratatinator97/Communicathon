@@ -10,8 +10,6 @@ import { HomeIconesComponent } from './home-icones/home-icones.component';
 })
 
 export class HomeComponent implements OnInit {
-
-  nom = 'Macarte';
   
   constructor(private route:Router) { }
   logged=true;

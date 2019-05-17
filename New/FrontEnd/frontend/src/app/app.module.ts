@@ -33,18 +33,23 @@ import { MatToolbarModule,
   MatDividerModule,
   MatSnackBarModule,
   MatDatepickerModule,
-  MatNativeDateModule    } from '@angular/material';
+  MatNativeDateModule  } from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { IconeHomeService } from './service/icone-home.service';
+import { ListeComponent } from './liens/liste/liste.component';
+import { NewComponent } from './liens/new/new.component';
 import { HomeIconesComponent } from './home/home-icones/home-icones.component';
-  
+import { IconeHomeService } from './service/icone-home.service' ;
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegistreComponent },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'cardID/edit', component: EditComponent },
-  { path: 'cardID/list', component: ListComponent }
+  { path: 'cardID/list', component: ListComponent },
+  { path: 'liens/liste', component: ListeComponent },
+  { path: 'liens/new', component: NewComponent}
+
 ];  
 
 @NgModule({
@@ -56,8 +61,10 @@ const routes: Routes = [
     LoginComponent,
     RegistreComponent,
     HomeComponent,
+    ListeComponent,
+    NewComponent,
     ErrorDialogComponent,
-    HomeIconesComponent,
+    HomeIconesComponent
   ],
   imports: [
     BrowserModule,
