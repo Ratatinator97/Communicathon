@@ -1,4 +1,5 @@
 const express =require('express');
+const fs = require('fs');
 const path =require('path');
 const body =require('body-parser');
 const mongoose =require('mongoose');
@@ -10,6 +11,8 @@ const cookieParser = require('cookie-parser');//Utiliser le cookie, l'envoyer au
 const passport=require('passport');
 const cors =require('cors');
 const User = require('./models/user');
+
+var key = fs.readFileSync('')
 
 var routesApi = require('./routes/index');//Definir le route general pointe à index.js
 

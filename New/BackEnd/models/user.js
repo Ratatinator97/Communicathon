@@ -49,7 +49,7 @@ User.methods.validPassword=function(password){
 //Creer un token 
 User.methods.generateJwt=function(){
 	var expiry=new Date();
-	expiry.setDate(expiry.getDate()+10);//Creer un expire temps pour le token,verifier la presence d'user
+	expiry.setDate(expiry.getDate()+3);//Creer un expire temps pour le token,verifier la presence d'user
 	return jwt.sign({
 	  _id:this.id,
 	  email:this.email,

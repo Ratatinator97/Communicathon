@@ -47,7 +47,6 @@ const routes: Routes = [
   { path: 'cardID/list', component: ListComponent },
   { path: 'liens/liste', component: ListeComponent },
   { path: 'liens/new', component: NewComponent}
-
 ];  
 
 @NgModule({
