@@ -38,7 +38,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ListeComponent } from './liens/liste/liste.component';
 import { NewComponent } from './liens/new/new.component';
 import { HomeIconesComponent } from './home/home-icones/home-icones.component';
-import { IconeHomeService } from './service/icone-home.service' ;
+import { IconeHomeService } from './service/icone-home.service';
+import { ListesComponent } from './fiches/listes/listes.component';
+import { EditeComponent } from './fiches/edite/edite.component';
+import { NouveauComponent } from './fiches/nouveau/nouveau.component' ;
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -64,7 +67,10 @@ const routes: Routes = [
     ListeComponent,
     NewComponent,
     ErrorDialogComponent,
-    HomeIconesComponent
+    HomeIconesComponent,
+    ListesComponent,
+    EditeComponent,
+    NouveauComponent
   ],
   imports: [
     BrowserModule,
