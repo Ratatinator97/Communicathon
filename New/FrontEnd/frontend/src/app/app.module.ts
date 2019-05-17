@@ -74,7 +74,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     ShowHidePasswordModule,
-    //AppRoutingModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatFormFieldModule,
