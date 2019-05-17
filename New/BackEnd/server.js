@@ -1,7 +1,7 @@
 const app=require('./app');
 const http =require('http');
 const debug = require('debug')('http:server');//debugger le server
-var port = normalizePort(process.env.PORT || '4000');
+var port =  '4000';
 app.set('port', port);
 //Creer un server http lui meme, presque pareil à app.listen()
 const server = http.createServer(app);
@@ -10,25 +10,6 @@ server.listen(port);
 server.on('error', onError);
 //pas tres necessaire, seulement pour debugger facilement l'error dans le server
 server.on('listening', onListening);
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
 
 /**
  * Event listener for HTTP server "error" event.
