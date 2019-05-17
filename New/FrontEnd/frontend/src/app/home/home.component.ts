@@ -1,6 +1,7 @@
 import { Component, OnInit, Testability } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HomeIconesComponent } from './home-icones/home-icones.component';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,19 @@ import { CommonModule } from '@angular/common';
 })
 
 export class HomeComponent implements OnInit {
-  
-  constructor(private route:Router) { }
   logged=true;
+
+  constructor(private route:Router) { }
+
   ngOnInit() {
-    // this.verif_token();
+    this.verif_token();
   }
-  // verif_token(){
-  //   const token =localStorage.getItem('mean-token');
-  //   console.log(token);
-  //   if(!token){
-  //     this.route.navigateByUrl('/');
-  //   }
-  // }
+  
+  verif_token(){
+    const token =localStorage.getItem('mean-token');
+    console.log(token);
+    if(!token){
+      this.route.navigateByUrl('/');
+    }
+  }
 }

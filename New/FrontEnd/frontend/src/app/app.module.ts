@@ -37,7 +37,9 @@ import { MatToolbarModule,
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ListeComponent } from './liens/liste/liste.component';
 import { NewComponent } from './liens/new/new.component';
-  
+import { HomeIconesComponent } from './home/home-icones/home-icones.component';
+import { IconeHomeService } from './service/icone-home.service' ;
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegistreComponent },
@@ -49,6 +51,7 @@ const routes: Routes = [
   { path: 'liens/new', component: NewComponent}
 ];  
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +61,10 @@ const routes: Routes = [
     LoginComponent,
     RegistreComponent,
     HomeComponent,
-    ErrorDialogComponent,
     ListeComponent,
-    NewComponent
+    NewComponent,
+    ErrorDialogComponent,
+    HomeIconesComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     ShowHidePasswordModule,
-    //AppRoutingModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatFormFieldModule,
@@ -92,6 +95,7 @@ const routes: Routes = [
     AuthenticationService, 
     AuthGuardService,
     ErrordialogService,
+    IconeHomeService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
        
   ],
