@@ -1,3 +1,63 @@
-<p>
-  listes works!
-</p>
+<div>
+  <mat-toolbar color="primary">
+    <span> Prénom : , Nom : </span>
+    <button mat-button routerLink="/home">
+        <mat-icon>home</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
+
+<div class="main-div">
+<mat-card class="fiche" >
+<div layout-align="center center">
+<mat-card-header>
+    <div mat-card-avatar class="Week-end"></div>
+    <button mat-raised-button color='accent' routerLink="/fiches/nouveau">Ajouter une nouvelle fiche</button>
+</mat-card-header>
+<mat-card-content>
+  <p>
+    <mat-card class="subcard-samedi">
+      <mat-card-content>
+        <mat-card-header>
+          <mat-card-title> Samedi </mat-card-title>
+        </mat-card-header>
+        <p>
+              Samedi matin : {{donnees.fichewe.Samedi_matin}}
+        </p>
+        <p>
+              Samedi midi : {{donnees.fichewe.Samedi_midi}}
+        </p>
+        <p>
+              Samedi soir : {{donnees.fichewe.Samedi_soir}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </p>
+  <p>
+      <mat-card class="subcard-dimanche">
+          <mat-card-content>
+              <mat-card-header>
+                  <mat-card-title> Dimanche </mat-card-title>
+              </mat-card-header>
+          <p>
+              Dimanche matin : {{donnees.fichewe.Dimanche_matin}}
+          </p>
+          <p>
+              Dimanche midi : {{donnees.fichewe.Dimanche_midi}}
+          </p>
+          <p>
+              Dimanche soir : {{donnees.fichewe.Dimanche_soir}}
+          </p>
+          </mat-card-content>
+      </mat-card>
+  </p>
+
+</mat-card-content>
+<mat-card-actions>
+  <button mat-raised-button color="accent" (click)="editFicheWE()"> Modifier la fiche </button>
+  <button mat-button color="warn" (click)="deleteFicheWE(element._id)"> Supprimer la fiche </button>
+</mat-card-actions>
+</div>
+</mat-card>
+</div>
+

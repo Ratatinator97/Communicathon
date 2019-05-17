@@ -41,7 +41,7 @@ import { HomeIconesComponent } from './home/home-icones/home-icones.component';
 import { IconeHomeService } from './service/icone-home.service';
 import { ListesComponent } from './fiches/listes/listes.component';
 import { EditeComponent } from './fiches/edite/edite.component';
-import { NouveauComponent } from './fiches/nouveau/nouveau.component' ;
+import { NouveauComponent } from './fiches/nouveau/nouveau.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -51,7 +51,10 @@ const routes: Routes = [
   { path: 'cardID/edit', component: EditComponent },
   { path: 'cardID/list', component: ListComponent },
   { path: 'liens/liste', component: ListeComponent },
-  { path: 'liens/new', component: NewComponent}
+  { path: 'liens/new', component: NewComponent},
+  { path: 'fiches/nouveau', component: NouveauComponent },
+  { path: 'fiches/edite', component: EditeComponent },
+  { path: 'fiches/listes', component: ListesComponent }
 ];  
 
 
@@ -70,7 +73,7 @@ const routes: Routes = [
     HomeIconesComponent,
     ListesComponent,
     EditeComponent,
-    NouveauComponent
+    NouveauComponent,
   ],
   imports: [
     BrowserModule,
