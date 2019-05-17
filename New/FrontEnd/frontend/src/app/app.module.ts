@@ -35,6 +35,8 @@ import { MatToolbarModule,
   MatDatepickerModule,
   MatNativeDateModule    } from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { IconeHomeService } from './service/icone-home.service';
+import { HomeIconesComponent } from './home/home-icones/home-icones.component';
   
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -54,7 +56,8 @@ const routes: Routes = [
     LoginComponent,
     RegistreComponent,
     HomeComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    HomeIconesComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +89,7 @@ const routes: Routes = [
     AuthenticationService, 
     AuthGuardService,
     ErrordialogService,
+    IconeHomeService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
        
   ],

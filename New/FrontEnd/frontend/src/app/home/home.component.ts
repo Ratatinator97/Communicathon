@@ -1,6 +1,7 @@
 import { Component, OnInit, Testability } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HomeIconesComponent } from './home-icones/home-icones.component';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 
 export class HomeComponent implements OnInit {
+
+  nom = 'Macarte';
   
   constructor(private route:Router) { }
   logged=true;

@@ -5,43 +5,11 @@
   </button>
 </mat-toolbar>
 
-<body>
-  <div class="container">
-    <h1>Menu</h1>
-
-    <mat-grid-list cols="3" rowHeight="2:2">
-      <mat-grid-tile>
-          <mat-card class="carteid">
-              <mat-card-title>Carte d'identité</mat-card-title>
-              <mat-card-content>
-                <a routerLink="/cardID/list" class="image full"><img src="https://maessage.files.wordpress.com/2014/06/7-emoji-bust-in-silhouette.png" alt="" height="130" width="130"></a>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-          <mat-card class="calendar">
-              <mat-card-title>Calendrier</mat-card-title>
-              <mat-card-content>
-                <a routerLink="/" class="image full"><img src="http://www.courirenmoselle.fr/wp-content/uploads/2018/12/calendrier2019.png" alt="" height="130" width="130"></a>           
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-          <mat-card class="photo">
-              <mat-card-title>Photos</mat-card-title>
-              <mat-card-content>
-                <a routerLink="/" class="image full"><img src="https://pngimage.net/wp-content/uploads/2018/06/logo-appareil-photo-png-2.png" alt="" height="130" width="130"></a>           
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-</body>
+<app-home-icones> </app-home-icones>
 
 <div *ngIf="!logged" class="container">
   <span>Bienvenue</span>
   <p>Please <a routerLink="/login">sign in</a> or <a routerLink="/register">register</a></p>
 </div>
+
 
