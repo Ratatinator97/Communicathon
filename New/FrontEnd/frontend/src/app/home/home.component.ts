@@ -10,17 +10,19 @@ import { HomeIconesComponent } from './home-icones/home-icones.component';
 })
 
 export class HomeComponent implements OnInit {
-  
-  constructor(private route:Router) { }
   logged=true;
+
+  constructor(private route:Router) { }
+
   ngOnInit() {
-    // this.verif_token();
+    this.verif_token();
   }
-  // verif_token(){
-  //   const token =localStorage.getItem('mean-token');
-  //   console.log(token);
-  //   if(!token){
-  //     this.route.navigateByUrl('/');
-  //   }
-  // }
+  
+  verif_token(){
+    const token =localStorage.getItem('mean-token');
+    console.log(token);
+    if(!token){
+      this.route.navigateByUrl('/');
+    }
+  }
 }
