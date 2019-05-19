@@ -21,8 +21,8 @@ module.exports.sendemail=function(req,res){
        if(!user){res.status(401).json({
       "message" : "User don't exist"
     }); }
-        contact[0]=user.contact1;
-        contact[1]=user.contact2;
+        contact[0]=user.cardID.contact1.email;
+        contact[1]=user.cardID.contact2.email;;
         email=user.email; 
         if(contact===undefined){
           sendJson(res,400,{
