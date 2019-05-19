@@ -13,6 +13,7 @@ import {ErrordialogService} from '.././errordialog/errordialog.service';
 export class LoginComponent implements OnInit {
    loginForm :FormGroup;
    username:String;
+   userprename:String;
    data = {
               reason: '',
               status: '',
@@ -30,8 +31,9 @@ export class LoginComponent implements OnInit {
       this.errorDialog.openDialog(this.data);
     }else{
      this.auth.login(this.credentials).subscribe(() => {
-      this.path(); 
-      this.router.navigate(['/home'],{ queryParams:{user: this.username}});
+      this.path();
+      let nom =this.username + '-'+this.userprename;
+      this.router.navigate(['/home',nom.toLowerCase()]);
      
     }, (err) => {
       console.error(err.error.message);
@@ -58,6 +60,7 @@ export class LoginComponent implements OnInit {
         payload=window.atob(payload);
         payload=JSON.parse(payload);
         this.username=payload.nom;
+        this.userprename=payload.prenom;
         return;
      }
   }

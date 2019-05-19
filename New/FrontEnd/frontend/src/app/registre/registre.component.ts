@@ -20,7 +20,9 @@ export class RegistreComponent implements OnInit {
     nom: '',
     prenom:'',
     password: '',
-    dateofbirth:null,
+    sexe:'',
+    dateofbirth:null
+
   };
 
   constructor(private auth: AuthenticationService, private router: Router,public errorDialog:ErrordialogService) {}
@@ -31,8 +33,9 @@ export class RegistreComponent implements OnInit {
     }else{
       this.checkValide(this.registreForm);
       this.auth.register(this.credentials).subscribe(() => {
-        this.router.navigate(['/home'],{ queryParams:{user: this.credentials.nom}});
-          alert('Bien registre');
+        let nom =this.credentials.nom + '-'+this.credentials.prenom;
+        alert('Bien registre');
+        this.router.navigate(['/home',nom.toLowerCase()]);          
        }, (err) => {
           this.errorDialog.openDialog(err);
           console.error(err.error.message);
@@ -45,6 +48,7 @@ export class RegistreComponent implements OnInit {
   	this.registreForm =new FormGroup({
   		nom: new FormControl('',[Validators.required]),
   		prenom: new FormControl('',[Validators.required]),
+      sexe: new FormControl('', Validators.required),
       dateofbirth:new FormControl('',[Validators.required]),
   		email:new FormControl('', [Validators.required,Validators.email] ),
   		password:new FormControl('',[Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&.])[A-Za-z\d$@$!%*?&.].{0,}')]),
@@ -69,10 +73,9 @@ export class RegistreComponent implements OnInit {
        this.credentials.nom=group.controls.nom.value;
        this.credentials.prenom=group.controls.prenom.value;
        this.credentials.dateofbirth=group.controls.dateofbirth.value;
+       this.credentials.sexe=group.controls.sexe.value;
        return true;
-  	}else{
-      console.log(group.controls.nom);
-    }
+  	}
   	return false;
   }
 

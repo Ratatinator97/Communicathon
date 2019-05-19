@@ -22,6 +22,9 @@ import { HttpConfigInterceptor} from './service/httpintercept.interceptor';
 import { ErrorDialogComponent } from './errordialog/errordialog.component';
 import { MatDialogModule } from '@angular/material';
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {EmailService } from './service/email.service';
+import { ActivatedRoute } from '@angular/router';
 
 import { MatToolbarModule, 
   MatFormFieldModule, 
@@ -44,19 +47,20 @@ import { IconeHomeService } from './service/icone-home.service';
 import { ListesComponent } from './fiches/listes/listes.component';
 import { EditeComponent } from './fiches/edite/edite.component';
 import { NouveauComponent } from './fiches/nouveau/nouveau.component';
-
+import { EmailComponent } from './email/email.component';
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo:'login', pathMatch: 'full' },
+  {path: 'login', component: LoginComponent },
   { path: 'register', component: RegistreComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'cardID/edit', component: EditComponent },
-  { path: 'cardID/list', component: ListComponent },
-  { path: 'liens/liste', component: ListeComponent },
-  { path: 'liens/new', component: NewComponent},
-  { path: 'fiches/nouveau', component: NouveauComponent },
-  { path: 'fiches/edite', component: EditeComponent },
-  { path: 'fiches/listes', component: ListesComponent }
+  { path: 'home/:nom', component: HomeComponent,canActivate: [AuthGuardService] },
+  {path:  'home/:nom/image',component:EmailComponent ,canActivate: [AuthGuardService]},
+  { path: 'home/:nom/cardID/edit', component: EditComponent ,canActivate: [AuthGuardService]},
+  { path: 'home/:nom/cardID/list', component: ListComponent ,canActivate: [AuthGuardService]},
+  { path: 'home/:nom/liens/liste', component: ListeComponent ,canActivate: [AuthGuardService]},
+  { path: 'home/:nom/liens/new', component: NewComponent,canActivate: [AuthGuardService]},
+  { path: 'home/:nom/fiches/nouveau', component: NouveauComponent,canActivate: [AuthGuardService] },
+  { path: 'home/:nom/fiches/edite', component: EditeComponent ,canActivate: [AuthGuardService]},
+  { path: 'home/:nom/fiches/listes', component: ListesComponent ,canActivate: [AuthGuardService]}
 ];  
 
 
@@ -76,6 +80,7 @@ const routes: Routes = [
     ListesComponent,
     EditeComponent,
     NouveauComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +104,8 @@ const routes: Routes = [
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    FlexLayoutModule
   ],
   providers: [
     CardIDService,
@@ -108,6 +114,7 @@ const routes: Routes = [
     ErrordialogService,
     IconeHomeService,
     ficheWEservice,
+    EmailService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
        
   ],

@@ -30,17 +30,34 @@
              <p *ngIf="f.prenom.errors.required">PreNom is required</p>
            </div>
           </mat-form-field>
-         </p>  
+         </p>
+        <div class="form-group">
+          <select  formControlName="sexe" class="form-control" 
+           [ngClass]="{
+            'is-invalid': f.sexe.invalid && (f.sexe.dirty || f.sexe.touched),
+            'is-valid': f.sexe.valid && (f.sexe.dirty || f.sexe.touched)
+           }"
+         placeholder="Gender" required>
+                 <option value="" disabled selected hidden>Select gender </option>
+                 <option>Male</option>
+                 <option>Female</option>
+                 <option>Other</option>
+           </select>      
+         
+           <div class="invalid-feedback" 
+           *ngIf="f.sexe.errors && (f.sexe.dirty || f.sexe.touched)">
+             <p *ngIf="f.sexe.errors.required">Sexe is required</p>
+           </div>
+          </div> 
          <p>
          <mat-form-field>
-          <input formControlName="dateofbirth" matInput class="form-control" [matDatepicker]="dp"  
+          <input formControlName="dateofbirth" matInput class="form-control" [matDatepicker]="picker"  
                [ngClass]="{
                         'is-invalid': f.dateofbirth.invalid && (f.dateofbirth.dirty || f.dateofbirth.touched),
                         'is-valid': f.dateofbirth.valid && (f.dateofbirth.dirty || f.dateofbirth.touched)
                 }"
                placeholder="Choose a date" required>
-
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date *">
+          
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <div class="invalid-feedback" 

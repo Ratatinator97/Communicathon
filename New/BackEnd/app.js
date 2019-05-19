@@ -18,10 +18,6 @@ var routesApi = require('./routes/index');//Definir le route general pointe à i
 const app =express();
 require('./models/db');
 require('./config/passport');
-// view engine setup,pas forcement necessaire
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
-
 //uncomment after having a icon public in favicon
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -36,7 +32,7 @@ app.use(function(req, res, next) {
  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
  next();
 });
-
+app.use('/images',express.static(path.join(__dirname, '/images')));
 app.use('/api',routesApi);//utiliser ce route 
 //En bas pour gerer l'erreur
 // catch 404 and forward to error handler

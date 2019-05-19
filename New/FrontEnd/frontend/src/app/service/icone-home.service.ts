@@ -4,7 +4,7 @@ export class IconeHomeService{
         {
             nomIcone:"Carte d'identité",
             classe: "carteid",
-            dirigeVers:"/cardID/list",
+            dirigeVers:"cardID/list",
             lienImage: "https://maessage.files.wordpress.com/2014/06/7-emoji-bust-in-silhouette.png"
 
         },
@@ -19,7 +19,7 @@ export class IconeHomeService{
         {
             nomIcone:"Photos",
             classe: "photo",
-            dirigeVers:"/",
+            dirigeVers:"image",
             lienImage: "https://pngimage.net/wp-content/uploads/2018/06/logo-appareil-photo-png-2.png"
         },
 
@@ -33,9 +33,9 @@ export class IconeHomeService{
         {
             nomIcone:"Liens",
             classe: "lien",
-            dirigeVers:"/liens/liste",
+            dirigeVers:"liens/liste",
             lienImage: "https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_58_icon-icons.com_61529.png"
         }
-
+          
     ];
 }

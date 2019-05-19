@@ -6,14 +6,18 @@ const auth = jwt({
   userProperty: 'payload'
 });
 //Creer des routers pour le profil et le login, registre comme app.get('/...')
-var ctrlProfile=require('../control/profile');
-var ctrlAuth=require('../control/authe');
+const ctrlProfile=require('../control/profile');
+const ctrlAuth=require('../control/authe');
 const CardId=require('../control/cardID');
 const Liens = require('../control/lien');
 const Fiches = require('../control/fiche');
-
+const ctrlEmail=require('../control/email');
+const ctrlImg=require('../control/image');
+const picto =require('../config/multer');
 //get profile
 router.get('/profile', auth, ctrlProfile.profileRead);
+router.get('/email',auth,ctrlEmail.sendemail);
+router.get('/image',auth,ctrlImg.getPhoto);
 //authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
@@ -26,5 +30,6 @@ router.post('/fiches',auth,Fiches.create);
 router.get('/fiches', auth, Fiches.view);
 router.put('/fiches',auth, Fiches.edit);
 router.delete('/fiches/:id',auth, Fiches.remove);
-
+router.post('/upload',picto,ctrlImg.upload);
+router.post('/email',auth,ctrlEmail.sendemail);
 module.exports=router;

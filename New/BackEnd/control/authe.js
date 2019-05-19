@@ -1,6 +1,9 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const fs = require('fs');
+const imgFolder = 'images';
+const Image=require('.././models/Image');
 //Envoyer le json
 var sendJson=function(res,status,content){
 	res.status(status);
@@ -24,7 +27,23 @@ module.exports.register=function(req,res){
 	           user.nom=req.body.nom;
 	           user.prenom=req.body.prenom;
 	           user.email=req.body.email;
+	           user.DoB=req.body.dateofbirth;
+	           user.sexe=req.body.sexe;
 	           user.setPassword(req.body.password);
+	           user.image=[];
+	           var files = fs.readdirSync(imgFolder);
+                    for (let i = 0; i < files.length; i++) {
+                          var images =new Image();
+                          if(files[i].includes('cm')){
+                          files[i] = "http://localhost:4000/images/" + files[i];
+                          images.path=files[i];
+                          images.description=files[i].split(/[.-]+/)[1].toLowerCase();
+                          images.contenttype=files[i].split(/[.-]+/)[2].toLowerCase();
+                          images.save(function(err){return console.log(err)});
+                          user.image.push(images);
+                          }
+                      
+                     };
 	            //Sauvergarder dans le DB
 	           user.save(function(err){
 		         var token;

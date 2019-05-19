@@ -12,6 +12,7 @@ export interface UserDetail{
   prenom:string;
   email:string;
   dateofbirth:Date;
+  sexe:string;
   exp:number;
   iat:number;
 }
@@ -24,6 +25,7 @@ export interface TokenPayload{
 	password:string;
 	nom?:string;//? signifique optionel element
 	prenom?:string;
+  sexe?:string;
   dateofbirth?:Date;
 }
 @Injectable({
@@ -101,6 +103,9 @@ export class AuthenticationService {
   //Fonction pour profile
   public profile(): Observable<any> {
     return this.request('get', 'profile');
+  }
+  public cardid():Observable<any>{
+    return this.http.get(`${this.uri}/api/cardID`);
   }
   //Effacer le token quand logout
   public logout():void{

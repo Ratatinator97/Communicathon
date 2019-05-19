@@ -3,16 +3,18 @@ const mongoose=require('mongoose'),
 const crypto=require('crypto');//Utiliser pour encoder le password
 const jwt =require('jsonwebtoken');//Utiliser pour creer un token 
 //Un token qide à continuer et à verifier l'user facilement sans tous reverifier son profil
-
+const Image =require('./Image');
 var Schema = mongoose.Schema;
 
 let User = new Schema({
    
-	nom:{ type: String, required: [true, "can't be blank"]},
-	prenom:{ type: String, required: [true, "can't be blank"]},
-	email:{type:String,unique:true,required: [true, "can't be blank"]},
+	nom:{ type: String, required: true},
+	prenom:{ type: String, required: true},
+	email:{type:String,unique:true,required: true},
+	DoB:{type:Date,required: true},
+    sexe:{type:String,required: true},
 	hash:String,
-	salt:String,
+	salt:String,	
 	cardID: {
 		address: String,
 		phone: String,
@@ -32,6 +34,7 @@ let User = new Schema({
 	known_Languages: String,
 	updated_at: { type: Date, default: Date.now }
 	},
+	image:[{type:Schema.Types.ObjectId,ref:'Image'}],
 	liensUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Lien'}],
 	fichesUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Fiche'}]	
 	
@@ -57,6 +60,8 @@ User.methods.generateJwt=function(){
 	  email:this.email,
 	  nom:this.nom,
 	  prenom:this.prenom,
+	  dateofbirth:this.DoB,
+	  sexe:this.sexe,
 	  exp:parseInt(expiry.getTime()/1000),
 	},"MY_SECRET");
 };
