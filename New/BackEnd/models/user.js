@@ -32,7 +32,9 @@ let User = new Schema({
 	known_Languages: String,
 	updated_at: { type: Date, default: Date.now }
 	},
-	liensUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Lien'}]	
+	liensUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Lien'}],
+	fichesUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Fiche'}]	
+	
 });
 
 //Encoder password

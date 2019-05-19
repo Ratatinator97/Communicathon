@@ -1,3 +1,59 @@
-<p>
-  nouveau works!
-</p>
+    <div>
+      <mat-toolbar color="primary">
+        <span> Prénom : , Nom : </span>
+        <button mat-button routerLink="/home">
+            <mat-icon>home</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+
+    <div class="high-div">
+    
+    <div class="main-div">
+    <mat-card>
+      <section class="mat-typography">
+        <h3>Editer votre FicheWE</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <form [formGroup]="createForm" class="create-form">
+    
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Date Samedi" formControlName="date_samedi" #date_samedi>
+        </mat-form-field>
+    
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Date Dimanche" formControlName="date_dimanche" #date_dimanche>
+        </mat-form-field>
+    
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Samedi matin" formControlName="Samedi_matin" #Samedi_matin>
+        </mat-form-field>
+        
+        
+        <mat-form-field>
+          <input matInput placeholder="Samedi midi" formControlName="Samedi_midi" #Samedi_midi>  
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput placeholder="Samedi soir" formControlName="Samedi_soir" #Samedi_soir>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput placeholder="Dimanche matin" formControlName="Dimanche_matin" #Dimanche_matin>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput placeholder="Dimanche midi" formControlName="Dimanche_midi" #Dimanche_midi>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput placeholder="Dimanche soir" formControlName="Dimanche_soir" #Dimanche_soir>
+        </mat-form-field>
+    
+        <mat-divider></mat-divider>
+        <button mat-raised-button color="accent" routerLink="/fiches/listes"> Retour </button>&nbsp;
+        <button type="submit" (click)="addFicheWE(date_samedi.value, date_dimanche.value, Samedi_matin.value, Samedi_midi.value, Samedi_soir.value, Dimanche_matin.value, Dimanche_midi.value, Dimanche_soir.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary"> Enregistrer </button>
+      </form>
+    </mat-card>
+    </div>
+    </div>

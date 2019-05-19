@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardIDService } from './service/card-id.service';
+import { ficheWEservice } from './service/fiche.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './card-id/list/list.component';
 import { EditComponent } from './card-id/edit/edit.component';
@@ -35,7 +36,7 @@ import { MatToolbarModule,
   MatSnackBarModule,
   MatDatepickerModule,
   MatNativeDateModule  } from '@angular/material';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ListeComponent } from './liens/liste/liste.component';
 import { NewComponent } from './liens/new/new.component';
 import { HomeIconesComponent } from './home/home-icones/home-icones.component';
@@ -106,6 +107,7 @@ const routes: Routes = [
     AuthGuardService,
     ErrordialogService,
     IconeHomeService,
+    ficheWEservice,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
        
   ],

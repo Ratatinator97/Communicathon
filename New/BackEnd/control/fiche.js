@@ -11,10 +11,10 @@ module.exports.view=function(req,res){
         });
     } else {
         User
-            .findById(req.payload._id).populate('fiches')
+            .findById(req.payload._id).populate('fichesUtilisateur')
             .exec(function(err, user) {
                 if(err) return next(err);
-                res.status(200).json(user)
+                res.status(200).json(user.fichesUtilisateur)
         });
     }
 }
@@ -26,9 +26,9 @@ module.exports.create=function(req, res) {
         });
     } else {
     var fiche = new FicheWE(req.body);
-    fiche.save(function(err, lien ) {
+    fiche.save(function(err, fiche) {
         User.findById(req.payload._id, function (err, user) {
-             user.fiches.push(lien);
+             user.fichesUtilisateur.push(fiche);
              user.save(function (err, user) {
                 res.status(200).json(user)
              });
@@ -45,8 +45,7 @@ module.exports.edit=function(req,res){
         });
     } else {
         User
-            .findByIdAndUpdate(req.payload._id, req.body)
-            .exec(function(err, user) {
+            .findByIdAndUpdate(req.payload._id, req.body, function(err, user) {
                 if(err) return next(err);
                 res.status(200).json(user)
         });

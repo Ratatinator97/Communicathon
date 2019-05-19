@@ -1,6 +1,4 @@
 export interface FicheWE {
-    label: String,
-    path: String,
     date_samedi: String,
     date_dimanche: String,
     Samedi_matin: String,

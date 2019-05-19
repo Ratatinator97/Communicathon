@@ -3,6 +3,9 @@ import { ficheWEservice } from '../.././service/fiche.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { FicheWE } from '../../model/fiche.model';
+import { User } from '../../model/user.model';
+
+
 
 @Component({
   selector: 'app-listes',
@@ -10,9 +13,11 @@ import { FicheWE } from '../../model/fiche.model';
   styleUrls: ['./listes.component.css']
 })
 export class ListesComponent implements OnInit {
-  donnees: FicheWE[];
+  
+  donnees: FicheWE;
+  displayedColumns = ['Date_Samedi', 'Date_Dimanche','Samedi_matin', 'Samedi_midi', 'Samedi_soir', 'Dimanche_matin', 'Dimanche_midi', 'Dimanche_soir', 'Actions'];
+
   constructor(private ficheWEservice: ficheWEservice, private router: Router) { }
-  logged=true;
 
   ngOnInit() {
     this.verifToken();
@@ -22,30 +27,28 @@ export class ListesComponent implements OnInit {
   fetchFicheWE(){
     this.ficheWEservice
     .getFicheWE()
-    .subscribe((data: FicheWE[]) => {
+    .subscribe((data: FicheWE) => {
       this.donnees = data;
       console.log(this.donnees);
     });
-  };
+  }
 
   verifToken(){
     const token =localStorage.getItem('mean-token');
     if(!token){
       this.router.navigateByUrl('/');
     }
-  };
-
-  gettingFicheWE(){
-    this.ficheWEservice.getFicheWE().subscribe();
-  };
+  }
 
   editFicheWE() {
-    this.router.navigate(['/fiches/edit']);
-  };
+    this.router.navigate(['/fiches/edite']);
+  }
   
   deleteFicheWE(id) {
-    this.ficheWEservice.deleteFicheWE(id).subscribe();
+    this.ficheWEservice.deleteFicheWE(id).subscribe(() => {
     this.fetchFicheWE();
-  };
+    });
+  }
+
 
 }

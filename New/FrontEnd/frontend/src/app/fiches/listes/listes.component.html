@@ -7,13 +7,91 @@
   </mat-toolbar>
 </div>
 
-<div class="main-div">
+<div>
+  <br>
+  <mat-card>
+    <button mat-raised-button color="primary" routerLink="/fiches/nouveau"> Ajouter une nouvelle fiche weekend</button>
+    <br><br>
+    <mat-divider></mat-divider>
+    <br>
+  <mat-card>
+    <table mat-table [dataSource]="donnees">
+      <ng-container matColumnDef="Date_Samedi">
+        <th mat-header-cell *matHeaderCellDef>Date Samedi</th>
+        <td mat-cell *matCellDef="let element"> {{element.date_samedi}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Date_Dimanche">
+        <th mat-header-cell *matHeaderCellDef>Date Dimanche</th>
+        <td mat-cell *matCellDef="let element"> {{element.date_dimanche}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Samedi_matin">
+        <th mat-header-cell *matHeaderCellDef>Samedi matin</th>
+        <td mat-cell *matCellDef="let element"> {{element.Samedi_matin}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Samedi_midi">
+        <th mat-header-cell *matHeaderCellDef>Samedi midi</th>
+        <td mat-cell *matCellDef="let element"> {{element.Samedi_midi}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Samedi_soir">
+        <th mat-header-cell *matHeaderCellDef>Samedi soir</th>
+        <td mat-cell *matCellDef="let element"> {{element.Samedi_soir}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Dimanche_matin">
+        <th mat-header-cell *matHeaderCellDef>Dimanche matin</th>
+        <td mat-cell *matCellDef="let element"> {{element.Dimanche_matin}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Dimanche_midi">
+        <th mat-header-cell *matHeaderCellDef>Dimanche midi</th>
+        <td mat-cell *matCellDef="let element"> {{element.Dimanche_midi}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Dimanche_soir">
+        <th mat-header-cell *matHeaderCellDef>Dimanche soir</th>
+        <td mat-cell *matCellDef="let element"> {{element.Dimanche_soir}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="mat-column-right">Actions</th>
+        <td mat-cell *matCellDef="let element" class="mat-column-right">
+          <button mat-button color="primary" (click)="editFicheWE(element._id)">Edit</button>
+          <button mat-button color="warn" (click)="deleteFicheWE(element._id)">Delete</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    </mat-card>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="main-div">
   <button mat-raised-button color='accent' routerLink="/fiches/nouveau">Ajouter une nouvelle fiche</button>
 <mat-card class="fiche" >
 <div layout-align="center center">
 <mat-card-header>
     <div mat-card-avatar class="Week-end"></div>
-    <mat-card-title> Weekend du {{donnees.fichewe.date_samedi}} au {{donnees.fichewe.date_dimanche}}</mat-card-title>
+    <mat-card-title> Weekend du {{element.date_samedi}} au {{donnees.date_dimanche}} </mat-card-title>
 </mat-card-header>
 <mat-card-content>
   <p>
@@ -23,13 +101,13 @@
           <mat-card-title> Samedi </mat-card-title>
         </mat-card-header>
         <p>
-              Samedi matin : {{donnees.fichewe.Samedi_matin}}
+              Samedi matin : {{donnees.Samedi_matin}}
         </p>
         <p>
-              Samedi midi : {{donnees.fichewe.Samedi_midi}}
+              Samedi midi : {{donnees.Samedi_midi}}
         </p>
         <p>
-              Samedi soir : {{donnees.fichewe.Samedi_soir}}
+              Samedi soir : {{donnees.Samedi_soir}}
         </p>
       </mat-card-content>
     </mat-card>
@@ -41,24 +119,27 @@
                   <mat-card-title> Dimanche </mat-card-title>
               </mat-card-header>
           <p>
-              Dimanche matin : {{donnees.fichewe.Dimanche_matin}}
+              Dimanche matin : {{element.Dimanche_matin}}
           </p>
           <p>
-              Dimanche midi : {{donnees.fichewe.Dimanche_midi}}
+              Dimanche midi : {{donnees.Dimanche_midi}}
           </p>
           <p>
-              Dimanche soir : {{donnees.fichewe.Dimanche_soir}}
+              Dimanche soir : {{donnees.Dimanche_soir}}
           </p>
           </mat-card-content>
       </mat-card>
   </p>
 
 </mat-card-content>
+
+
+
 <mat-card-actions>
-  <button mat-raised-button color="accent" (click)="editFicheWE()"> Modifier la fiche </button>
+  <button mat-raised-button color="accent" routerLink="../edite"> Modifier la fiche </button>
   <button mat-button color="warn" (click)="deleteFicheWE(element._id)"> Supprimer la fiche </button>
 </mat-card-actions>
 </div>
 </mat-card>
-</div>
+</div> -->
 
