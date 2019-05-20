@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CardIDService} from '../.././service/card-id.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { User } from '../../model/user.model';
 
@@ -15,9 +15,9 @@ export class ListComponent implements OnInit {
 
   user: User;
   
-  constructor(private cardIDservice: CardIDService, private router: Router) { }
+  constructor(private cardIDservice: CardIDService, private router: Router,private route: ActivatedRoute) { }
   ngOnInit() {
-    this.verifToken();
+    
     console.log("Token OK");
     this.fetchCardID();
     console.log("fetched all the stuffs");
@@ -33,16 +33,11 @@ export class ListComponent implements OnInit {
   }
 
   editCardID() {
-    this.router.navigate(['/cardID/edit']);
+    this.router.navigate(['../edit'],{relativeTo: this.route});
   }
   
   
 
-  verifToken(){
-    const token =localStorage.getItem('mean-token');
-    if(!token){
-      this.router.navigateByUrl('/');
-    }
-  }
+  
 
 }

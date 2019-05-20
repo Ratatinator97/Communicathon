@@ -10,6 +10,7 @@ export class AuthGuardService implements CanActivate {
   canActivate() {
       let token;
       token=localStorage.getItem('mean-token');
+      
     if(this.auth.isLoggedIn()==false){
       if(token){	
 

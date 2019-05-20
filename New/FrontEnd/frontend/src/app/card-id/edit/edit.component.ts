@@ -62,7 +62,7 @@ export class EditComponent implements OnInit {
       this.snackBar.open('Issue updated successfully', 'OK', {
         duration: 3000
       });
-      this.router.navigateByUrl('/cardID/list');
+      this.router.navigate(['../list'],{relativeTo: this.route});
     });
     
   }

@@ -72,7 +72,7 @@ export class AuthenticationService {
      }
   }
   //L'URL doit etre coherent à celui dans back end
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any>{
+  private request(method: 'post'|'get', type: 'login'|'register'|'profile'|'resetpw', user?: TokenPayload): Observable<any>{
   	let base;
   	if(method==='post'){
   		base=this.http.post(`${this.uri}/api/${type}`,user);
@@ -106,6 +106,9 @@ export class AuthenticationService {
   }
   public cardid():Observable<any>{
     return this.http.get(`${this.uri}/api/cardID`);
+  }
+  public resetpw(user:TokenPayload):Observable<any>{
+    return this.request('post','resetpw',user);
   }
   //Effacer le token quand logout
   public logout():void{

@@ -48,10 +48,12 @@ import { ListesComponent } from './fiches/listes/listes.component';
 import { EditeComponent } from './fiches/edite/edite.component';
 import { NouveauComponent } from './fiches/nouveau/nouveau.component';
 import { EmailComponent } from './email/email.component';
+import { ForgetpwComponent } from './forgetpw/forgetpw.component';
 const routes: Routes = [
   { path: '', redirectTo:'login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent },
   { path: 'register', component: RegistreComponent },
+  { path: 'reset', component: ForgetpwComponent },
   { path: 'home/:nom', component: HomeComponent,canActivate: [AuthGuardService] },
   {path:  'home/:nom/image',component:EmailComponent ,canActivate: [AuthGuardService]},
   { path: 'home/:nom/cardID/edit', component: EditComponent ,canActivate: [AuthGuardService]},
@@ -81,6 +83,7 @@ const routes: Routes = [
     EditeComponent,
     NouveauComponent,
     EmailComponent,
+    ForgetpwComponent,
   ],
   imports: [
     BrowserModule,

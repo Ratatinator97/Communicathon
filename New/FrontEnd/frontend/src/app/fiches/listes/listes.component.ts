@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { FicheWE } from '../../model/fiche.model';
 import { User } from '../../model/user.model';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -17,11 +18,13 @@ export class ListesComponent implements OnInit {
   donnees: FicheWE;
   displayedColumns = ['Date_Samedi', 'Date_Dimanche','Samedi_matin', 'Samedi_midi', 'Samedi_soir', 'Dimanche_matin', 'Dimanche_midi', 'Dimanche_soir', 'Actions'];
 
-  constructor(private ficheWEservice: ficheWEservice, private router: Router) { }
+  constructor(private ficheWEservice: ficheWEservice, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.verifToken();
     this.fetchFicheWE();
+    let token;
+      token=localStorage.getItem('mean-token');
+      console.log(token);
   }
 
   fetchFicheWE(){
@@ -33,15 +36,10 @@ export class ListesComponent implements OnInit {
     });
   }
 
-  verifToken(){
-    const token =localStorage.getItem('mean-token');
-    if(!token){
-      this.router.navigateByUrl('/');
-    }
-  }
+  
 
   editFicheWE() {
-    this.router.navigate(['/fiches/edite']);
+    this.router.navigate(['../edite'],{relativeTo: this.route});
   }
   
   deleteFicheWE(id) {

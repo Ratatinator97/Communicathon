@@ -51,7 +51,7 @@ export class RegistreComponent implements OnInit {
       sexe: new FormControl('', Validators.required),
       dateofbirth:new FormControl('',[Validators.required]),
   		email:new FormControl('', [Validators.required,Validators.email] ),
-  		password:new FormControl('',[Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&.])[A-Za-z\d$@$!%*?&.].{0,}')]),
+  		password:new FormControl('',[Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@#!%*?&.])[A-Za-z\d$@#!%*?&.].{0,}')]),
   		confirmpassword:new FormControl('',[Validators.required])
   	},this.checkPassword);
   }

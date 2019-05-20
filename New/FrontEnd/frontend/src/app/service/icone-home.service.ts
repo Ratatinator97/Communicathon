@@ -12,7 +12,7 @@ export class IconeHomeService{
         {
             nomIcone:"Calendrier",
             classe: "calendar",
-            dirigeVers:"/",
+            dirigeVers:"fiches/listes",
             lienImage: "http://www.courirenmoselle.fr/wp-content/uploads/2018/12/calendrier2019.png"
         },
 

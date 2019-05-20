@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const sgMail = require('@sendgrid/mail');
-var fs = require("fs");
+const fs=require('fs');
 var SENDGRID_API_KEY = fs.readFileSync('api_key.txt', 'utf8');
 sgMail.setApiKey(SENDGRID_API_KEY);
 var sendJson=function(res,status,content){
@@ -24,6 +24,7 @@ module.exports.sendemail=function(req,res){
         contact[0]=user.cardID.contact1.email;
         contact[1]=user.cardID.contact2.email;;
         email=user.email; 
+        
         if(contact===undefined){
           sendJson(res,400,{
       "message" : "You don't have any contacts in CardId. Please click the link below to edit yours contact"
@@ -32,6 +33,7 @@ module.exports.sendemail=function(req,res){
   //let mailist =['tuan-kiet.ngo@insa-lyon.fr','kiet.insa.lyon98@gmail.com'];
  
   var message=req.body.message.replace("_"," ");
+  console.log(contact);
   const msg = {
      to: contact,
      from: email,

@@ -56,7 +56,7 @@ export class EditeComponent implements OnInit {
       this.snackBar.open('Issue updated successfully', 'OK', {
         duration: 3000
       });
-      this.router.navigateByUrl('/fiches/listes');
+      this.router.navigate(['../listes'],{relativeTo: this.route});
     });
   }
 

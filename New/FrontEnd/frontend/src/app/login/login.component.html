@@ -1,6 +1,5 @@
 
 
-      <!--<p class="lead">Not a member? Please <a routerLink="/register">register</a> instead.</p>-->
   <mat-card>
      <mat-card-title>Login</mat-card-title>
     <mat-card-content>
@@ -20,7 +19,6 @@
            </div>
           </mat-form-field>
         </p>
-
         <p>
         <mat-form-field  class="form-group">
           <input id="mysecretpassword" type="password" matInput showHideInput formControlName="password" class="form-control" 
@@ -45,6 +43,7 @@
           <button id ="bt" type="submit" class="btn btn-primary">Sign in</button>
           <button id="register" class="btn btn-primary"><a routerLink="/register">Sign up</a></button>
         </div>
+        <div><a id="reset" routerLink="/reset">Forget your password</a></div>
       </form>
      </mat-card-content> 
   </mat-card>
