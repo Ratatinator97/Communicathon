@@ -6,6 +6,7 @@ import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { ForgetpwComponent } from './forgetpw/forgetpw.component';
 import { RegistreComponent } from './registre/registre.component';
 import { AuthenticationService } from './service/authentication.service';
 import { AuthGuardService } from './service/auth-guard.service';
@@ -38,6 +39,7 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     RegistreComponent,
     ErrorDialogComponent,
+    ForgetpwComponent
   ],
   imports: [
     AppRoutingModule,
