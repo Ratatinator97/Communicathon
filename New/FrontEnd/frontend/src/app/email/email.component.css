@@ -33,7 +33,7 @@ img {
     height: 550px;
     border:1px solid black;
     padding:10px;
-    top:0;
+    top:150px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -128,7 +128,7 @@ a{
     height: 2000px;
     border:1px solid black;
     padding:10px;
-    top:0;
+    top:150px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -162,7 +162,7 @@ a{
     height:900px;
     border:1px solid black;
     padding:10px;
-    top:0;
+    top:150px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -201,11 +201,12 @@ a{
     height:900px;
     border:1px solid black;
     padding:10px;
-    top:0;
+    top:150px;
     left: 0;
     right: 0;
     bottom: 0;
-    margin:auto; 
+    margin:auto;
+
     background-color:#90EE90;
 }
 .butt{

@@ -34,7 +34,10 @@ i {
   margin-left: 10px;
   background-color: white;
 }
-
+#reset{
+  text-align: right;
+  margin-top: 5px;
+}
 mat-card {
   margin-top: 10px;
   margin-left: 20px;

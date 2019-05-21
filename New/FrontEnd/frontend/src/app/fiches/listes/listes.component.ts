@@ -7,6 +7,7 @@ import { User } from '../../model/user.model';
 
 
 
+
 @Component({
   selector: 'app-listes',
   templateUrl: './listes.component.html',
@@ -20,8 +21,10 @@ export class FicheWEList implements OnInit {
   constructor(private ficheWEservice: ficheWEservice, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.verifToken();
     this.fetchFicheWE();
+    let token;
+      token=localStorage.getItem('mean-token');
+      console.log(token);
   }
 
   fetchFicheWE(){
@@ -33,12 +36,7 @@ export class FicheWEList implements OnInit {
     });
   }
 
-  verifToken(){
-    const token =localStorage.getItem('mean-token');
-    if(!token){
-      this.router.navigateByUrl('/');
-    }
-  }
+  
 
   editFicheWE() {
     this.router.navigate(['../edit'],{relativeTo: this.route});

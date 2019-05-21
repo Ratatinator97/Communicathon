@@ -17,7 +17,7 @@ export class CardIDList implements OnInit {
   
   constructor(private cardIDservice: CardIDService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
-    this.verifToken();
+    
     console.log("Token OK");
     this.fetchCardID();
     console.log("fetched all the stuffs");
@@ -38,11 +38,6 @@ export class CardIDList implements OnInit {
   
   
 
-  verifToken(){
-    const token =localStorage.getItem('mean-token');
-    if(!token){
-      this.router.navigateByUrl('/');
-    }
-  }
+  
 
 }
