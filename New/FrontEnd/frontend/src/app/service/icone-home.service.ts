@@ -35,6 +35,13 @@ export class HomeIconeService {
             classe: "lien",
             dirigeVers:"links/list",
             lienImage: "https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_58_icon-icons.com_61529.png"
+        },
+
+        {
+            nomIcone:"Carnet de Bord",
+            classe: "fiche",
+            dirigeVers:"ficheWE/list",
+            lienImage: "https://tse4.mm.bing.net/th?id=OIP.P_EbrcStTLkrwXp7Xw0hfQHaHa&pid=Api&P=0&w=300&h=300"
         }
           
     ];
