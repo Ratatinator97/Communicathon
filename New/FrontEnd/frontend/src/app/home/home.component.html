@@ -1,14 +1,3 @@
-<mat-toolbar color="primary">
-  <span> Prénom : {{prename}} , Nom : {{name}} </span>
-  <button mat-button routerLink="/home">
-    <mat-icon>home</mat-icon>
-  </button>
-  <button mat-button (click)="logout()">
-  <mat-icon>exit_to_app</mat-icon>
-  </button>
-</mat-toolbar>
-
-
 <app-home-icones> </app-home-icones>
 
 <div *ngIf="!logged" class="container">

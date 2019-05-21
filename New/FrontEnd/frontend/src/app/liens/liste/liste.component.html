@@ -1,17 +1,10 @@
-<div>
-    <mat-toolbar color="primary">
-      <span> Prénom : , Nom : </span>
-      <button mat-button routerLink="/home">
-          <mat-icon>home</mat-icon>
-      </button>
-    </mat-toolbar>
-  </div>
+
   <p></p>
   
   <div class="high-div">
     <div class="main-div">
     <mat-card class="deco">
-    <button mat-raised-button color="primary" routerLink="/liens/new">Créer nouveau lien</button>
+    <button mat-raised-button color="primary" (click)="newLien()">Créer nouveau lien</button>
     <br><br>
     <mat-divider></mat-divider>
     <br>

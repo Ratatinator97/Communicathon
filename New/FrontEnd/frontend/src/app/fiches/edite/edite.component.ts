@@ -13,7 +13,7 @@ import { User } from '../../model/user.model';
   styleUrls: ['./edite.component.css']
 })
 
-export class EditeComponent implements OnInit {
+export class FicheWEEdit implements OnInit {
 
   constructor(private FicheWEservice: ficheWEservice, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { 
     this.createForm();
@@ -56,8 +56,11 @@ export class EditeComponent implements OnInit {
       this.snackBar.open('Issue updated successfully', 'OK', {
         duration: 3000
       });
-      this.router.navigateByUrl('/fiches/listes');
+      this.router.navigate(['../list'],{relativeTo: this.route});
     });
+  }
+  return(){
+    this.router.navigate(['../list'],{relativeTo: this.route});
   }
 
 }

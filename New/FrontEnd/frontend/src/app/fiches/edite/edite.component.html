@@ -1,11 +1,4 @@
-<div>
-  <mat-toolbar color="primary">
-    <span> Prénom : , Nom : </span>
-    <button mat-button routerLink="/home">
-        <mat-icon>home</mat-icon>
-    </button>
-  </mat-toolbar>
-</div>
+
 <p></p>
 <div class="high-div">
 
@@ -54,7 +47,7 @@
 
     <mat-divider></mat-divider>
     <br><br>
-    <button mat-raised-button color="accent" routerLink="/fiches/listes"> Retour </button>&nbsp;
+    <button mat-raised-button color="accent" (click)="return()"> Retour </button>&nbsp;
     <button type="submit" (click)="updateFicheWE(date_samedi.value, date_dimanche.value, Samedi_matin.value, Samedi_midi.value, Samedi_soir.value, Dimanche_matin.value, Dimanche_midi.value, Dimanche_soir.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary"> Enregistrer </button>
   </form>
 </mat-card>

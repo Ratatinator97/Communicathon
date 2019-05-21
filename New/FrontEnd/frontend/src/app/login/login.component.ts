@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
      this.auth.login(this.credentials).subscribe(() => {
       this.path();
       let nom =this.username + '-'+this.userprename;
-      this.router.navigate(['/home',nom.toLowerCase()]);
+      this.router.navigate(['/home/'+nom.toLowerCase()]);
      
     }, (err) => {
       console.error(err.error.message);

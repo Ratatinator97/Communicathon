@@ -11,14 +11,16 @@ import { User } from '../../model/user.model'
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class CardIDEdit implements OnInit {
 
   constructor(private cardIDservice: CardIDService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { 
     this.createForm();
    }
   info: any = {};
   updateForm: FormGroup;
-  
+  return() {
+    this.router.navigate(['../list'],{relativeTo: this.route});
+  }
   createForm() {
     this.updateForm = this.fb.group({
       address: '', 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconeHomeService } from '../../service/icone-home.service';
+import { HomeIconeService } from '../../service/icone-home.service';
 
 @Component({
   selector: 'app-home-icones',
@@ -11,7 +11,7 @@ export class HomeIconesComponent implements OnInit {
 
   tabIcones: any[];
 
-  constructor(private icones : IconeHomeService) { }
+  constructor(private icones : HomeIconeService) { }
 
   ngOnInit() {
     this.tabIcones = this.icones.mesIcones;

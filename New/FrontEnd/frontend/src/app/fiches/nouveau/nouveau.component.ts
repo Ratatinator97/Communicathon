@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ficheWEservice } from '../.././service/fiche.service';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
 
@@ -9,9 +9,9 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
   templateUrl: './nouveau.component.html',
   styleUrls: ['./nouveau.component.css']
 })
-export class NouveauComponent implements OnInit {
+export class FicheWECreate implements OnInit {
   createForm: FormGroup;
-  constructor(private ficheWEservice: ficheWEservice, private fb: FormBuilder, private route: Router) {
+  constructor(private ficheWEservice: ficheWEservice, private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.createForm = this.fb.group({
       date_samedi: ['', Validators.required],
       date_dimanche: ['', Validators.required],
@@ -27,10 +27,12 @@ export class NouveauComponent implements OnInit {
 
    addFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir){
     this.ficheWEservice.createFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir).subscribe( () => {
-      this.route.navigateByUrl('/fiches/listes');
+      this.router.navigate(['../list'],{relativeTo: this.route});
     });
   }
-
+  return(){
+    this.router.navigate(['../list'],{relativeTo: this.route});
+  }
   ngOnInit() {
   }
 

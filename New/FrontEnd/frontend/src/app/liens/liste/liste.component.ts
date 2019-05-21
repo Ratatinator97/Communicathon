@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { lienService } from '../../service/lien.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { LienService } from '../../service/lien.service';
 import { Lien } from '../../model/lien.model';
 
 @Component({
@@ -8,15 +8,18 @@ import { Lien } from '../../model/lien.model';
   templateUrl: './liste.component.html',
   styleUrls: ['./liste.component.css']
 })
-export class ListeComponent implements OnInit {
+export class LinkList implements OnInit {
 
-  constructor(private liensService: lienService, private router: Router) { }
+  constructor(private liensService: LienService, private router: Router, private route: ActivatedRoute) { }
 
   InfoLiens: Lien[];
   displayedColumns = ['Label', 'Lien','Actions'];
   ngOnInit() {
     this.verifToken();
     this.fetchLiens();
+  }
+  newLien() {
+    this.router.navigate(['../create'],{relativeTo: this.route});
   }
   fetchLiens(){
     this.liensService
@@ -32,7 +35,7 @@ export class ListeComponent implements OnInit {
     }
   };
   editLiens() {
-    this.router.navigate(['/liens/edit']);
+    this.router.navigate(['../edit'],{relativeTo: this.route});
   };
   deleteLien(id) {
     this.liensService.deleteLiens(id).subscribe();

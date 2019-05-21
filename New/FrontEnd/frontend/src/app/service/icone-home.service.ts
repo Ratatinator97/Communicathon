@@ -1,10 +1,10 @@
-export class IconeHomeService{
+export class HomeIconeService {
 
     mesIcones= [
         {
             nomIcone:"Carte d'identité",
             classe: "carteid",
-            dirigeVers:"cardID/list",
+            dirigeVers:"cardid/list",
             lienImage: "https://maessage.files.wordpress.com/2014/06/7-emoji-bust-in-silhouette.png"
 
         },
@@ -12,7 +12,7 @@ export class IconeHomeService{
         {
             nomIcone:"Calendrier",
             classe: "calendar",
-            dirigeVers:"/",
+            dirigeVers:"",
             lienImage: "http://www.courirenmoselle.fr/wp-content/uploads/2018/12/calendrier2019.png"
         },
 
@@ -26,14 +26,14 @@ export class IconeHomeService{
         {
             nomIcone:"Videos",
             classe: "video",
-            dirigeVers:"/",
+            dirigeVers:"",
             lienImage: "https://cdn.icon-icons.com/icons2/495/PNG/512/video-clip-3_icon-icons.com_48391.png"
         },
 
         {
             nomIcone:"Liens",
             classe: "lien",
-            dirigeVers:"liens/liste",
+            dirigeVers:"links/list",
             lienImage: "https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_58_icon-icons.com_61529.png"
         }
           

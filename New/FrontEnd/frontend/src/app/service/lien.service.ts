@@ -5,7 +5,7 @@ import {Observable, of} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class lienService {
+export class LienService {
   uri = 'http://localhost:4000/api'; 
   constructor(private http: HttpClient) { }
 
