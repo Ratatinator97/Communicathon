@@ -15,9 +15,6 @@ export class ficheWEservice {
     return this.http.get(`${this.uri}/fiches`);
   }
 
-  // getFicheWEById(id){
-  //   return this.http.get(`${this.uri}/fiches/${id}`);
-  // }
 
   createFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir):Observable<any> {
     const fiche = {
