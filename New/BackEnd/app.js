@@ -18,12 +18,12 @@ var routesApi = require('./routes/index');//Definir le route general pointe à i
 const app =express();
 require('./models/db');
 require('./config/passport');
-//uncomment after having a icon public in favicon
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+
 app.use(logger('dev'));
 app.use(body.json());
 app.use(body.urlencoded({extended:true}));
 app.use(cookieParser());//Utiliser la cookie
+//Utiliser le cors
 app.use(cors());
 app.use(passport.initialize());
 app.use(function(req, res, next) {
@@ -32,8 +32,10 @@ app.use(function(req, res, next) {
  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
  next();
 });
+//Definir un chemin statique pour acceder aux images dans le dossier "images"
 app.use('/images',express.static(path.join(__dirname, '/images')));
 app.use('/api',routesApi);//utiliser ce route 
+
 //En bas pour gerer l'erreur
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

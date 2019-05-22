@@ -1,16 +1,15 @@
-const picto = require('../config/multer.js');
+
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 var Image=require('.././models/Image');
-const fs = require('fs');
-const imgFolder =  'images';
+
 
 var sendJson=function(res,status,content){
 	res.status(status);
 	res.json(content);
 };
 
-
+//Envoyer tous les images que le client possedent
 module.exports.getPhoto=function(req,res){
    if (!req.payload._id) {
     res.status(401).json({
@@ -24,20 +23,7 @@ module.exports.getPhoto=function(req,res){
        	
        if(user){
 
-        for(let i=0;i<user.image.length;++i){
-            var path = user.image[i].path.replace("http://localhost:4000/","");
-            fs.access(path, fs.F_OK, (err) => {
-               if (err) {
-                Image.remove({_id: user.image[i]}).exec().then(function(err){
-                  console.log(err);
-                })
-                user.image.pull(user.image[i]);
-                
-             }
-          });
-
-         }
-         user.save(function(err){console.log(err)});
+        
          
          return res.status(200).json(user.image);
 
@@ -51,6 +37,7 @@ module.exports.getPhoto=function(req,res){
   }
 };
 
+//Enregistrer le nouveau lien vers le nouvelle image du client dans la base de donné
 module.exports.upload=function(req,res){
 
     if (!req.payload._id) {

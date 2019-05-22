@@ -15,12 +15,10 @@ export class EmailComponent implements OnInit {
          status: '',
          message:'Chose one picture please'};
   cardIdEdit:String;
-  username:String;
   constructor(private img:EmailService,public errorDialog:ErrordialogService, private router: ActivatedRoute,private route:Router) { }
   
   ngOnInit() {
-    this.username=this.router.snapshot.params.nom;
-    this.cardIdEdit='/home/'+ this.username +'/'+'cardID/edit';
+    this.cardIdEdit='../../cardid/edit';
   	this.img.getImage().subscribe(photos=>
   		{ 
         this.images=new Array<Images>();

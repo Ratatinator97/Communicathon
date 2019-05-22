@@ -1,5 +1,5 @@
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;//Pour definir la facon de verifier
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 

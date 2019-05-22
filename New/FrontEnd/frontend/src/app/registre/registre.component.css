@@ -1,8 +1,8 @@
-:host {
-        display: flex;
-        justify-content: center;
-        margin: 100px 0px;
-      }
+*{
+  margin: 0;
+  padding:0;
+}
+
 
 .mat-form-field {
         width: 100%;
@@ -15,6 +15,7 @@
 } 
 mat-card-title,
 mat-card-content {
+        display: flex;
         justify-content: center;
      }
 i {
@@ -27,12 +28,34 @@ i {
     justify-content: flex-end;
 }*/
 
-
 mat-card {
-  margin-top: 10px;
-  margin-left: 20px;
+  padding-top: 10px;
+  height: 705px;
+  padding-left: 10px;
   border-width: 10px;
   border-style: outset;
   border-color: gray;
-
+  
+}
+.contain{
+  background-color: #C6F1E7;
+  display: flex;
+}
+.image{
+  flex: 2;
+  margin-top:0px;
+}
+img{
+  width: 700px;
+  height: 100vmin;
+  margin-left: 0px;
+}
+.wrapper{
+  padding:80px;
+  max-height: 800px;
+  flex: 1;
+  top:0;
+}
+.butt{
+  margin-left: 300px;
 }

@@ -1,7 +1,7 @@
-const passport = require('passport');
+const passport = require('passport');//Utiliser le paasport pour verifier l'utilisateur
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-const fs = require('fs');
+const fs = require('fs');//Pour lire les fichiers dans le dossier 'images'
 const imgFolder = 'images';
 const Image=require('.././models/Image');
 //Envoyer le json
@@ -17,6 +17,7 @@ module.exports.register=function(req,res){
 		});
 		return;
 	}
+	//Verifier si le client a deja inscrit
 	User.findOne({email:req.body.email},function(err,obj){
 		if(err){return res.status(404).json(err); }
 		if(obj){ sendJson(res,400,{
@@ -30,8 +31,9 @@ module.exports.register=function(req,res){
 	           user.DoB=req.body.dateofbirth;
 	           user.sexe=req.body.sexe;
 	           user.setPassword(req.body.password);
+	           //Creer des liens vers les images commune stocké dans le serveur et les enregistrer dans la base de donné
 	           user.image=[];
-	           var files = fs.readdirSync(imgFolder);
+	           var files = fs.readdirSync(imgFolder);//Creer des liens vers les images stocké dans le serveur et les enregistrer
                     for (let i = 0; i < files.length; i++) {
                           var images =new Image();
                           if(files[i].includes('cm')){

@@ -1,9 +1,10 @@
-const mongoose=require('mongoose'),
-	Lien = require('./liens');
+const mongoose=require('mongoose');
+const Lien = require('./liens');//Utiliser la collection Lien 
 const crypto=require('crypto');//Utiliser pour encoder le password
 const jwt =require('jsonwebtoken');//Utiliser pour creer un token 
-//Un token qide à continuer et à verifier l'user facilement sans tous reverifier son profil
-const Image =require('./Image');
+//Un token aide à continuer et à verifier l'user facilement sans tous reverifier son profil
+const Image =require('./Image');//Utiliser la collection Image
+const Fiche =require('./fiches');
 var Schema = mongoose.Schema;
 
 let User = new Schema({
@@ -40,7 +41,7 @@ let User = new Schema({
 	
 });
 
-//Encoder password
+//Encoder password avec crypto
 User.methods.setPassword=function(password){
  this.salt=crypto.randomBytes(16).toString('hex');
  this.hash=crypto.pbkdf2Sync(password,this.salt,1000,64,'sha512').toString('hex');

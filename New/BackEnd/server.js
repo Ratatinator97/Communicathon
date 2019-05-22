@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 server.listen(port);
 server.on('error', onError);
-//pas tres necessaire, seulement pour debugger facilement l'error dans le server
+//pour debugger facilement l'error dans le server
 server.on('listening', onListening);
 
 /**

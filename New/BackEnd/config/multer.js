@@ -1,8 +1,8 @@
 const multer = require('multer');
 const mongoose = require('mongoose');
-const fs = require('fs');
+const fs = require('fs');//Pour stocker les images dans le dossier "images"
 const imgFolder =  './images';
-console.log(__dirname);
+//Creer un storage pour multer et pour le stockage
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
     var stat = null;
@@ -18,6 +18,7 @@ var storage = multer.diskStorage({
   }
 
 });
+//Creer un multer pour stocker et filter le bon type de image
 const picto = multer({
     storage: storage, 
     limits: {
