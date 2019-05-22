@@ -19,7 +19,7 @@ export class HomeIconeService {
         {
             nomIcone:"Photos",
             classe: "photo",
-            dirigeVers:"image",
+            dirigeVers:"mail/image",
             lienImage: "http://localhost:4000/images/ic-photo.png"
         },
 

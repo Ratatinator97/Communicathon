@@ -5,7 +5,6 @@ const imgFolder =  './images';
 console.log(__dirname);
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-
     var stat = null;
     try {
         stat = fs.statSync(imgFolder);
@@ -15,8 +14,9 @@ var storage = multer.diskStorage({
     cb(null, imgFolder);
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname );
+    cb(null, file.originalname );
   }
+
 });
 const picto = multer({
     storage: storage, 
@@ -26,30 +26,32 @@ const picto = multer({
     fileFilter: function (req, file, cb) {
         sanitizeFile(file, cb);//Verifier les types des files(image)
     }
-}).single('image');
+});
 
 function sanitizeFile(file, cb) {
     // Define the allowed extension
     let fileExts = ['png', 'jpg', 'jpeg', 'gif'];
+    let check=true;
     // Check allowed extensions
     let isAllowedExt = fileExts.includes(file.originalname.split('.')[1].toLowerCase());
     // Mime type must be an image
     let isAllowedMimeType = file.mimetype.startsWith("image/");
-    fs.readdir(imgFolder, (err, files) => {
+    fs.readdirSync(imgFolder, (err, files) => {
            if(err){console.log(err)};
            for (let i = 0; i < files.length; ++i) {
                if(files[i]===file){
-                   cb('Error: File all ready existe ')
+                   check=false;
+                   return cb('Error: File all ready existe ')
                }
 
               }
           });
-    if(isAllowedExt && isAllowedMimeType){
+    if(isAllowedExt && isAllowedMimeType && check){
         return cb(null ,true) // no errors
     }
     else{
         // pass error msg to callback, which can be displaye in frontend
-         cb('Error: File type not allowed!');
+         return cb('Error: File type not allowed!');
     }
     
                

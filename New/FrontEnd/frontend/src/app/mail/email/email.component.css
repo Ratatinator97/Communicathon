@@ -1,0 +1,233 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+img {
+  height: 180px;
+  width: 200px;
+  
+}
+.wrapper{
+    min-width: 100vmax;
+    min-height: 100vmax;
+    background: url(http://localhost:4000/images/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:  cover;
+}
+.clearfix:after {
+content: "";
+display: table;
+clear: both;
+}
+.normal{
+  margin: 6px 6px 6px 6px;
+   opacity: 1;
+}
+.chosen{
+  margin: 6px 6px 6px 6px;
+    opacity: 0.2;
+    /*filter: alpha(opacity=50);*/
+    transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+}
+.contain{
+    position: relative;
+    width: 1100px;
+    border:1px solid black;
+    padding:10px;
+    top:40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color:#90EE90;
+}
+
+.contain >div>div{
+    float:right;
+    margin-top:10px;
+}
+.card-deck-container { 
+  width: 100%;
+  max-width: 760px;
+  min-height: 700px;
+  border-radius: 2px;
+  padding: 10px 10px 10px;
+  border:1px solid red; 
+  background-color: #2F4F4F;
+}
+.card-info{
+  top:0;
+    position: absolute;
+    right: 10px;
+    width: 280px;
+    height: 510px;
+    border:1px solid blue; 
+    background-color: #f5f5f5;   
+
+}
+.butt{
+  margin-top: 20px;
+  margin-left: 190px;
+}
+.mat-form-field {
+        width: 80%;
+        min-width: 100px;
+        text-align: center;
+        margin-left: 30px;
+        margin-top: 30px;
+        border-color: black;
+        border-width: 2px;
+        border-style: outset;
+}
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+  display: none;
+} 
+.content{
+  text-align: left;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right:5px;
+    border: 10px solid black;
+    background-clip: padding-box;
+    border-image-source: url(http://localhost:4000/images/border-image.png);
+    border-image-slice: 40;
+    border-image-repeat: round;
+}
+
+a{
+  margin-top: 8px;
+  margin-right: 5px;
+}
+/*Device mobile phone*/
+@media (min-width: 320px) and (max-width: 767px){
+
+   .card-deck-container { 
+    float: none;
+    margin-right:10px;
+    width:auto;
+    border:0;
+    position: static; 
+    justify-content: center;
+    display:flex;
+    width: 100%;
+  
+  }
+  
+  .card-info { 
+    float:none;
+    border:0;
+    top: 1550px;
+    margin: 5px 5px 5px 5px;
+    width: 370px;
+    height: 400px;
+    top:0;
+    
+  }
+  .contain{
+    position: relative;
+    width: 400px;
+    height: auto;
+    border:1px solid black;
+    padding:10px;
+    top:200px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto; 
+    background-color:#90EE90;
+
+    
+    
+}
+  }
+  /*Device tablets*/
+ @media (min-width: 768px) and (max-width: 1024px) {
+  .card-deck-container { 
+    float: none;
+    margin-right:10px;
+    width:auto;
+    border:0;
+    position: static; 
+    justify-content: center;
+    display:flex;
+    width: 520px;
+  }
+  .card-info { 
+    float: none;
+    border:0;
+    right: 20px;
+    margin: 3px 3px 3px 3px;
+    width: 200px;
+    vertical-align: left;
+  }
+  .contain{
+  
+    width: 770px;
+    height:900px;
+    border:1px solid black;
+    padding:10px;
+    top:150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto; 
+    background-color:#90EE90;
+
+
+
+}
+.butt{
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+}
+  /*Device tablets with landscape*/
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .card-deck-container { 
+    float: none;
+    margin-right:10px;
+    width:auto;
+    border:0;
+    position: static; 
+    justify-content: center;
+    display:flex;
+    width: 520px;
+  }
+  .card-info { 
+    float: none;
+    border:0;
+    right: 20px;
+    margin: 3px 3px 3px 3px;
+    width: 200px;
+    vertical-align: left;
+  }
+  .contain{
+  
+    width: 770px;
+    height:900px;
+    border:1px solid black;
+    padding:10px;
+    top:150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+
+    background-color:#90EE90;
+}
+.butt{
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+  
+}

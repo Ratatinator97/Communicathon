@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-const sgMail = require('@sendgrid/mail');
+//const sgMail = require('@sendgrid/mail');
+const Mailer=require('nodemailer')
 const fs=require('fs');
-var SENDGRID_API_KEY = fs.readFileSync('api_key.txt', 'utf8');
-sgMail.setApiKey(SENDGRID_API_KEY);
+
 module.exports.resetpassword=function(req,res){
   if(!req.body.email||!req.body.password){
   	return res.status(400).json({"message":"Rempli tous case"});
@@ -22,22 +22,35 @@ module.exports.resetpassword=function(req,res){
 		         	res.status(404).json({"message":"Can't change your password"});	
 		         }
 	            });
+    var transporter=Mailer.createTransport({
+            host: 'smtp.mail.yahoo.com',
+            port: 465,
+            service:'yahoo',
+            secure: false,
+            auth: {
+               user: 'communicathon@yahoo.com',
+               pass: 'password.3TC'
+            },
+            debug: false,
+            logger: true,
+})
 		const msg = {
          to: obj.email,
-         from: 'commnunicathon@gmail.com',
+         from: 'communicathon@yahoo.com',
          subject: 'Reset your password',
          text: 'your new password is updated',
          html:'<h2>Communicathon email </h2><br>'+ 
               '<p>Your password is reset </p><br>'+
               '<p>' +'<a href="'+url+'">Click this link to login to Communicathon</a>' + ' </p>',
        };
-       sgMail.send(msg,(err,result)=>{
-  	      if(err){console.log(err);
-         }else{
-         	res.status(200).json({"message":"Your password is change"});	
-         }
-
-       });
+  transporter.sendMail(msg, function(error, info){
+    if (error) {
+      console.log(error);
+   } else {
+     res.json(info);
+   }
+});
+      
 	 })
 
 

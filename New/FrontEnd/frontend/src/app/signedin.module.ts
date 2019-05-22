@@ -21,7 +21,9 @@ import { FicheWEEdit } from './fiches/edite/edite.component';
 import { FicheWECreate } from './fiches/nouveau/nouveau.component';
 import { ficheWEservice } from './service/fiche.service';
 
-import { EmailComponent } from './email/email.component';
+import { EmailComponent } from './mail/email/email.component';
+import {UploadComponent} from './mail/upload/upload.component';
+
 import { EmailService } from './service/email.service';
 
 import { SignedInRoutingModule } from './signedin-routing.module';
@@ -95,7 +97,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
         FicheWECreate,
         FicheWEEdit,
         FicheWEList,
-        EmailComponent
+        EmailComponent,
+        UploadComponent
     ],
 })
 export class SignedInModule {}

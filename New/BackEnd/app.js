@@ -22,7 +22,7 @@ require('./config/passport');
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(body.json());
-app.use(body.urlencoded({extended:false}));
+app.use(body.urlencoded({extended:true}));
 app.use(cookieParser());//Utiliser la cookie
 app.use(cors());
 app.use(passport.initialize());

@@ -30,7 +30,6 @@ router.post('/fiches',auth,Fiches.create);
 router.get('/fiches', auth, Fiches.view);
 router.put('/fiches',auth, Fiches.edit);
 router.delete('/fiches/:id',auth, Fiches.remove);
-router.post('/upload',picto,ctrlImg.upload);
+router.post('/upload',auth,picto.single('file'),ctrlImg.upload);
 router.post('/email',auth,ctrlEmail.sendemail);
-
 module.exports=router;

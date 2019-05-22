@@ -24,6 +24,8 @@ export class Images implements ImageDetail{
     }
     
 }
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,4 +39,12 @@ export class EmailService {
   public sendImage(message:String):Observable<any>{
     return this.http.post(`${this.uri}/api/email`,{message:message});
 }
+ public uploadImage(file: File,description:string): Observable<any> {
+    const formData = new FormData();
+
+    formData.append('file', file,file.name);
+    formData.append('description', description);
+    return this.http.post(`${this.uri}/api/upload`, formData);
+  }
+ 
 }
