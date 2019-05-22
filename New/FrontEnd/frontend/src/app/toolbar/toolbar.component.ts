@@ -16,7 +16,9 @@ export class ToolbarComponent implements OnInit {
   name:String;
   prename:String;
   retour:String;
+
   ngOnInit() {
+    // On recupere le nom et le prenom de l'URL et on definit le retour a Home en consequence
     this.name=this.router.snapshot.params.nom.split('-')[0].toUpperCase() ;
     this.prename=this.router.snapshot.params.nom.split('-')[1].toUpperCase();
     let nom =this.name+'-'+this.prename;

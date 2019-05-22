@@ -15,6 +15,7 @@ export class RegistreComponent implements OnInit {
               reason: '',
               status: '',
               message:'Not Valid register form'};
+
    credentials: TokenPayload = {
     email: '',
     nom: '',
@@ -33,6 +34,9 @@ export class RegistreComponent implements OnInit {
     }else{
       this.checkValide(this.registreForm);
       this.auth.register(this.credentials).subscribe(() => {
+        
+        // idem que pour login. Apres enregistrement l'utilisateur recoit un token.
+        // Celui-ci est utilise pour connaitre l'URL dynamique
         let nom =this.credentials.nom + '-'+this.credentials.prenom;
         alert('Bien registre');
         this.router.navigate(['/home',nom.toLowerCase()]);          

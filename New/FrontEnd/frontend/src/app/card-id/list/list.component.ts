@@ -17,18 +17,14 @@ export class CardIDList implements OnInit {
   
   constructor(private cardIDservice: CardIDService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
-    
-    console.log("Token OK");
-    this.fetchCardID();
-    console.log("fetched all the stuffs");
+    this.fetchCardID(); // On charge les données de la CardID de l'user
   }
   
   fetchCardID(){
     this.cardIDservice
     .getCardID()
     .subscribe((data: User) => {
-      console.log("Gathering the data");
-      this.user = data;
+      this.user = data; // On met les infos recues dans une variable qui peut etre lue par le HTML
     });
   }
 

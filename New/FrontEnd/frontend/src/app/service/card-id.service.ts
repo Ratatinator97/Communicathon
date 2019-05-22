@@ -11,12 +11,16 @@ export class CardIDService {
   uri = 'http://localhost:4000/api'; 
   constructor(private http: HttpClient) { }
 
+  // Simple requette HTTP afin de recuperer les informations de cardID
+  // Observable permet de faire une requete asynchrone
   getCardID(): Observable<any> {
     return this.http.get(`${this.uri}/cardID`);
   }
 
+  // envoyer les parametres dans le backend pour une mise a jour
   updateCardID(address, pphone, c1name, c1phone, c1email, c2name, c2phone, c2email, med_data, talk_ab, understand_ab, know_lang  ):Observable<any> {
     
+    // Relier les parametres aux modele de cardID
     const cardID_info={
       address: address,
       phone : pphone,

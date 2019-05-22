@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistreComponent },
   { path: 'resetpw', component: ForgetpwComponent },
-  { path: 'home/:nom', loadChildren: "./signedin.module#SignedInModule" }
+  { path: 'home/:nom', loadChildren: "./signedin.module#SignedInModule" } // Ceci est du lazy loading
+  // Les composants utilises dans SignedInModule seront charges que a partir de la navigation dans home/:nom 
 ];  
 
 @NgModule({

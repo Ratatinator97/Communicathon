@@ -27,16 +27,20 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthenticationService, private router: Router,public errorDialog:ErrordialogService) {}
 
   login() {
+
+    // regarder si le formulaire est valide
     if(!this.checkValide(this.loginForm)){
       this.errorDialog.openDialog(this.data);
     }else{
-     this.auth.login(this.credentials).subscribe(() => {
-      this.path();
-      let nom =this.username + '-'+this.userprename;
-      this.router.navigate(['/home/'+nom.toLowerCase()]);
-     
-    }, (err) => {
-      console.error(err.error.message);
+      
+      this.auth.login(this.credentials).subscribe(() => {
+        this.path();
+        
+        // Se diriger vers l'URL dynamique
+        let nom =this.username + '-'+this.userprename;
+        this.router.navigate(['/home/'+nom.toLowerCase()]);
+      }, (err) => {
+        console.error(err.error.message);
     }); 
   }
 }
@@ -52,6 +56,7 @@ export class LoginComponent implements OnInit {
  
     });
   }
+  // L'URL dynamique est déterminé en fonction des données contenues dans le token
   path(){
      const token :string =localStorage.getItem('mean-token');
      let payload;

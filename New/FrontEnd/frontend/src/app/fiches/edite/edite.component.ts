@@ -13,13 +13,14 @@ import { User } from '../../model/user.model';
   styleUrls: ['./edite.component.css']
 })
 
+// importation des modules et services necessaires
 export class FicheWEEdit implements OnInit {
 
   constructor(private FicheWEservice: ficheWEservice, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { 
     this.createForm();
   }
   info: any={};
-  updateForm: FormGroup;
+  updateForm: FormGroup; // Creation du questionnaire
   
   createForm() {
     this.updateForm = this.fb.group({
@@ -37,7 +38,7 @@ export class FicheWEEdit implements OnInit {
   
   
   ngOnInit() {
-      
+      // Recuperer les donnees dans le backend et les afficher ( cela permet a l'utilisateur de ne pas tout retaper )
       this.FicheWEservice.getFicheWE().subscribe( res => {
         this.info = res;
         this.updateForm.get('date_samedi').setValue(this.info.date_samedi);
@@ -51,9 +52,10 @@ export class FicheWEEdit implements OnInit {
       });
 
   }
+  // On recupere les donnes dans les champs du questionnaire et on les envoie au backend
   updateFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir){
     this.FicheWEservice.updateFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir).subscribe(() => {
-      this.snackBar.open('Issue updated successfully', 'OK', {
+      this.snackBar.open('Fiche updated successfully', 'OK', {
         duration: 3000
       });
       this.router.navigate(['../list'],{relativeTo: this.route});

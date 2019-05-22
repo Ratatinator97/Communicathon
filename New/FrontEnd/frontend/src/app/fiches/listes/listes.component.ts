@@ -21,12 +21,16 @@ export class FicheWEList implements OnInit {
   constructor(private ficheWEservice: ficheWEservice, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.fetchFicheWE();
-    let token;
-      token=localStorage.getItem('mean-token');
-      console.log(token);
-  }
+    this.verifToken();
+    this.fetchFicheWE(); // recuperer les donnes necessaires
 
+  }
+  verifToken(){
+    const token =localStorage.getItem('mean-token');
+    if(!token){
+      this.router.navigateByUrl('/');
+    }
+  };
   fetchFicheWE(){
     this.ficheWEservice
     .getFicheWE()

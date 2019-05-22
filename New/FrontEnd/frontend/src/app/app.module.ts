@@ -1,3 +1,5 @@
+// Importation des modules necessaires dans le premier router ( login + register + change password )
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';

@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';//Utiliser pour asychorous function ou donnee
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-
-
 export interface UserDetail{
   _id:string;
   nom:string;
@@ -38,12 +36,12 @@ export class AuthenticationService {
 
   //Enlever et Storer le token dans le localStorage du server
   private saveToken(token:string):void{
+    // On sauvegarde le Token
   	localStorage.setItem('mean-token',token);
   	this.token=token;
   }
-/*Exemple un token 
- eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1NWQ0MjNjMTUxMzcxMmNkMzE3YTRkYTciLCJlbWFpbCI6InNpbW9uQGZ1bGxzdGFja3RyYWluaW5nLmNvbSIsIm5hbWUiOiJTaW1vbiBIb2xtZXMiLCJleHAiOjE0NDA1NzA5NDUsImlhdCI6MTQzOTk2NjE0NX0.jS50GlmolxLoKrA_24LDKaW3vNaY94Y9EqYAFvsTiLg
-*/
+
+
   private getToken():string{
   	if(!this.token){
   		this.token=localStorage.getItem('mean-token');
@@ -104,16 +102,14 @@ export class AuthenticationService {
   public profile(): Observable<any> {
     return this.request('get', 'profile');
   }
-  public cardid():Observable<any>{
-    return this.http.get(`${this.uri}/api/cardID`);
-  }
+  // Fonction pour changer de password
   public resetpw(user:TokenPayload):Observable<any>{
     return this.request('post','resetpw',user);
   }
   //Effacer le token quand logout
   public logout():void{
   	this.token='';
-  	window.localStorage.removeItem('mean-token');
+  	window.localStorage.removeItem('mean-token'); // On enleve le Token du storage
   	this.route.navigateByUrl('/');
   }
 }

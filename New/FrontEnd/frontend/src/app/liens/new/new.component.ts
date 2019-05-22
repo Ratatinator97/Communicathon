@@ -23,6 +23,7 @@ export class LinkCreate implements OnInit {
     this.router.navigate(['../list'],{relativeTo: this.route});
   }
   addLien(label, path){
+    // On cree un nouveau lien avec les attributs correspondants aux valeurs lues dans le questionnaire
     this.lienService.createLiens(label, path).subscribe( () => {
       this.router.navigate(['../list'],{relativeTo: this.route});
     });

@@ -4,6 +4,8 @@ import { ErrorDialogComponent } from './errordialog.component';
 @Injectable({
   providedIn: 'root'
 })
+
+// Ce service permet d'afficher les erreurs a l'ecran 
 export class ErrordialogService {
 
   constructor(public dialog:MatDialog) { }
@@ -13,9 +15,9 @@ export class ErrordialogService {
   		data:data
   	});
   	open.afterClosed().subscribe(result=>{
-  		let animal;
-  		animal=result;
-  		console.log(animal);
+  		let things;
+  		things=result;
+  		console.log(things);
   	})
   }
 }

@@ -12,11 +12,12 @@ export class LinkList implements OnInit {
 
   constructor(private liensService: LienService, private router: Router, private route: ActivatedRoute) { }
 
+  // Fonctionnement identique a "fiches"
   InfoLiens: Lien[];
   displayedColumns = ['Label', 'Lien','Actions'];
   ngOnInit() {
-    this.verifToken();
-    this.fetchLiens();
+    this.verifToken(); // On verifie tout d'abord le token afin d'accepter d'aller a cette page
+    this.fetchLiens(); // On charge ensuite les liens de l'utilisateur
   }
   newLien() {
     this.router.navigate(['../create'],{relativeTo: this.route});
@@ -28,6 +29,7 @@ export class LinkList implements OnInit {
         this.InfoLiens = data;
       });
   };
+  
   verifToken(){
     const token =localStorage.getItem('mean-token');
     if(!token){

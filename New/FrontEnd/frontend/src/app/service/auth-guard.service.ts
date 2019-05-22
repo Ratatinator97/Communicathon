@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
-//Decider si maintenir les routers ou pas, dependant si user logge ou pas
+
 @Injectable()
 export class AuthGuardService implements CanActivate {
-
+  // Est-ce que on accepte les routes en fonction des données présentes sur le Token
+  // Si le token n'est pas valide, on n'accepte pas l'utilisateur
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   canActivate() {

@@ -11,6 +11,7 @@ export interface ImageDetail{
       contenttype:string,
       state:boolean;
 }
+
 export class Images implements ImageDetail{
 	public path:string;
     public description:string;
@@ -33,6 +34,7 @@ export class Images implements ImageDetail{
 export class EmailService {
   uri = 'http://localhost:4000';//url pour connecter au server
   constructor(private http:HttpClient,private route:Router) {}
+  
   public getImage():Observable<any>{
   	return this.http.get(`${this.uri}/api/image`);
   }

@@ -10,9 +10,12 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
   styleUrls: ['./nouveau.component.css']
 })
 export class FicheWECreate implements OnInit {
-  createForm: FormGroup;
+
+  createForm: FormGroup; // Creation du questionnaire, il peut etre desormais utilise dans le HTML
   constructor(private ficheWEservice: ficheWEservice, private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
+    
     this.createForm = this.fb.group({
+
       date_samedi: ['', Validators.required],
       date_dimanche: ['', Validators.required],
       Samedi_matin: ['', Validators.required],
@@ -25,6 +28,7 @@ export class FicheWECreate implements OnInit {
     });
    }
 
+   // On envoie les donnees au backend
    addFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir){
     this.ficheWEservice.createFicheWE(date_samedi, date_dimanche, Samedi_matin, Samedi_midi, Samedi_soir, Dimanche_matin, Dimanche_midi, Dimanche_soir).subscribe( () => {
       this.router.navigate(['../list'],{relativeTo: this.route});

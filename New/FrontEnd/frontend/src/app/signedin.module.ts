@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 
+
+// Importation des modules et composants utilises dans la seconde partie ( home + fiches + liens + cardID etc...)
 import { AuthenticationService } from './service/authentication.service';
 import { AuthGuardService } from './service/auth-guard.service';
 import {MatIconModule} from '@angular/material';

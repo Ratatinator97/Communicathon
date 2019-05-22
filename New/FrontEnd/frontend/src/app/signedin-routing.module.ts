@@ -19,6 +19,10 @@ import { FicheWECreate } from './fiches/nouveau/nouveau.component';
 import { EmailComponent } from './mail/email/email.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {UploadComponent} from './mail/upload/upload.component';
+
+// Ceci est le deuxieme plan de routes
+// le path '' correspond donc a home/:nom 
+// On accede a ce router depuis le premier router
 const routes: Routes = [
     { path: '', component: ToolbarComponent, canActivate: [AuthGuardService], children: [
         { path: '', component: HomeComponent},
