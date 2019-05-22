@@ -10,25 +10,26 @@ export class HomeIconeService {
         },
 
         {
-            nomIcone:"Calendrier",
-            classe: "calendar",
-            dirigeVers:"",
-            lienImage: "http://localhost:4000/images/ic-calendrier.png"
-        },
-
-        {
-            nomIcone:"Photos",
+            nomIcone:"PictoMails",
             classe: "photo",
             dirigeVers:"mail/image",
-            lienImage: "http://localhost:4000/images/ic-photo.png"
+            lienImage: "http://localhost:4000/images/ic-mail.png"
         },
 
-        {
+// Pour une prochaine version.
+        /*{
             nomIcone:"Videos",
             classe: "video",
             dirigeVers:"",
             lienImage: "http://localhost:4000/images/ic-video.png"
         },
+        {
+            nomIcone:"Calendrier",
+            classe: "calendar",
+            dirigeVers:"",
+            lienImage: "http://localhost:4000/images/ic-calendrier.png"
+        },
+*/ 
 
         {
             nomIcone:"Liens",
@@ -41,7 +42,15 @@ export class HomeIconeService {
             nomIcone:"Carnet de Bord",
             classe: "fiche",
             dirigeVers:"ficheWE/list",
-            lienImage: "http://localhost:4000/images/ic-carnet.jpeg"
+            lienImage: "http://localhost:4000/images/ic-carnet.jpg"
+        },
+
+        {
+            nomIcone:"Rapport",
+            classe: "rapport",
+            dirigeVers:"rapport",
+            lienImage: "http://localhost:4000/images/ic-rapport.jpg"
+        
         }
           
     ];

@@ -50,6 +50,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 
+import { RapportComponent } from './rapport/rapport.component';
+
 
 
 
@@ -100,7 +102,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
         FicheWEEdit,
         FicheWEList,
         EmailComponent,
-        UploadComponent
+        UploadComponent,
+        RapportComponent 
     ],
 })
 export class SignedInModule {}
