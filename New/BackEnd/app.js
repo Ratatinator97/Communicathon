@@ -22,16 +22,17 @@ require('./config/passport');
 app.use(logger('dev'));
 app.use(body.json());
 app.use(body.urlencoded({extended:true}));
-app.use(cookieParser());//Utiliser la cookie
-//Utiliser le cors
+app.use(cookieParser());//Utiliser les cookies
+//Utiliser le cors --> CROSS ORIGIN REQUEST SERVICE
 app.use(cors());
 app.use(passport.initialize());
 app.use(function(req, res, next) {
  res.header("Access-Control-Allow-Origin", "*");
- res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
- res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+ res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT"); // Nous acceptions que un certain type de requettes HTTP.
+ res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization"); // Afin de pouvoir recevoir le Token
  next();
 });
+
 //Definir un chemin statique pour acceder aux images dans le dossier "images"
 app.use('/images',express.static(path.join(__dirname, '/images')));
 app.use('/api',routesApi);//utiliser ce route 

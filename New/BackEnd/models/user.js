@@ -7,6 +7,8 @@ const Image =require('./Image');//Utiliser la collection Image
 const Fiche =require('./fiches');
 var Schema = mongoose.Schema;
 
+
+// Definition du Schema du user
 let User = new Schema({
    
 	nom:{ type: String, required: true},

@@ -3,6 +3,10 @@ const User = mongoose.model('User')
 
 var FicheWE = require('../models/fiches');
 
+
+// Meme principe que pour lien 
+
+
 module.exports.view=function(req,res){
     
     if(!req.payload._id){

@@ -8,8 +8,9 @@ module.exports.view=function(req,res){
             "message": "UnauthorizedError: private profile"
         });
     } else {
+        // On trouve toujours l'utilisateur correspondant a la requete grace au Token
         User
-            .findById(req.payload._id)
+            .findById(req.payload._id) 
             .exec(function(err, user) {
                 if(err) return next(err);
                 res.status(200).json(user)
