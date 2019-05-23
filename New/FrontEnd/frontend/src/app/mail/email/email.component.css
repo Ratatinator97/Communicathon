@@ -10,11 +10,7 @@ img {
 .wrapper{
     min-width: 100vmax;
     min-height: 100vmax;
-    background: url(http://localhost:4000/images/background.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size:  cover;
+    background: #d8d9da;
 }
 .clearfix:after {
 content: "";
@@ -45,7 +41,7 @@ clear: both;
     right: 0;
     bottom: 0;
     margin: auto;
-    background-color:#90EE90;
+    background-color:#79c2ac;
 }
 
 .contain >div>div{
@@ -58,7 +54,7 @@ clear: both;
   min-height: 700px;
   border-radius: 2px;
   padding: 10px 10px 10px;
-  border:1px solid red; 
+  border:1px solid black; 
   background-color: #2F4F4F;
 }
 .card-info{
@@ -87,19 +83,17 @@ clear: both;
 }
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: green !important;
+  background-color:  #fff00f !important;
   display: none;
 } 
 .content{
-  text-align: left;
+  text-align: center;
     margin-top: 20px;
     margin-left: 5px;
     margin-right:5px;
-    border: 10px solid black;
+    border: 5px outset black;
     background-clip: padding-box;
-    border-image-source: url(http://localhost:4000/images/border-image.png);
-    border-image-slice: 40;
-    border-image-repeat: round;
+
 }
 
 a{
