@@ -14,7 +14,7 @@ export class LinkList implements OnInit {
 
   // Fonctionnement identique a "fiches"
   InfoLiens: Lien[];
-  displayedColumns = ['Label', 'Lien','Actions'];
+  displayedColumns = ['Label','Actions'];
   ngOnInit() {
     this.verifToken(); // On verifie tout d'abord le token afin d'accepter d'aller a cette page
     this.fetchLiens(); // On charge ensuite les liens de l'utilisateur
@@ -25,7 +25,8 @@ export class LinkList implements OnInit {
   fetchLiens(){
     this.liensService
       .getLiens()
-      .subscribe((data: Lien[]) => {
+      .subscribe((data) => {
+        console.log(data);
         this.InfoLiens = data;
       });
   };

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,16 +16,17 @@ export class LienService {
     return this.http.get(`${this.uri}/liens`);
   };
 
-  createLiens(label, path):Observable<any> {
-    const lien = {
-      label: label,
-      path: path
-    };
-    return this.http.post(`${this.uri}/liens`,lien);
+  createLiens(file: File, link):Observable<any> {
+    const formData = new FormData;
+    formData.append('link', link);
+    formData.append('file', file, file.name);
+    return this.http.post(`${this.uri}/liens`,formData);
   };
   
   deleteLiens(id):Observable<any> {
       return this.http.delete(`${this.uri}/liens/${id}`);
   };
+
+
 }
 

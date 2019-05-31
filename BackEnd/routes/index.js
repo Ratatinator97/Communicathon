@@ -24,7 +24,7 @@ router.post('/resetpw',ResetPW.resetpassword);
 router.get('/cardID',auth, CardId.view);
 router.put('/cardID',auth, CardId.edit);
 //Pour le lien 
-router.post('/liens',auth, Liens.create);
+router.post('/liens',auth, picto.single('file'), Liens.create);
 router.get('/liens',auth, Liens.view);
 router.delete('/liens/:id', auth, Liens.remove);
 //Pour le fichier
@@ -32,8 +32,10 @@ router.post('/fiches',auth,Fiches.create);
 router.get('/fiches', auth, Fiches.view);
 router.put('/fiches',auth, Fiches.edit);
 router.delete('/fiches/:id',auth, Fiches.remove);
-//Pour la fonctionnalité picto mail
+
 router.get('/image',auth,ctrlImg.getPhoto);
 router.post('/upload',auth,picto.single('file'),ctrlImg.upload);
+
+//Pour la fonctionnalité picto mail
 router.post('/email',auth,ctrlEmail.sendemail);
 module.exports=router;

@@ -49,7 +49,7 @@ import { MatToolbarModule,
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { RapportComponent } from './rapport/rapport.component';
 
 
@@ -60,6 +60,7 @@ import { RapportComponent } from './rapport/rapport.component';
 
     imports: [ // modules which app will use after login
         CommonModule,
+        Ng2ImgMaxModule,
         SignedInRoutingModule,
         MatIconModule, 
         MatToolbarModule,
