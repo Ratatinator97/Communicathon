@@ -1,10 +1,22 @@
 const app=require('./app');
-const http =require('http');
+const https =require('https');
+const http = require('http');
+const fs = require('fs');
 const debug = require('debug')('http:server');//debugger le server
 var port =  '4000';
+
+const privateKey = fs.readFileSync('./server.key');
+const certificate = fs.readFileSync('./server.crt');
+
 app.set('port', port);
+var options = {
+  key: privateKey,
+  cert: certificate
+};
 //Creer un server http lui meme, presque pareil à app.listen()
+//const server = https.createServer(options,app);
 const server = http.createServer(app);
+
 
 server.listen(port);
 server.on('error', onError);

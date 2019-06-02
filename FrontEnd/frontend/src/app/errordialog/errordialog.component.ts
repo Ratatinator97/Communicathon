@@ -6,5 +6,5 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   templateUrl: './errordialog.component.html'
 })
 export class ErrorDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: string) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {status:string,message:string,reason:string}) {}
 }

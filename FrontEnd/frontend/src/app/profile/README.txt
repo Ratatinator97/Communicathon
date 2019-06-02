@@ -1,1 +1,0 @@
-Profile n'est pas utilisé dans l'applications. Cependant il serait possible qu'il soit utilisé dans le futur.

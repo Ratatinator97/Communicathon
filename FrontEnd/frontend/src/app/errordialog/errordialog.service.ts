@@ -8,7 +8,7 @@ import { ErrorDialogComponent } from './errordialog.component';
 // Ce service permet d'afficher les erreurs a l'ecran 
 export class ErrordialogService {
 
-  constructor(public dialog:MatDialog) { }
+	constructor(public dialog:MatDialog) { }
   openDialog(data):void{
   	const open=this.dialog.open(ErrorDialogComponent,{
   		width:'400px',

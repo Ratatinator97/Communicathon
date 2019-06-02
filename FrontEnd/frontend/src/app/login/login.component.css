@@ -43,27 +43,18 @@ mat-card {
   /*margin-left:  800px;*/
   padding-left: 10px;
   border-width: 10px;
-  max-height: 400px;
+  
   border-style: outset;
   border-color: gray;
   
 }
 .contain{
  background-color: #C6F1E7;
-  display: flex;
+ min-height: 900px;
 }
-.image{
-  flex: 2;
-  margin-top:0px;
-}
-img{
-  width: 700px;
-  height: 100vmin;
-  margin-left: 0px;
-}
+
 .wrapper{
   padding:80px;
-  
   flex: 1;
   top:0;
 }

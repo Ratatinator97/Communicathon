@@ -15,6 +15,8 @@ const Fiches = require('../control/fiche');
 const ctrlEmail=require('../control/email');
 const ctrlImg=require('../control/image');
 const picto =require('../config/multer');
+const pictalk = require('../control/PicTalk');
+const testing = require('../control/testing');
 //Tous les types de requetes
 //Pour le login, regitre, remise de password
 router.post('/register', ctrlAuth.register);
@@ -38,4 +40,10 @@ router.post('/upload',auth,picto.single('file'),ctrlImg.upload);
 
 //Pour la fonctionnalité picto mail
 router.post('/email',auth,ctrlEmail.sendemail);
+
+router.get('/pictalk/:meaning',auth, pictalk.view);
+router.post('/pictalk/:father/:folder', picto.single('file'), pictalk.create);
+router.delete('/pictalk/:id', pictalk.delete);
+
+router.get('/hello', testing.hello);
 module.exports=router;
