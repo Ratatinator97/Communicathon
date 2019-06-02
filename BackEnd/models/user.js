@@ -5,6 +5,7 @@ const jwt =require('jsonwebtoken');//Utiliser pour creer un token
 //Un token aide à continuer et à verifier l'user facilement sans tous reverifier son profil
 const Image =require('./Image');//Utiliser la collection Image
 const Fiche =require('./fiches');
+const Picto = require('./picto');
 var Schema = mongoose.Schema;
 
 
@@ -15,7 +16,7 @@ let User = new Schema({
 	prenom:{ type: String, required: true},
 	email:{type:String,unique:true,required: true},
 	DoB:{type:Date,required: true},
-    sexe:{type:String,required: true},
+  sexe:{type:String,required: true},
 	hash:String,
 	salt:String,	
 	cardID: {
@@ -31,15 +32,16 @@ let User = new Schema({
 			email: String,
 			phone: String
 	   },
-	medical_Data: String,
-	talk_Ability: String,
-	understand_Ability: String,
-	known_Languages: String,
-	updated_at: { type: Date, default: Date.now }
+		medical_Data: String,
+		talk_Ability: String,
+		understand_Ability: String,
+		known_Languages: String,
+		updated_at: { type: Date, default: Date.now }
 	},
 	image:[{type:Schema.Types.ObjectId,ref:'Image'}],
 	liensUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Lien'}],
-	fichesUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Fiche'}]	
+	fichesUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Fiche'}],
+	pictoUtilisateur: [{ type: Schema.Types.ObjectId, ref: 'Picto'}]
 	
 });
 

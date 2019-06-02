@@ -42,8 +42,8 @@ router.post('/upload',auth,picto.single('file'),ctrlImg.upload);
 router.post('/email',auth,ctrlEmail.sendemail);
 
 router.get('/pictalk/:meaning',auth, pictalk.view);
-router.post('/pictalk/:father/:folder', picto.single('file'), pictalk.create);
-router.delete('/pictalk/:id', pictalk.delete);
+router.post('/pictalk/:father', auth, picto.single('file'), pictalk.create);
+router.delete('/pictalk/:id', auth, pictalk.delete);
 
 router.get('/hello', testing.hello);
 module.exports=router;

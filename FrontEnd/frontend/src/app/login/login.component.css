@@ -39,22 +39,21 @@ i {
   margin-top: 5px;
 }
 mat-card {
-  padding-top: 10px;
+  padding-top: auto;
   /*margin-left:  800px;*/
-  padding-left: 10px;
+  padding-left: auto;
   border-width: 10px;
   
   border-style: outset;
   border-color: gray;
   
 }
-.contain{
+body{
  background-color: #C6F1E7;
- min-height: 900px;
+ 
 }
 
 .wrapper{
-  padding:80px;
   flex: 1;
   top:0;
 }

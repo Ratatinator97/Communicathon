@@ -6,7 +6,7 @@ let PictoSchema = new Schema({
     path: String,
     contenttype : String,
     meaning : String,
-    folder : Boolean,
+    folder : String,
     childs : [{type:Schema.Types.ObjectId,ref:'Picto'}],
     user : {type:Schema.Types.ObjectId,ref:'User'}
 });
