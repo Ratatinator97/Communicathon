@@ -1,3 +1,44 @@
-<p>
-  list works!
-</p>
+<mat-toolbar color="accent" class="topBar">
+  <button mat-button (click)="return()">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <span class="space"></span>
+  <button mat-button (click)="create_folderPicto()">
+    <mat-icon>create_new_folder</mat-icon>
+  </button>
+  <button mat-button (click)="create_simplePicto()">
+  <mat-icon>insert_drive_file</mat-icon>
+  </button>
+</mat-toolbar>
+
+<body>
+  <mat-grid-list [cols]="columnNum" rowHeight="200px">
+    <mat-grid-tile *ngFor="let picto of tabPicto">
+      <mat-card>
+        <mat-card-title>{{picto.meaning}}</mat-card-title>
+        <mat-card-content>
+          <div ng-if="picto.folder">
+            <a (click)="fetchPicto(picto.meaning)"><img mat-card-image src={{picto.path}} ></a>
+          </div>
+          <div ng-if="!picto.folder">
+            <img src={{picto.path}}>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</body>
+
+
+<mat-toolbar color="accent" class="bottomBar">
+  <mat-card class= "text">
+  <mat-card-content>
+    {{pictoText}}
+  </mat-card-content>
+  </mat-card>
+  <span class="space"></span>
+  <button mat-button (click)="speak()">
+    <mat-icon>volume_up</mat-icon>
+  </button>
+
+</mat-toolbar>

@@ -2,7 +2,7 @@ var Picto = require('../models/picto');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-
+const fs = require('fs');
 module.exports.view=function(req, res) {
     if(!req.payload._id){
         res.status(401).json({
@@ -43,7 +43,7 @@ module.exports.create=function(req, res) {
         }
         
         let newpath;
-        newpath = 'http://localhost:4000/images/pictos/' + req.file.originalname;
+        newpath = 'http://localhost:4000/images/' + req.file.originalname;
 
         if(req.params.father == "none"){
             
@@ -87,9 +87,17 @@ module.exports.delete=function(req, res) {
             "message": "UnauthorizedError: private profile"
         });
     } else {
-        Picto.remove({_id: req.params.id}).exec().then( function() {
-            res.status(201).json({message: "Picto deleted"})
+        Picto.findById(req.params.id, function(err, result){
+            if(err){return res.status(401).json({"message": "Error deliting picto"});}
+            path = "."+ result.path.slice(21);
+            fs.unlink(path, (err) => {
+                if (err) throw err;
+            });
+            Picto.deleteOne({_id: req.params.id}).exec().then( function() {
+                res.status(201).json({message: "Picto deleted"})
+            });
         });
+
 
     }
 };

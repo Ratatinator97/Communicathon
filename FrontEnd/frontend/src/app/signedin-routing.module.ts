@@ -22,6 +22,9 @@ import {UploadComponent} from './mail/upload/upload.component';
 
 import { RapportComponent } from './rapport/rapport.component';
 
+import { PicTalkList } from './pictalk/list/list.component';
+import { PicTalkCreate } from './pictalk/create/create.component';
+
 // Ceci est le deuxieme plan de routes
 // le path '' correspond donc a home/:nom 
 // On accede a ce router depuis le premier router
@@ -32,6 +35,7 @@ const routes: Routes = [
         { path: 'links', children: [{path:'list', component: LinkList}, {path:'create', component: LinkCreate}]},
         { path: 'ficheWE', children: [{path: 'list', component: FicheWEList}, {path: 'create', component: FicheWECreate}, {path: 'edit', component: FicheWEEdit}]},
         { path: 'mail',  children: [{path:'image', component: EmailComponent}, {path: 'upload', component: UploadComponent}] },
+        { path: 'pictalk', children: [{path:'list',component:PicTalkList}, {path:'create', component:PicTalkCreate}] },
         { path: 'rapport', component: RapportComponent }
     ] },
   ]; 

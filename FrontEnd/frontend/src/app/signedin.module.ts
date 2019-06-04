@@ -51,8 +51,8 @@ import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { RapportComponent } from './rapport/rapport.component';
-import { CreateComponent } from './pictalk/create/create.component';
-import { ListComponent } from './pictalk/list/list.component';
+import { PicTalkCreate } from './pictalk/create/create.component';
+import { PicTalkList } from './pictalk/list/list.component';
 
 
 
@@ -107,8 +107,8 @@ import { ListComponent } from './pictalk/list/list.component';
         EmailComponent,
         UploadComponent,
         RapportComponent,
-        CreateComponent,
-        ListComponent 
+        PicTalkCreate,
+        PicTalkList
     ],
 })
 export class SignedInModule {}
