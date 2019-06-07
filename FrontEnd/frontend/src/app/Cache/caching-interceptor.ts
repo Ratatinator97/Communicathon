@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CacheMapService } from '../service/cache-map.service';
 
-const CACHABLE_URL = "/api/booksSearch";
+const CACHABLE_URL = "/api/images";
 
 @Injectable()
 export class CachingInterceptor implements HttpInterceptor {
@@ -16,6 +16,7 @@ export class CachingInterceptor implements HttpInterceptor {
         }
         const cachedResponse = this.cache.get(req);
         if (cachedResponse !== null) {
+            
            return of(cachedResponse);
         }
         return next.handle(req).pipe(
