@@ -32,7 +32,9 @@ import { SignedInRoutingModule } from './signedin-routing.module';
 import { CommonModule } from '@angular/common';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
-
+import {
+    SpeechSynthesisModule,
+  } from '@kamiazya/ngx-speech-synthesis';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { MatToolbarModule, 
   MatFormFieldModule, 
@@ -64,6 +66,12 @@ import { TransferService } from './pictalk/transfer.service';
 
     imports: [ // modules which app will use after login
         CommonModule,
+        SpeechSynthesisModule.forRoot({
+            lang:'fr',
+            volume:1.0,
+            pitch:1.0,
+            rate:1.0
+        }),
         Ng2ImgMaxModule,
         SignedInRoutingModule,
         MatIconModule, 

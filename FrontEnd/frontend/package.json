@@ -25,6 +25,7 @@
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@kamiazya/ngx-speech-synthesis": "0.0.3",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.9",
     "ngx-show-hide-password": "^2.0.3",

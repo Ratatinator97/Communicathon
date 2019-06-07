@@ -3,17 +3,20 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PicTalkService } from '../../service/pic-talk.service';
 import { Picto } from '../../model/picto.model';
 import { TransferService } from '../transfer.service';
-
+import {SpeechSynthesisUtteranceFactoryService,SpeechSynthesisService} from '@kamiazya/ngx-speech-synthesis';
  @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
+  providers: [SpeechSynthesisUtteranceFactoryService],
 })
 export class PicTalkList implements OnInit {
-
+  synth = window.speechSynthesis;
   tabPicto:Picto[];
-  constructor(private transferService: TransferService,private pictoService: PicTalkService, private router: Router, private route: ActivatedRoute) { }
-  pictoText="";
+  pictoText:string="";
+  constructor(private f:SpeechSynthesisUtteranceFactoryService,private svc: SpeechSynthesisService,private transferService: TransferService,private pictoService: PicTalkService, private router: Router, private route: ActivatedRoute) { }
+  previousMeaning="";
+  previousText="";
   meaning="root";
   ngOnInit() {
     this.verifToken();
@@ -25,8 +28,23 @@ export class PicTalkList implements OnInit {
       this.router.navigateByUrl('/');
     }
   };
-
+  return(){
+    console.log(this.meaning);
+    this.meaning=this.previousMeaning;
+    console.log(this.meaning);
+    this.pictoService.getPicto(this.meaning).subscribe((data)=>{
+      this.tabPicto=data;
+    })
+    this.pictoText = this.previousText;
+    
+  }
   fetchPictos(meaning){
+    this.previousMeaning=this.meaning;
+    if(meaning != "root"){
+      this.previousText=this.pictoText;
+      this.pictoText += (" "+meaning);
+      
+    }
     this.pictoService.getPicto(meaning).subscribe((data)=>{
       this.tabPicto=data;
       this.meaning=meaning;
@@ -49,5 +67,10 @@ export class PicTalkList implements OnInit {
     this.transferService.setData(data);
     this.router.navigate(['../create'],{relativeTo:this.route});
   }
-  speak(){}
+  speak(){
+    for(const text of this.pictoText) {
+      const v = this.f.text(text);
+      this.svc.speak(this.f.text(text));
+    }
+  }
 }
