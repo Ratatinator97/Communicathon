@@ -15,7 +15,7 @@ export class PicTalkCreate implements OnInit {
   constructor(private transferService: TransferService, public errorDialog:ErrordialogService,private pictalkService: PicTalkService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private ng2ImgMax: Ng2ImgMaxService ) { }
 
   dataPicto=this.transferService.getData();
-  
+  speech:String;
   selectedFile: File = null;
   modifiedFile: File = null;
   data ={
@@ -46,7 +46,7 @@ export class PicTalkCreate implements OnInit {
       this.errorDialog.openDialog(this.data);
     }
     console.log(this.modifiedFile,this.meaning, this.dataPicto.id);
-    this.pictalkService.createPicto(this.modifiedFile,this.meaning, this.dataPicto.id ).subscribe( (res) => {
+    this.pictalkService.createPicto(this.modifiedFile,this.speech,this.meaning, this.dataPicto.id,this.dataPicto.folder ).subscribe( (res) => {
       console.log(res);
       this.router.navigate(['../list'],{relativeTo: this.route});
     }, err => {console.log(err);} );

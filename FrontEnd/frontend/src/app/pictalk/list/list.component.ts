@@ -13,14 +13,17 @@ import {SpeechSynthesisUtteranceFactoryService,SpeechSynthesisService} from '@ka
 export class PicTalkList implements OnInit {
   synth = window.speechSynthesis;
   tabPicto:Picto[];
+  id;
   pictoText:string="";
   constructor(private f:SpeechSynthesisUtteranceFactoryService,private svc: SpeechSynthesisService,private transferService: TransferService,private pictoService: PicTalkService, private router: Router, private route: ActivatedRoute) { }
   previousMeaning="";
   previousText="";
-  meaning="root";
+  picto={
+    meaning:"root"
+  };
   ngOnInit() {
     this.verifToken();
-    this.fetchPictos(this.meaning);
+    this.fetchPictos(this.picto);
   }
   verifToken(){
     const token =localStorage.getItem('mean-token');
@@ -29,40 +32,49 @@ export class PicTalkList implements OnInit {
     }
   };
   return(){
-    console.log(this.meaning);
-    this.meaning=this.previousMeaning;
-    console.log(this.meaning);
-    this.pictoService.getPicto(this.meaning).subscribe((data)=>{
+    console.log(this.picto.meaning);
+    this.picto.meaning=this.previousMeaning;
+    console.log(this.picto.meaning);
+    this.pictoService.getPicto(this.picto.meaning).subscribe((data)=>{
       this.tabPicto=data;
     })
     this.pictoText = this.previousText;
     
   }
-  fetchPictos(meaning){
-    this.previousMeaning=this.meaning;
-    if(meaning != "root"){
+  fetchPictos(picto){
+    
+    console.log(picto);
+    if(picto.meaning != "root"){
       this.previousText=this.pictoText;
-      this.pictoText += (" "+meaning);
+      this.previousMeaning=this.picto.meaning;
+      this.pictoText += (" "+picto.meaning);
       
     }
-    this.pictoService.getPicto(meaning).subscribe((data)=>{
+    this.pictoService.getPicto(picto.meaning).subscribe((data)=>{
       this.tabPicto=data;
-      this.meaning=meaning;
+      this.picto.meaning=picto.meaning;
+      this.id=picto._id;
     })
   }
-  create_folderPicto(){
+  create_folderPicto(id){
+    if(id == undefined){
+      id="root";
+    }
     let data = {
-      folder:'true',
-      id: this.meaning
+      folder:"1",
+      id: id
     };
 
     this.transferService.setData(data);
     this.router.navigate(['../create'],{relativeTo:this.route});
   }
-  create_simplePicto(){
+  create_simplePicto(id){
+    if(id == undefined){
+      id="root";
+    }
     let data = {
-      folder:'false',
-      id: this.meaning
+      folder:"0",
+      id: id
     };
     this.transferService.setData(data);
     this.router.navigate(['../create'],{relativeTo:this.route});
@@ -72,5 +84,9 @@ export class PicTalkList implements OnInit {
       const v = this.f.text(text);
       this.svc.speak(this.f.text(text));
     }
+  }
+  removePicto(id){
+    this.pictoService.deletePicto(id).subscribe();
+    this.fetchPictos(this.picto);
   }
 }

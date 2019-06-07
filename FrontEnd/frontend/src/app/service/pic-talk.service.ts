@@ -13,10 +13,12 @@ export class PicTalkService {
     return this.http.get(`${this.uri}/pictalk/${meaning}`)
   }
 
-  createPicto(file: File, meaning, father):Observable<any> {
+  createPicto(file: File,speech, meaning, father, folder):Observable<any> {
     const formData = new FormData;
     formData.append('meaning',meaning);
     formData.append('file',file,file.name);
+    formData.append('speech', speech);
+    formData.append('folder',folder);
     return this.http.post(`${this.uri}/pictalk/${father}`,formData);
   }
   deletePicto(id):Observable<any> {

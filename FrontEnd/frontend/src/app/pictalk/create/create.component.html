@@ -7,7 +7,10 @@
         <div class="form-group">
             <input type="file" name="file" (change)="fileProgress($event)" accept="image/*" >     
             <p></p>
-            <input type="text" name="meaning" [(ngModel)]="meaning" placeholder="Mot">
+            <input type="text" name="meaning" [(ngModel)]="meaning" placeholder="Synbole">
+            <p></p>
+            <input type="text" name="speech" [(ngModel)]="speech" placeholder="Texte">
+            <p></p>
             <button mat-raised-button color="primary" class="btn btn-primary">Submit</button>
         </div>
     </form>

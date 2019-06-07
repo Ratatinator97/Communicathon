@@ -3,26 +3,29 @@
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
   <span class="space"></span>
-  <button mat-button (click)="create_folderPicto()">
+  <button mat-button (click)="create_folderPicto(id)">
     <mat-icon>create_new_folder</mat-icon>
   </button>
-  <button mat-button (click)="create_simplePicto()">
+  <button mat-button (click)="create_simplePicto(id)">
   <mat-icon>insert_drive_file</mat-icon>
   </button>
 </mat-toolbar>
 
 <body>
-  <mat-grid-list [cols]="columnNum" rowHeight="300px">
+  <mat-grid-list cols=1>
     <mat-grid-tile *ngFor="let picto of tabPicto">
-      <mat-card>
-        <mat-card-title>{{picto.meaning}}</mat-card-title>
+      <mat-card style="max-width:100%;height: auto;">
+        <mat-card-title style="font-size: 5vw">{{picto.meaning}}</mat-card-title>
         <mat-card-content>
-          <div ng-if="picto.folder">
-            <a (click)="fetchPictos(picto.meaning)"><img mat-card-image src={{picto.path}} ></a>
+          <div *ngIf="picto.folder==1">
+            <a (click)="fetchPictos(picto)"><img mat-card-image style="height: auto;max-width: 100%;" src={{picto.path}} ></a>
           </div>
-          <div ng-if="!picto.folder">
+          <div *ngIf="picto.folder==0">
             <img src={{picto.path}}>
           </div>
+          <button mat-button (click)="removePicto(picto._id)">
+            <mat-icon>clear</mat-icon>
+          </button>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -30,9 +33,13 @@
 </body>
 
 
-<mat-toolbar color="accent" class="bottomBar">
-  <mat-card class= "text">
-  <mat-card-content>
+<mat-toolbar color="accent" class="bottomBar" style="
+    position:absolute;
+    top:100vh;
+    transform:translateY(-100%);
+    width:100%;">
+  <mat-card style="height: 80%">
+  <mat-card-content style="font-size: 5vw">
     {{pictoText}}
   </mat-card-content>
   </mat-card>

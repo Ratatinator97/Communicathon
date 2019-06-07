@@ -10,7 +10,9 @@ module.exports.view=function(req, res) {
             "message": "UnauthorizedError: private profile"
         });
     } else {
-        
+        if(req.params.meaning == undefined){
+            return res.status(401).json({"message": "Undefined prb"})
+        }
         if(req.params.meaning == "root"){
             
             User.findById(req.payload._id).populate('pictoUtilisateur').exec(function(err,user){
@@ -35,7 +37,9 @@ module.exports.create=function(req, res) {
             "message": "UnauthorizedError: private profile"
         });
     } else {
-        
+        if(req.params.father == undefined){
+            return res.status(401).json({"message": "Undefined prb"})
+        }
         if(req.file==undefined){
             return res.status(401).json({
              "message" : "No file"
@@ -47,7 +51,7 @@ module.exports.create=function(req, res) {
 
         if(req.params.father == "root"){
             
-            nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype, meaning: req.body.meaning, childs:[], folder: req.body.folder, user: req.payload._id});
+            nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype,speech: req.body.speech, meaning: req.body.meaning, childs:[], folder: req.body.folder, user: req.payload._id});
             nvPicto.save(function(err, picto){
                 if(err){res.status(401).json(err)};
                 User.findById(req.payload._id, function(err, user){
@@ -67,7 +71,7 @@ module.exports.create=function(req, res) {
                 if(father.folder != "1"){
                     return res.status(401).json({"message": "Not a folder"});
                 }
-                nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype, meaning: req.body.meaning, childs: [], folder: req.body.folder, user: req.payload._id});
+                nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype,speech: req.body.speech, meaning: req.body.meaning, childs: [], folder: req.body.folder, user: req.payload._id});
                 nvPicto.save(function(err, picto){
                     if(err){return res.status(401).json(err)};
                     father.childs.push(picto);
