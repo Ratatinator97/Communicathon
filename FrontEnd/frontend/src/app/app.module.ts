@@ -33,7 +33,8 @@ import { MatToolbarModule,
   MatNativeDateModule  } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
-
+import { CacheMapService } from './service/cache-map.service';
+import { CachingInterceptor } from './Cache/caching-interceptor';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,10 @@ import { AppRoutingModule } from './app-routing.module';
     AuthenticationService, 
     AuthGuardService,
     ErrordialogService,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
+    [{ provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },{ provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }],
+    CacheMapService,
+    { provide: Cache, useClass:CacheMapService }
+    
        
   ],
   entryComponents: [ErrorDialogComponent],

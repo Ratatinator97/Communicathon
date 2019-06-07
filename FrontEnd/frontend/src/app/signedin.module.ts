@@ -60,7 +60,6 @@ import { TransferService } from './pictalk/transfer.service';
 
 
 
-
 @NgModule({
 
 
@@ -101,7 +100,8 @@ import { TransferService } from './pictalk/transfer.service';
         ficheWEservice,
         EmailService,
         LienService,
-        TransferService
+        TransferService,
+        
     ],
     declarations: [ // your components which app will use after login.
         

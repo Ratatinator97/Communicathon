@@ -44,8 +44,7 @@ export class PicTalkCreate implements OnInit {
     if(!this.meaning){this.data.message="Ajoutez un lien a votre photo";this.errorDialog.openDialog(this.data);}
     if(this.modifiedFile==null){
       this.errorDialog.openDialog(this.data);
-    }
-    console.log(this.modifiedFile,this.meaning, this.dataPicto.id);
+    }    
     this.pictalkService.createPicto(this.modifiedFile,this.speech,this.meaning, this.dataPicto.id,this.dataPicto.folder ).subscribe( (res) => {
       console.log(res);
       this.router.navigate(['../list'],{relativeTo: this.route});
