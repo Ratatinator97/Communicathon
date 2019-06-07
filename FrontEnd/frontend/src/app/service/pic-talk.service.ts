@@ -8,14 +8,14 @@ import {Observable, of} from 'rxjs';
 export class PicTalkService {
   uri = 'http://localhost:4000/api'; 
   constructor(private http: HttpClient) { }
-
+  columnNum=5;
   getPicto(meaning): Observable<any> {
     return this.http.get(`${this.uri}/pictalk/${meaning}`)
   }
 
-  createPicto(file: File, picto, father):Observable<any> {
+  createPicto(file: File, meaning, father):Observable<any> {
     const formData = new FormData;
-    formData.append('picto',picto);
+    formData.append('meaning',meaning);
     formData.append('file',file,file.name);
     return this.http.post(`${this.uri}/pictalk/${father}`,formData);
   }

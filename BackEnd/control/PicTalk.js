@@ -3,6 +3,7 @@ var Picto = require('../models/picto');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const fs = require('fs');
+
 module.exports.view=function(req, res) {
     if(!req.payload._id){
         res.status(401).json({
@@ -10,20 +11,19 @@ module.exports.view=function(req, res) {
         });
     } else {
         
-        if(req.params.meaning == "base"){
+        if(req.params.meaning == "root"){
             
             User.findById(req.payload._id).populate('pictoUtilisateur').exec(function(err,user){
                 if(err){return res.status(402).json(err);}
                 return res.status(200).json(user.pictoUtilisateur);
             });
         } else {
-            Picto.findOne({user: req.payload._id, meaning: req.params.meaning},function(err,picto){
+            Picto.findOne({user: req.payload._id, meaning: req.params.meaning}).populate('childs').exec(function(err,picto){
                 if(err){return res.status(401).json(err);}
-                picto.populate('childs').exec(function(err,picto){
-                    if(err){return res.status(401).json(err);}
-                    return res.status(200).json(picto.childs);
+                return res.status(200).json(picto.childs);
+    
                 });
-            });
+            
         }
     }
 };
@@ -45,7 +45,7 @@ module.exports.create=function(req, res) {
         let newpath;
         newpath = 'http://localhost:4000/images/' + req.file.originalname;
 
-        if(req.params.father == "none"){
+        if(req.params.father == "root"){
             
             nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype, meaning: req.body.meaning, childs:[], folder: req.body.folder, user: req.payload._id});
             nvPicto.save(function(err, picto){

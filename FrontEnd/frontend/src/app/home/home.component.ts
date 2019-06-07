@@ -12,7 +12,6 @@ import { AuthenticationService } from '.././service/authentication.service';
 })
 
 export class HomeComponent implements OnInit {
-  logged=true;
   name:String;
   prename:String;
   constructor(private router: ActivatedRoute,private auth:AuthenticationService) { }

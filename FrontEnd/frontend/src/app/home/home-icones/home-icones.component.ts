@@ -17,7 +17,9 @@ export class HomeIconesComponent implements OnInit {
     
     // Utiliser le service HomeIconeService afin de recuperer les icones presents
     // Ceci permet un affichage dynamique en fonction du nombre d'icones et non en statique, hardcode en HTML.
-    this.tabIcones = this.icones.mesIcones;
+    this.tabIcones = this.icones.mesIcones
+
+    
   }
 
 }

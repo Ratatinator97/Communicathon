@@ -1,3 +1,16 @@
-<p>
-  create works!
-</p>
+<p></p>
+
+<div class="high-div">
+  <div class="main-div">
+    <mat-card class="deco">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="file" name="file" (change)="fileProgress($event)" accept="image/*" >     
+            <p></p>
+            <input type="text" name="meaning" [(ngModel)]="meaning" placeholder="Mot">
+            <button mat-raised-button color="primary" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    </mat-card>
+  </div>
+</div>

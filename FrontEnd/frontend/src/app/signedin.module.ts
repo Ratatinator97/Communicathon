@@ -53,6 +53,8 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { RapportComponent } from './rapport/rapport.component';
 import { PicTalkCreate } from './pictalk/create/create.component';
 import { PicTalkList } from './pictalk/list/list.component';
+import { TransferService } from './pictalk/transfer.service';
+
 
 
 
@@ -90,7 +92,8 @@ import { PicTalkList } from './pictalk/list/list.component';
         HomeIconeService,
         ficheWEservice,
         EmailService,
-        LienService
+        LienService,
+        TransferService
     ],
     declarations: [ // your components which app will use after login.
         
@@ -108,7 +111,7 @@ import { PicTalkList } from './pictalk/list/list.component';
         UploadComponent,
         RapportComponent,
         PicTalkCreate,
-        PicTalkList
-    ],
+        PicTalkList,
+        ],
 })
 export class SignedInModule {}

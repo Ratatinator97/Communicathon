@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PicTalkService } from '../../service/pic-talk.service';
 import { Picto } from '../../model/picto.model';
+import { TransferService } from '../transfer.service';
 
  @Component({
   selector: 'app-list',
@@ -11,9 +12,9 @@ import { Picto } from '../../model/picto.model';
 export class PicTalkList implements OnInit {
 
   tabPicto:Picto[];
-  constructor(private pictoService: PicTalkService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private transferService: TransferService,private pictoService: PicTalkService, private router: Router, private route: ActivatedRoute) { }
   pictoText="";
-  meaning="base";
+  meaning="root";
   ngOnInit() {
     this.verifToken();
     this.fetchPictos(this.meaning);
@@ -28,13 +29,25 @@ export class PicTalkList implements OnInit {
   fetchPictos(meaning){
     this.pictoService.getPicto(meaning).subscribe((data)=>{
       this.tabPicto=data;
+      this.meaning=meaning;
     })
   }
   create_folderPicto(){
-    this.router.navigate(['../create/folder'],{relativeTo:this.route});
+    let data = {
+      folder:'true',
+      id: this.meaning
+    };
+
+    this.transferService.setData(data);
+    this.router.navigate(['../create'],{relativeTo:this.route});
   }
   create_simplePicto(){
-    this.router.navigate(['../create/simple'],{relativeTo:this.route});
+    let data = {
+      folder:'false',
+      id: this.meaning
+    };
+    this.transferService.setData(data);
+    this.router.navigate(['../create'],{relativeTo:this.route});
   }
   speak(){}
 }

@@ -18,7 +18,7 @@
         <mat-card-title>{{picto.meaning}}</mat-card-title>
         <mat-card-content>
           <div ng-if="picto.folder">
-            <a (click)="fetchPicto(picto.meaning)"><img mat-card-image src={{picto.path}} ></a>
+            <a (click)="fetchPictos(picto.meaning)"><img mat-card-image src={{picto.path}} ></a>
           </div>
           <div ng-if="!picto.folder">
             <img src={{picto.path}}>
