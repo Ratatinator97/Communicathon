@@ -80,9 +80,14 @@ export class PicTalkList implements OnInit {
     this.router.navigate(['../create'],{relativeTo:this.route});
   }
   speak(){
-    for(const text of this.pictoText) {
-      const v = this.f.text(text);
-      this.svc.speak(this.f.text(text));
+    if(this.pictoText.indexOf(" ") == -1){
+      this.svc.speak(this.f.text(this.pictoText));
+    }
+    else {
+      for(const text of this.pictoText) {
+        const v = this.f.text(text);
+        this.svc.speak(this.f.text(text));
+      }
     }
   }
   removePicto(id){
