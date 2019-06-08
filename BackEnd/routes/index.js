@@ -35,11 +35,11 @@ router.get('/fiches', auth, Fiches.view);
 router.put('/fiches',auth, Fiches.edit);
 router.delete('/fiches/:id',auth, Fiches.remove);
 
-router.get('/image',auth,ctrlImg.getPhoto);
-router.post('/upload',auth,picto.single('file'),ctrlImg.upload);
+router.get('/pictomail',auth,ctrlImg.getPhoto);
+router.post('/pictomailupload',auth,picto.single('file'),ctrlImg.upload);
 
 //Pour la fonctionnalité picto mail
-router.post('/email',auth,ctrlEmail.sendemail);
+router.post('/pictomail',auth,ctrlEmail.sendemail);
 
 router.get('/pictalk/:meaning',auth, pictalk.view);
 router.post('/pictalk/:father', auth, picto.single('file'), pictalk.create);

@@ -36,17 +36,17 @@ export class EmailService {
   constructor(private http:HttpClient,private route:Router) {}
   
   public getImage():Observable<any>{
-  	return this.http.get(`${this.uri}/api/image`);
+  	return this.http.get(`${this.uri}/api/pictomail`);
   }
   public sendImage(message:String):Observable<any>{
-    return this.http.post(`${this.uri}/api/email`,{message:message});
+    return this.http.post(`${this.uri}/api/pictomail`,{message:message});
 }
  public uploadImage(file: File,description:string): Observable<any> {
     const formData = new FormData();
 
     formData.append('file', file,file.name);
     formData.append('description', description);
-    return this.http.post(`${this.uri}/api/upload`, formData);
+    return this.http.post(`${this.uri}/api/pictomailupload`, formData);
   }
  
 }

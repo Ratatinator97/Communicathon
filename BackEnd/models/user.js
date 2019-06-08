@@ -38,10 +38,11 @@ let User = new Schema({
 		known_Languages: String,
 		updated_at: { type: Date, default: Date.now }
 	},
-	image:[{type:Schema.Types.ObjectId,ref:'Image'}],
+	pictoMail:[{type:Schema.Types.ObjectId,ref:'PictoMail'}],
 	liensUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Lien'}],
 	fichesUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Fiche'}],
-	pictoUtilisateur: [{ type: Schema.Types.ObjectId, ref: 'Picto'}]
+	pictoUtilisateur: [{ type: Schema.Types.ObjectId, ref: 'Picto'}],
+	folderPath:String
 	
 });
 

@@ -2,17 +2,21 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const fs = require('fs');//Pour stocker les images dans le dossier "images"
 const imgFolder =  './images';
+const User = mongoose.model('User');
+
 //Creer un storage pour multer et pour le stockage
 var storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    var stat = null;
-    try {
-        stat = fs.statSync(imgFolder);
-    } catch (err) {
-        fs.mkdirSync(imgFolder);
-    }
-    cb(null, imgFolder);
-  },
+    
+    destination: (req, file, cb) => {
+    User.findById(req.payload._id,function(err,user){
+        var stat = null;
+        try {
+            stat = fs.statSync(imgFolder+"/"+ user.folderPath); 
+        } catch (err) {
+            fs.mkdirSync(imgFolder);
+        }
+        cb(null, imgFolder+"/"+ user.folderPath);
+  });},
   filename: (req, file, cb) => {
     cb(null, file.originalname );
   }
@@ -25,11 +29,14 @@ const picto = multer({
         fileSize: 1000000
     },
     fileFilter: function (req, file, cb) {
-        sanitizeFile(file, cb);//Verifier les types des files(image)
+        User.findById(req.payload._id,function(err,user){
+            sanitizeFile(file,user.folderPath, cb);
+        })
+        //Verifier les types des files(image)
     }
 });
 
-function sanitizeFile(file, cb) {
+function sanitizeFile(file,folder, cb) {
     // Define the allowed extension
     let fileExts = ['png', 'jpg', 'jpeg', 'gif'];
     let check=true;
@@ -37,12 +44,12 @@ function sanitizeFile(file, cb) {
     let isAllowedExt = fileExts.includes(file.originalname.split('.')[1].toLowerCase());
     // Mime type must be an image
     let isAllowedMimeType = file.mimetype.startsWith("image/");
-    fs.readdirSync(imgFolder, (err, files) => {
+    fs.readdirSync(imgFolder+"/"+folder, (err, files) => {
            if(err){console.log(err)};
            for (let i = 0; i < files.length; ++i) {
                if(files[i]===file){
                    check=false;
-                   return cb('Error: File all ready existe ')
+                   return cb('Error: File already exist ')
                }
 
               }

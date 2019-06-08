@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-var Image=require('.././models/Image');
+var PictoMail=require('.././models/Image');
 
 
 var sendJson=function(res,status,content){
@@ -17,15 +17,18 @@ module.exports.getPhoto=function(req,res){
     });
   }else{
       User
-      .findOne({_id:req.payload._id}).populate('image')//findByIdandUpdate?
+      .findById(req.payload._id).populate('pictoMail')//findByIdandUpdate?
       .exec(function(err, user) {
-       if(!user){return res.status(401).json({"message": "user don't exist"})}
+        
+      if(!user){   
+      
+        return res.status(401).json({"message": "user don't exist"})}
        	
        if(user){
 
         
          
-         return res.status(200).json(user.image);
+         return res.status(200).json(user.pictoMail);
 
         }
         else { 
@@ -48,24 +51,24 @@ module.exports.upload=function(req,res){
   console.log(req.file.originalname);
   if(req.file==undefined){
   	return res.status(401).json({
-      "message" : "Not upload a file"
+      "message" : "Missing uploaded file"
     });
   }
   let newpath;
+  User.findById(req.payload._id,function(err,user){
+    newpath = 'http://localhost:4000/images/'+ user.folderPath  +"/"+  req.file.originalname;
+    var picto =new PictoMail({ path: newpath, description: req.body.description, contenttype : req.file.mimetype });  
+    picto.save(function(err){if(err){res.status(401).json(err)}});
+    User.findById(req.payload._id).exec(function(err,user){
+      user.pictoMail.push(picto);
+      user.save(function(err){
+        if(err){res.status(401).json( {"message" : "Not enough memory"})}
+        res.status(200).json({"message":"Upload succesful"});
+        console.log(user.pictoMail);
+      })
   
-  newpath = 'http://localhost:4000/images/' +  req.file.originalname;
-  var image =new Image({ path: newpath, description: req.body.description, contenttype : req.file.mimetype });  
-  image.save(function(err){if(err){res.status(401).json(err)}});
-  User.findById(req.payload._id).exec(function(err,user){
-    user.image.push(image);
-    user.save(function(err){
-      if(err){res.status(401).json( {"message" : "Not enough memory"})}
-      res.status(200).json({"message":"Upload succesful"});
-      console.log(user.image);
-    })
-
-  })
-
+    });
+  });
 };
 
 

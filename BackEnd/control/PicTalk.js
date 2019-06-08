@@ -47,7 +47,7 @@ module.exports.create=function(req, res) {
         }
         
         let newpath;
-        newpath = 'http://localhost:4000/images/' + req.file.originalname;
+        newpath = 'http://localhost:4000/images/'+ user.folderPath + req.file.originalname;
 
         if(req.params.father == "root"){
             
