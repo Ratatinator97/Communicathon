@@ -10,18 +10,18 @@
   <mat-icon>insert_drive_file</mat-icon>
   </button>
 </mat-toolbar>
-
+<p></p>
 <body>
-  <mat-grid-list cols=1>
-    <mat-grid-tile *ngFor="let picto of tabPicto">
-      <mat-card style="max-width:100%;height: auto;">
-        <mat-card-title style="font-size: 5vw">{{picto.meaning}}</mat-card-title>
-        <mat-card-content>
+  <mat-grid-list cols=4>
+    <mat-grid-tile *ngFor="let picto of tabPicto" >
+      <mat-card style="justify-content: center;background-color: blanchedalmond;max-height:400px;height: auto;max-width: 300px;overflow: hidden">
+        <mat-card-title style="justify-content: center;font-size: 3vw">{{picto.meaning}}</mat-card-title>
+        <mat-card-content style="justify-content: center;">
           <div *ngIf="picto.folder==1">
-            <a (click)="fetchPictos(picto)"><img mat-card-image style="height: auto;max-width: 100%;" src={{picto.path}} ></a>
+            <a (click)="fetchPictos(picto)"><img mat-card-image style="max-height:60%;height: auto;width: 100%;" src={{picto.path}} ></a>
           </div>
           <div *ngIf="picto.folder==0">
-            <img src={{picto.path}}>
+            <a (click)="addMeaningAndSpeak(picto.meaning)"><img src={{picto.path}} style="max-height:60%;height: auto;max-width: 80%;width: auto;"></a>
           </div>
           <button mat-button (click)="removePicto(picto._id)">
             <mat-icon>clear</mat-icon>
@@ -40,7 +40,7 @@
     width:100%;">
   <mat-card style="height: 80%">
   <mat-card-content style="font-size: 5vw">
-    {{pictoText}}
+    {{pictoText}}{{additionnalText}}
   </mat-card-content>
   </mat-card>
   <span class="space"></span>

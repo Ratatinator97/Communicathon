@@ -18,6 +18,7 @@ export class PicTalkList implements OnInit {
   constructor(private f:SpeechSynthesisUtteranceFactoryService,private svc: SpeechSynthesisService,private transferService: TransferService,private pictoService: PicTalkService, private router: Router, private route: ActivatedRoute) { }
   previousMeaning="";
   previousText="";
+  additionnalText="";
   picto={
     meaning:"root"
   };
@@ -45,6 +46,7 @@ export class PicTalkList implements OnInit {
     
     console.log(picto);
     if(picto.meaning != "root"){
+      this.additionnalText="";
       this.previousText=this.pictoText;
       this.previousMeaning=this.picto.meaning;
       this.pictoText += (" "+picto.meaning);
@@ -55,6 +57,10 @@ export class PicTalkList implements OnInit {
       this.picto.meaning=picto.meaning;
       this.id=picto._id;
     })
+  }
+  addMeaningAndSpeak(meaning){
+    this.additionnalText=meaning;
+    this.speak();
   }
   create_folderPicto(id){
     if(id == undefined){
@@ -91,7 +97,7 @@ export class PicTalkList implements OnInit {
     }
   }
   removePicto(id){
-    this.pictoService.deletePicto(id).subscribe();
+    this.pictoService.deletePicto(id).subscribe()
     this.fetchPictos(this.picto);
   }
 }

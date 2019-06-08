@@ -29,7 +29,7 @@ export class PicTalkCreate implements OnInit {
   fileProgress(event) {
     if (event.target.files.length > 0) {
       this.selectedFile = event.target.files[0];
-      this.ng2ImgMax.resizeImage(this.selectedFile, 300, 300).subscribe(
+      this.ng2ImgMax.resizeImage(this.selectedFile, 200, 200).subscribe(
         result => {
           this.modifiedFile = result;
         },
