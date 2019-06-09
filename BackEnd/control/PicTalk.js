@@ -94,15 +94,22 @@ module.exports.delete=function(req, res) {
             "message": "UnauthorizedError: private profile"
         });
     } else {
+        
         Picto.findById(req.params.id, function(err, result){
             if(err){return res.status(401).json({"message": "Error deliting picto"});}
-            path = "."+ result.path.slice(21);
-            fs.unlink(path, (err) => {
-                if (err) throw err;
-            });
-            Picto.deleteOne({_id: req.params.id}).exec().then( function() {
-                res.status(201).json({message: "Picto deleted"})
-            });
+            Picto.find({path: result.path}, function(err,picto){
+                if(picto.length == 1){
+                    path = "."+ result.path.slice(21);
+                    fs.unlink(path, (err) => {
+                        if (err) throw err;
+                    });
+                }
+                Picto.deleteOne({_id: req.params.id}).exec().then( function() {
+                    res.status(201).json({message: "Picto deleted"});
+                });
+                
+            })
+
         });
 
 
