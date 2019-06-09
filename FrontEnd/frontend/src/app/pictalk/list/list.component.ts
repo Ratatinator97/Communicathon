@@ -95,10 +95,7 @@ export class PicTalkList implements OnInit {
       
     }
     else {
-      for(const text of (this.pictoText+" "+this.additionnalText)) {
-        
-        this.svc.speak(this.f.text(text));
-      }
+      this.svc.speak(this.f.text(this.pictoText+" "+this.additionnalText));
     }
   }
   removePicto(id){
