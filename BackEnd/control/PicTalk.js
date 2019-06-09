@@ -45,43 +45,46 @@ module.exports.create=function(req, res) {
              "message" : "No file"
             });
         }
-        
-        let newpath;
-        newpath = 'http://localhost:4000/images/'+ user.folderPath + req.file.originalname;
-
-        if(req.params.father == "root"){
+        User.findById(req.payload._id, function(err,user){
+            if(err){ return res.status(400).json({"message": "Probleme recherche user"})}
+            let newpath;
+            newpath = 'http://localhost:4000/images/'+ user.folderPath+ "/" + req.file.originalname;
             
-            nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype,speech: req.body.speech, meaning: req.body.meaning, childs:[], folder: req.body.folder, user: req.payload._id});
-            nvPicto.save(function(err, picto){
-                if(err){res.status(401).json(err)};
-                User.findById(req.payload._id, function(err, user){
-                    if(err){return res.status(401).json(err);}
-                    user.pictoUtilisateur.push(picto);
-                    user.save(function(err, user){
-                        if(err){return res.status(401).json(err);}
-                        res.status(200).json(user.pictoUtilisateur);
-                    })
-                })
-            })
-
-        }
-        else {
-            Picto.findById(req.params.father, function(err, father){
-                if(err){return res.status(401).json(err);}
-                if(father.folder != "1"){
-                    return res.status(401).json({"message": "Not a folder"});
-                }
-                nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype,speech: req.body.speech, meaning: req.body.meaning, childs: [], folder: req.body.folder, user: req.payload._id});
+            if(req.params.father == "root"){
+                
+                nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype,speech: req.body.speech, meaning: req.body.meaning, childs:[], folder: req.body.folder, user: req.payload._id});
                 nvPicto.save(function(err, picto){
-                    if(err){return res.status(401).json(err)};
-                    father.childs.push(picto);
-                    father.save(function(err, father){
+                    if(err){res.status(401).json(err)};
+                    User.findById(req.payload._id, function(err, user){
                         if(err){return res.status(401).json(err);}
-                        res.status(200).json(father.childs);
+                        user.pictoUtilisateur.push(picto);
+                        user.save(function(err, user){
+                            if(err){return res.status(401).json(err);}
+                            res.status(200).json(user.pictoUtilisateur);
+                        })
                     })
                 })
-            })
-        }
+    
+            }
+            else {
+                Picto.findById(req.params.father, function(err, father){
+                    if(err){return res.status(401).json(err);}
+                    if(father.folder != "1"){
+                        return res.status(401).json({"message": "Not a folder"});
+                    }
+                    nvPicto = new Picto({path:newpath, contenttype: req.file.mimetype,speech: req.body.speech, meaning: req.body.meaning, childs: [], folder: req.body.folder, user: req.payload._id});
+                    nvPicto.save(function(err, picto){
+                        if(err){return res.status(401).json(err)};
+                        father.childs.push(picto);
+                        father.save(function(err, father){
+                            if(err){return res.status(401).json(err);}
+                            res.status(200).json(father.childs);
+                        })
+                    })
+                })
+            }
+        });
+
     }
 };
 
