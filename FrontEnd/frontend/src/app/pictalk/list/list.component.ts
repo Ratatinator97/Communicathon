@@ -99,7 +99,7 @@ export class PicTalkList implements OnInit {
     }
   }
   removePicto(id){
-    this.pictoService.deletePicto(id).subscribe()
+    this.pictoService.deletePicto(id).subscribe();
     this.fetchPictos(this.picto);
   }
 }
