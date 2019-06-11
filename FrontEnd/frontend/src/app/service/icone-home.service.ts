@@ -15,7 +15,12 @@ export class HomeIconeService {
             dirigeVers:"mail/image",
             lienImage: "http://localhost:4000/images/ic-mail.png"
         },
-
+        {
+            nomIcone: "PicTalk",
+            classe: "pictalk",
+            dirigeVers:"pictalk/list",
+            lienImage: "http://localhost:4000/images/pictalk.jpg"
+        },
 // Pour une prochaine version.
         /*{
             nomIcone:"Videos",
@@ -45,13 +50,6 @@ export class HomeIconeService {
             lienImage: "http://localhost:4000/images/ic-carnet.jpg"
         },
 
-        {
-            nomIcone:"Rapport",
-            classe: "rapport",
-            dirigeVers:"rapport",
-            lienImage: "http://localhost:4000/images/ic-rapport.jpg"
-        
-        }
           
     ];
 }
