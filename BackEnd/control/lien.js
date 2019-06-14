@@ -1,7 +1,7 @@
 var Lien = require('../models/liens');
 
 const mongoose = require('mongoose');
-const User =mongoose.model('User');
+const User = mongoose.model('User');
 
 // Quand l'utilisateur veut voir ses liens...
 module.exports.view=function(req, res) {

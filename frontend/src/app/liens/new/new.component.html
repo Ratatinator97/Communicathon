@@ -1,0 +1,19 @@
+
+  <p></p>
+
+  <div class="high-div">
+    <div class="main-div">
+      <mat-card class="deco">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+              <input type="file" name="file" (change)="fileProgress($event)" accept="image/*" >
+              
+          </div>
+          <input type="text" name="lien" [(ngModel)]="link" placeholder="Lien">
+          <div class="form-group">
+              <button mat-raised-button color="primary" class="btn btn-primary">Submit</button>
+          </div>
+      </form>
+      </mat-card>
+    </div>
+  </div>

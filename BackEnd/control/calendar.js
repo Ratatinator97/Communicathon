@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const User =mongoose.model('User');
-const Calendar = mongoose.model('Calendar');
+const User = mongoose.model('User');
+const Calendar = require('../models/Calendar');
 
 module.exports.view=function(req,res){
     if(!req.payload._id){

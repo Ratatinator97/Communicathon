@@ -1,0 +1,21 @@
+.main-div {
+    display: flex;
+    justify-content: center;
+}
+.card-id {
+    background-color: rgb(255, 252, 248);
+
+    max-width: 85%;
+    min-width: 80%;
+  }
+
+.default-user {
+    background-image: url("default.jpg");
+    background-size: cover;
+}
+.sub-card-id {
+    background-color: rgb(243, 243, 243);
+}
+.sub-card-id2 {
+    background-color: rgba(243, 243, 243);
+}

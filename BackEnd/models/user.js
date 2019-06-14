@@ -42,7 +42,8 @@ let User = new Schema({
 	liensUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Lien'}],
 	fichesUtilisateur: [ { type: Schema.Types.ObjectId, ref: 'Fiche'}],
 	pictoUtilisateur: [{ type: Schema.Types.ObjectId, ref: 'Picto'}],
-	folderPath:String
+	folderPath:String,
+	calendar: { type: Schema.Types.ObjectId, ref: 'Calendar'}
 	
 });
 

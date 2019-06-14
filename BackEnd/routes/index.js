@@ -17,6 +17,7 @@ const ctrlImg=require('../control/image');
 const picto =require('../config/multer');
 const pictalk = require('../control/PicTalk');
 const testing = require('../control/testing');
+const calendar = require('../control/calendar');
 //Tous les types de requetes
 //Pour le login, regitre, remise de password
 router.post('/register', ctrlAuth.register);
@@ -46,4 +47,8 @@ router.post('/pictalk/:father', auth, picto.single('file'), pictalk.create);
 router.delete('/pictalk/:id', auth, pictalk.delete);
 
 router.get('/hello', testing.hello);
+
+//router.get('/calendar', auth, calendar.view);
+//router.post('/calendar', auth,picto.single('file'), calendar.modify);
+
 module.exports=router;

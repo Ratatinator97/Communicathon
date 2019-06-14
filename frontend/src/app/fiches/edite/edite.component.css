@@ -1,0 +1,19 @@
+
+
+.high-div {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.main-div {
+    min-width: 80%;
+    
+}
+
+.edit-form {
+    display: flex;
+    flex-direction:column;
+    min-width: 80%;
+    
+}

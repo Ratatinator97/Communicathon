@@ -1,0 +1,79 @@
+  <p>
+    
+  </p>
+<div class="main-div">
+<mat-card class="card-id" >
+  <div layout-align="center center">
+  <mat-card-header>
+      <div mat-card-avatar class="default-user"></div>
+    <mat-card-title> {{user.nom}} </mat-card-title>
+    <mat-card-subtitle> {{user.prenom}} </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      email: {{user.email}}
+    </p>
+    <p>
+        address : {{user.cardID.address}}
+      </p>
+      <p>
+          phone number : {{user.cardID.phone}}
+        </p>
+    <p>
+      <mat-card class="sub-card-id">
+        <mat-card-content>
+          <mat-card-header>
+            <mat-card-title> Contact n°1 </mat-card-title>
+          </mat-card-header>
+          <p>
+              name : {{user.cardID.contact1.name}}
+          </p>
+          <p>
+             Phone Number : {{user.cardID.contact1.phone}}
+          </p>
+          <p>
+             Email Address : {{user.cardID.contact1.email}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </p>
+    <p>
+        <mat-card class="sub-card-id2">
+          <mat-card-content>
+            <mat-card-header>
+              <mat-card-title> Contact n°2 </mat-card-title>
+            </mat-card-header>
+            <p>
+                name : {{user.cardID.contact2.name}}
+            </p>
+            <p>
+               Phone Number : {{user.cardID.contact2.phone}}
+            </p>
+            <p>
+               Email Address : {{user.cardID.contact2.email}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </p>
+      <p>
+         Medical Data :  {{user.cardID.medical_Data}}
+      </p>
+      <p>
+          Does he talk ? :  {{user.cardID.talk_Ability}}
+       </p>
+       <p>
+          Does he hear ? :  {{user.cardID.understand_Ability}}
+       </p>
+       <p>
+          Known Languages :  {{user.cardID.known_Languages}}
+       </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="editCardID()">Edit </button>
+  </mat-card-actions>
+</div>
+</mat-card>
+</div>
+<p>
+    
+</p>
