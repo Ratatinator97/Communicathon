@@ -1,18 +1,31 @@
-Hello stranger !
+<h1 align="center">Welcome to Communicathon 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-deprecated-blue.svg?cacheSeconds=2592000" />
+</p>
 
-Communicathon is a web app (currently in development).
+> This is a MEAN stack web app built for my younger brother that has down syndrom. I wanted him to communicate with pictogramms trough this web app. Unfortunately I was very unexperienced with Angular and Nodejs at the time. I'm planning to start over this whole application and host it on my personnal homeserver. 
 
-It can help your kid (or you) to navigate with ease into the web and to communicate better.
-There are a some features like:
-    - Sending emails with pictograms
-    - Talking with pictograms
-    - Pictures redirecting to some URL
- 
-All the project is there ! 
+## Install
 
-Future features : (Summer 2019)
-    - Calendar with pictograms (at first it will be very basic)
-    - A Picto-Chat with other Communicathon's users 
-    - Better optimisation and all
-    
-If you want to contribute just ask me, I'll be glad to had some help with this !
+```sh
+npm install (will probably fail, we didn't npm install --save)
+```
+
+## Usage
+
+```sh
+node start & ng serve --open 
+```
+
+## Author
+
+👤 **Alexandros SIDIRAS, Kiet TUAN NGO, Béatriz DE CARVALHO, Cassandre LE-BORGNE**
+
+* Github: [@Ratatinator97](https://github.com/Ratatinator97)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
